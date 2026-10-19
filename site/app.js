@@ -519,7 +519,7 @@
     const side = (s, k, label) => `<div class="side ${k === 'after' ? 'after' : ''} ${s[k + 'Img'] ? '' : 'ph-img'}"${bg(s[k + 'Img'])}${im(`c:stories:${s.id}:${k}Img`)}>${s[k + 'Img'] ? '' : `${label}-Foto hier ablegen`}</div>`;
     if (b.variant === 'cards') return `<div class="sec alt"><div class="wrap">${head(p, b.id)}<div class="story-cards reveal">${st.map(s => `<div class="story-card"><div class="pair">
       <div class="${s.beforeImg ? '' : 'ph-img'}"${bg(s.beforeImg)}${im(`c:stories:${s.id}:beforeImg`)}><span>Vorher</span></div><div class="${s.afterImg ? '' : 'ph-img'}"${bg(s.afterImg)}${im(`c:stories:${s.id}:afterImg`)}><span>Nachher</span></div></div>
-      <div class="body"><h3${ed(`c:stories:${s.id}:name`)}>${esc(s.name)}</h3><p class="goal" style="color:var(--accent);font-weight:600;font-size:14px">${esc(s.goal)} · ${esc(s.duration)}</p>
+      <div class="body"><h3${ed(`c:stories:${s.id}:name`)}>${esc(s.name)}</h3><p class="goal" style="color:var(--accent);font-weight:600;font-size:14px;margin-top:8px">${esc(s.goal)} · ${esc(s.duration)}</p>
       <div class="stat-row" style="margin-top:12px">${lines(s.stats).map(x => `<span>${esc(x)}</span>`).join('')}</div></div></div>`).join('')}</div></div></div>`;
     return `<div class="sec alt"><div class="wrap">${head(p, b.id)}<div class="story-wrap">${st.map(s => `<div class="story reveal"><div class="cmp" data-cmp>
       ${side(s, 'before', 'Vorher')}${side(s, 'after', 'Nachher')}<span class="lbl l">Vorher</span><span class="lbl r">Nachher</span><div class="handle"></div></div>
@@ -715,15 +715,15 @@
   const upcoming = m => (m.bookings || []).filter(b => b.status !== 'cancelled' && startOf(b) >= new Date()).sort((a, z) => startOf(a) - startOf(z));
 
   function loginHTML() {
-    return `<div class="login"><h3 class="display" style="font-size:34px;margin-bottom:6px">Anmelden</h3>${loginFormHTML()}</div>`;
+    return `<div class="login"><h3 class="display" style="font-size:34px;margin-bottom:16px">Anmelden</h3>${loginFormHTML()}</div>`;
   }
   function inviteHTML(inv) {
-    return `<div class="login"><h3 class="display" style="font-size:34px;margin-bottom:6px">Willkommen${inv.name ? ', ' + esc(firstName(inv)) : ''}!</h3><p class="note" style="margin:0 0 16px">Lege dein Passwort fest, um dich künftig mit <b>${esc(inv.email)}</b> anzumelden.</p>
+    return `<div class="login"><h3 class="display" style="font-size:34px;margin-bottom:16px">Willkommen${inv.name ? ', ' + esc(firstName(inv)) : ''}!</h3><p class="note" style="margin:0 0 16px">Lege dein Passwort fest, um dich künftig mit <b>${esc(inv.email)}</b> anzumelden.</p>
       <form class="form" data-activate novalidate><label for="iv-p">Passwort (mind. 8 Zeichen)</label><input id="iv-p" name="pass" type="password" required minlength="8" autocomplete="new-password">
       <label for="iv-r">Passwort wiederholen</label><input id="iv-r" name="pass2" type="password" required minlength="8" autocomplete="new-password">
       <button class="btn btn-primary" type="submit" style="width:100%">Passwort speichern und anmelden →</button><p class="err" role="alert" hidden></p></form></div>`;
   }
-  const inviteBad = msg => `<div class="login"><h3 class="display" style="font-size:34px;margin-bottom:6px">Einladung</h3><p class="err">${esc(msg)}</p><p class="note">Bitte melde dich beim Studio, du bekommst einen neuen Link.</p><button class="btn btn-ghost" data-noinvite style="margin-top:14px">Zur Anmeldung</button></div>`;
+  const inviteBad = msg => `<div class="login"><h3 class="display" style="font-size:34px;margin-bottom:16px">Einladung</h3><p class="err">${esc(msg)}</p><p class="note">Bitte melde dich beim Studio, du bekommst einen neuen Link.</p><button class="btn btn-ghost" data-noinvite style="margin-top:14px">Zur Anmeldung</button></div>`;
 
   const TABS = [['overview', 'Übersicht'], ['plans', 'Pläne'], ['measure', 'Messungen'], ['bookings', 'Buchungen'], ['account', 'Konto']];
   function dashHTML(m) {

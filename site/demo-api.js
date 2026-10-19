@@ -547,5 +547,5 @@
     };
     document.head.appendChild(st); document.body.appendChild(el);
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', badge); else badge();
+  // Hinweis-Leiste bewusst aus (Wunsch MPT). badge() bleibt für Tests verfügbar.
 })();
