@@ -537,6 +537,7 @@
       + 'background:rgba(22,22,26,.92);color:#b8b8c2;border:1px solid #34343c;border-radius:999px;padding:6px 12px;font:500 12px/1.4 Inter,system-ui,sans-serif;backdrop-filter:blur(6px);box-shadow:0 4px 18px rgba(0,0,0,.35)}'
       + '#mpt-demo-badge button{background:none;border:0;padding:0;color:#f2611d;font:inherit;font-weight:600;text-decoration:underline;text-underline-offset:2px;cursor:pointer}'
       + '#mpt-demo-badge button:hover{color:#f4f4f6}#mpt-demo-badge button:focus-visible{outline:2px solid #f2611d;outline-offset:2px;border-radius:4px}'
+      + '@media (max-width:640px){#mpt-demo-badge{bottom:80px;font-size:12px;padding:6px 10px}}'
       + '@media print{#mpt-demo-badge{display:none}}';
     const el = document.createElement('div');
     el.id = 'mpt-demo-badge'; el.setAttribute('role', 'note');
