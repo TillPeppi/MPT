@@ -1,0 +1,4513 @@
+{
+  "members": [
+    {
+      "id": "m_de4f38b4",
+      "name": "Demo Mitglied",
+      "email": "demo@mpt.de",
+      "phone": "",
+      "createdAt": "2026-10-19T20:06:22",
+      "active": true,
+      "notes": "",
+      "plans": [
+        {
+          "id": "pl_0d02a125",
+          "title": "Till P. ①",
+          "status": "active",
+          "start": "2026-09-25",
+          "end": null,
+          "goal": "",
+          "note": "",
+          "days": [
+            {
+              "id": "d_3f941c90",
+              "name": "Einheit 1",
+              "exercises": [
+                {
+                  "id": "e_6fcef1e5",
+                  "group": "A1",
+                  "name": "Klimmzug an Ringen",
+                  "sets": 4,
+                  "reps": "1-3",
+                  "tempo": "4110",
+                  "rest": 60,
+                  "note": ""
+                },
+                {
+                  "id": "e_4e96e109",
+                  "group": "A2",
+                  "name": "LH Military Press",
+                  "sets": 4,
+                  "reps": "6-8",
+                  "tempo": "4010",
+                  "rest": 90,
+                  "note": ""
+                },
+                {
+                  "id": "e_77386bb7",
+                  "group": "B1",
+                  "name": "KH Ausfallschritte vorne erhöht",
+                  "sets": 4,
+                  "reps": "6-8",
+                  "tempo": "4010",
+                  "rest": 60,
+                  "note": ""
+                },
+                {
+                  "id": "e_791256ce",
+                  "group": "B2",
+                  "name": "Rudern Seil zum Hals",
+                  "sets": 4,
+                  "reps": "6-8",
+                  "tempo": "3012",
+                  "rest": 90,
+                  "note": ""
+                },
+                {
+                  "id": "e_3faba60b",
+                  "group": "C1",
+                  "name": "Wadenheben",
+                  "sets": 4,
+                  "reps": "12-15",
+                  "tempo": "2020",
+                  "rest": 60,
+                  "note": ""
+                },
+                {
+                  "id": "e_577702b2",
+                  "group": "C2",
+                  "name": "Überkopf-Trizepsstrecken",
+                  "sets": 4,
+                  "reps": "12-15",
+                  "tempo": "2020",
+                  "rest": 90,
+                  "note": ""
+                }
+              ]
+            }
+          ],
+          "logs": [
+            {
+              "id": "lg_8017f46a",
+              "dayId": "d_3f941c90",
+              "date": "2026-09-25",
+              "note": "",
+              "sets": {
+                "e_6fcef1e5": [
+                  {
+                    "reps": 3,
+                    "kg": 10
+                  },
+                  {
+                    "reps": 3,
+                    "kg": 10
+                  },
+                  {
+                    "reps": 3,
+                    "kg": 12.5
+                  },
+                  {
+                    "reps": 2,
+                    "kg": 15
+                  }
+                ],
+                "e_4e96e109": [
+                  {
+                    "reps": 8,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 30
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 30
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 35
+                  }
+                ],
+                "e_77386bb7": [
+                  {
+                    "reps": 8,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 10
+                  }
+                ],
+                "e_791256ce": [
+                  {
+                    "reps": 8,
+                    "kg": 32
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 32
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 36
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 36
+                  }
+                ],
+                "e_3faba60b": [
+                  {
+                    "reps": 13,
+                    "kg": 40
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 50
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 60
+                  }
+                ],
+                "e_577702b2": [
+                  {
+                    "reps": 13,
+                    "kg": 22.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 22.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 22.5
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_5810d4c3",
+              "dayId": "d_3f941c90",
+              "date": "2026-10-02",
+              "note": "",
+              "sets": {
+                "e_6fcef1e5": [
+                  {
+                    "reps": 3,
+                    "kg": 12.5
+                  },
+                  {
+                    "reps": 3,
+                    "kg": 12.5
+                  },
+                  {
+                    "reps": 3,
+                    "kg": 15.0
+                  },
+                  {
+                    "reps": 2,
+                    "kg": 17.5
+                  }
+                ],
+                "e_4e96e109": [
+                  {
+                    "reps": 8,
+                    "kg": 22.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 32.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 32.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 37.5
+                  }
+                ],
+                "e_77386bb7": [
+                  {
+                    "reps": 8,
+                    "kg": 2.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 7.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 12.5
+                  }
+                ],
+                "e_791256ce": [
+                  {
+                    "reps": 8,
+                    "kg": 34
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 34
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 38
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 38
+                  }
+                ],
+                "e_3faba60b": [
+                  {
+                    "reps": 13,
+                    "kg": 45
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 55
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 65
+                  }
+                ],
+                "e_577702b2": [
+                  {
+                    "reps": 13,
+                    "kg": 25.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 25.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 25.0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_28a71883",
+              "dayId": "d_3f941c90",
+              "date": "2026-10-09",
+              "note": "",
+              "sets": {
+                "e_6fcef1e5": [
+                  {
+                    "reps": 3,
+                    "kg": 15.0
+                  },
+                  {
+                    "reps": 3,
+                    "kg": 15.0
+                  },
+                  {
+                    "reps": 3,
+                    "kg": 17.5
+                  },
+                  {
+                    "reps": 2,
+                    "kg": 20.0
+                  }
+                ],
+                "e_4e96e109": [
+                  {
+                    "reps": 8,
+                    "kg": 25.0
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 35.0
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 35.0
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 40.0
+                  }
+                ],
+                "e_77386bb7": [
+                  {
+                    "reps": 8,
+                    "kg": 5.0
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 10.0
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 15.0
+                  }
+                ],
+                "e_791256ce": [
+                  {
+                    "reps": 8,
+                    "kg": 36
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 36
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 40
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 40
+                  }
+                ],
+                "e_3faba60b": [
+                  {
+                    "reps": 13,
+                    "kg": 50
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 60
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 70
+                  }
+                ],
+                "e_577702b2": [
+                  {
+                    "reps": 13,
+                    "kg": 27.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 27.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 27.5
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_2bab9595",
+              "dayId": "d_3f941c90",
+              "date": "2026-10-16",
+              "note": "",
+              "sets": {
+                "e_6fcef1e5": [
+                  {
+                    "reps": 3,
+                    "kg": 15.0
+                  },
+                  {
+                    "reps": 3,
+                    "kg": 15.0
+                  },
+                  {
+                    "reps": 3,
+                    "kg": 17.5
+                  },
+                  {
+                    "reps": 2,
+                    "kg": 20.0
+                  }
+                ],
+                "e_4e96e109": [
+                  {
+                    "reps": 8,
+                    "kg": 27.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 37.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 37.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 42.5
+                  }
+                ],
+                "e_77386bb7": [
+                  {
+                    "reps": 8,
+                    "kg": 7.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 12.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 17.5
+                  }
+                ],
+                "e_791256ce": [
+                  {
+                    "reps": 8,
+                    "kg": 36
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 36
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 40
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 40
+                  }
+                ],
+                "e_3faba60b": [
+                  {
+                    "reps": 13,
+                    "kg": 55
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 65
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 75
+                  }
+                ],
+                "e_577702b2": [
+                  {
+                    "reps": 13,
+                    "kg": 30.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 30.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 30.0
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "pl_07885f0b",
+          "title": "Till P. ②",
+          "status": "active",
+          "start": "2026-09-25",
+          "end": null,
+          "goal": "",
+          "note": "",
+          "days": [
+            {
+              "id": "d_82985a61",
+              "name": "Einheit 2",
+              "exercises": [
+                {
+                  "id": "e_bd39372a",
+                  "group": "A1",
+                  "name": "KH Schrägbank neutral eng",
+                  "sets": 4,
+                  "reps": "6-8",
+                  "tempo": "4010",
+                  "rest": 60,
+                  "note": ""
+                },
+                {
+                  "id": "e_9601298f",
+                  "group": "A2",
+                  "name": "LH Wolverine Squat",
+                  "sets": 4,
+                  "reps": "1-3",
+                  "tempo": "7610",
+                  "rest": 90,
+                  "note": ""
+                },
+                {
+                  "id": "e_808a858e",
+                  "group": "B1",
+                  "name": "SZ Curls supiniert",
+                  "sets": 4,
+                  "reps": "6-8",
+                  "tempo": "3020",
+                  "rest": 60,
+                  "note": ""
+                },
+                {
+                  "id": "e_4bdc2653",
+                  "group": "B2",
+                  "name": "Rack Deadlift",
+                  "sets": 4,
+                  "reps": "6-8",
+                  "tempo": "4010",
+                  "rest": 90,
+                  "note": ""
+                },
+                {
+                  "id": "e_8e101646",
+                  "group": "C1",
+                  "name": "Glute Ham Raises",
+                  "sets": 4,
+                  "reps": "6-8",
+                  "tempo": "30X0",
+                  "rest": 60,
+                  "note": ""
+                },
+                {
+                  "id": "e_944b4263",
+                  "group": "C2",
+                  "name": "Iso Curls",
+                  "sets": 4,
+                  "reps": "30s",
+                  "tempo": "–",
+                  "rest": 60,
+                  "note": ""
+                },
+                {
+                  "id": "e_fbedad1c",
+                  "group": "C3",
+                  "name": "Garhammer Raise",
+                  "sets": 4,
+                  "reps": "12-15",
+                  "tempo": "–",
+                  "rest": 90,
+                  "note": ""
+                }
+              ]
+            }
+          ],
+          "logs": [
+            {
+              "id": "lg_f3223093",
+              "dayId": "d_82985a61",
+              "date": "2026-09-29",
+              "note": "",
+              "sets": {
+                "e_bd39372a": [
+                  {
+                    "reps": 7,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 6,
+                    "kg": 20
+                  }
+                ],
+                "e_9601298f": [
+                  {
+                    "reps": 2,
+                    "kg": 70.0
+                  },
+                  {
+                    "reps": 2,
+                    "kg": 70.0
+                  },
+                  {
+                    "reps": 1,
+                    "kg": 70.0
+                  },
+                  {
+                    "reps": 1,
+                    "kg": 70.0
+                  }
+                ],
+                "e_808a858e": [
+                  {
+                    "reps": 8,
+                    "kg": 25.0
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 25.0
+                  },
+                  {
+                    "reps": 6,
+                    "kg": 25.0
+                  },
+                  {
+                    "reps": 6,
+                    "kg": 25.0
+                  }
+                ],
+                "e_4bdc2653": [
+                  {
+                    "reps": 8,
+                    "kg": 100
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 100
+                  },
+                  {
+                    "reps": 6,
+                    "kg": 100
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 100
+                  }
+                ],
+                "e_8e101646": [
+                  {
+                    "reps": 8,
+                    "kg": 0.0
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 0.0
+                  },
+                  {
+                    "reps": 6,
+                    "kg": 0.0
+                  },
+                  {
+                    "reps": 6,
+                    "kg": 0.0
+                  }
+                ],
+                "e_944b4263": [
+                  {
+                    "reps": 30,
+                    "kg": 10
+                  },
+                  {
+                    "reps": 30,
+                    "kg": 10
+                  },
+                  {
+                    "reps": 30,
+                    "kg": 10
+                  },
+                  {
+                    "reps": 30,
+                    "kg": 10
+                  }
+                ],
+                "e_fbedad1c": [
+                  {
+                    "reps": 14,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 13,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 13,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_05e3c93d",
+              "dayId": "d_82985a61",
+              "date": "2026-10-06",
+              "note": "",
+              "sets": {
+                "e_bd39372a": [
+                  {
+                    "reps": 7,
+                    "kg": 23
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 23
+                  },
+                  {
+                    "reps": 6,
+                    "kg": 23
+                  },
+                  {
+                    "reps": 6,
+                    "kg": 23
+                  }
+                ],
+                "e_9601298f": [
+                  {
+                    "reps": 2,
+                    "kg": 77.5
+                  },
+                  {
+                    "reps": 3,
+                    "kg": 77.5
+                  },
+                  {
+                    "reps": 1,
+                    "kg": 77.5
+                  },
+                  {
+                    "reps": 2,
+                    "kg": 77.5
+                  }
+                ],
+                "e_808a858e": [
+                  {
+                    "reps": 7,
+                    "kg": 27.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 27.5
+                  },
+                  {
+                    "reps": 6,
+                    "kg": 27.5
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 27.5
+                  }
+                ],
+                "e_4bdc2653": [
+                  {
+                    "reps": 7,
+                    "kg": 110
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 110
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 110
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 110
+                  }
+                ],
+                "e_8e101646": [
+                  {
+                    "reps": 7,
+                    "kg": 2.5
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 2.5
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 2.5
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 2.5
+                  }
+                ],
+                "e_944b4263": [
+                  {
+                    "reps": 30,
+                    "kg": 12
+                  },
+                  {
+                    "reps": 30,
+                    "kg": 12
+                  },
+                  {
+                    "reps": 30,
+                    "kg": 12
+                  },
+                  {
+                    "reps": 30,
+                    "kg": 12
+                  }
+                ],
+                "e_fbedad1c": [
+                  {
+                    "reps": 15,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_4558a7d6",
+              "dayId": "d_82985a61",
+              "date": "2026-10-13",
+              "note": "",
+              "sets": {
+                "e_bd39372a": [
+                  {
+                    "reps": 8,
+                    "kg": 26
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 26
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 26
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 26
+                  }
+                ],
+                "e_9601298f": [
+                  {
+                    "reps": 3,
+                    "kg": 85.0
+                  },
+                  {
+                    "reps": 3,
+                    "kg": 85.0
+                  },
+                  {
+                    "reps": 2,
+                    "kg": 85.0
+                  },
+                  {
+                    "reps": 2,
+                    "kg": 85.0
+                  }
+                ],
+                "e_808a858e": [
+                  {
+                    "reps": 8,
+                    "kg": 32.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 32.5
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 32.5
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 32.5
+                  }
+                ],
+                "e_4bdc2653": [
+                  {
+                    "reps": 8,
+                    "kg": 120
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 120
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 120
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 120
+                  }
+                ],
+                "e_8e101646": [
+                  {
+                    "reps": 8,
+                    "kg": 5.0
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 5.0
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 5.0
+                  },
+                  {
+                    "reps": 7,
+                    "kg": 5.0
+                  }
+                ],
+                "e_944b4263": [
+                  {
+                    "reps": 30,
+                    "kg": 14
+                  },
+                  {
+                    "reps": 30,
+                    "kg": 14
+                  },
+                  {
+                    "reps": 30,
+                    "kg": 14
+                  },
+                  {
+                    "reps": 30,
+                    "kg": 14
+                  }
+                ],
+                "e_fbedad1c": [
+                  {
+                    "reps": 15,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 0
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "pl_db8a9448",
+          "title": "Grundlagen Sommer",
+          "status": "done",
+          "start": "2026-06-01",
+          "end": "2026-09-18",
+          "goal": "Technik und Grundkraft",
+          "note": "",
+          "days": [
+            {
+              "id": "d_9f7db54c",
+              "name": "Einheit 1",
+              "exercises": [
+                {
+                  "id": "e_90e19e89",
+                  "group": "A1",
+                  "name": "Kniebeuge",
+                  "sets": 3,
+                  "reps": "8-10",
+                  "tempo": "3010",
+                  "rest": 90,
+                  "note": ""
+                },
+                {
+                  "id": "e_bd226b17",
+                  "group": "A2",
+                  "name": "Bankdrücken",
+                  "sets": 3,
+                  "reps": "8-10",
+                  "tempo": "3010",
+                  "rest": 90,
+                  "note": ""
+                },
+                {
+                  "id": "e_1ff9ee1d",
+                  "group": "B1",
+                  "name": "Rudern vorgebeugt",
+                  "sets": 3,
+                  "reps": "8-10",
+                  "tempo": "3010",
+                  "rest": 60,
+                  "note": ""
+                },
+                {
+                  "id": "e_d9449571",
+                  "group": "B2",
+                  "name": "Plank",
+                  "sets": 3,
+                  "reps": "30s",
+                  "tempo": "–",
+                  "rest": 45,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "id": "d_ae574036",
+              "name": "Einheit 2",
+              "exercises": [
+                {
+                  "id": "e_c27fc88c",
+                  "group": "A1",
+                  "name": "Rumänisches Kreuzheben",
+                  "sets": 3,
+                  "reps": "8-10",
+                  "tempo": "3010",
+                  "rest": 90,
+                  "note": ""
+                },
+                {
+                  "id": "e_be595d61",
+                  "group": "A2",
+                  "name": "Schulterdrücken KH",
+                  "sets": 3,
+                  "reps": "8-10",
+                  "tempo": "3010",
+                  "rest": 90,
+                  "note": ""
+                },
+                {
+                  "id": "e_cd217c65",
+                  "group": "B1",
+                  "name": "Latziehen",
+                  "sets": 3,
+                  "reps": "10-12",
+                  "tempo": "2010",
+                  "rest": 60,
+                  "note": ""
+                },
+                {
+                  "id": "e_4dd24c65",
+                  "group": "B2",
+                  "name": "Ausfallschritte",
+                  "sets": 3,
+                  "reps": "10-12",
+                  "tempo": "2010",
+                  "rest": 60,
+                  "note": ""
+                }
+              ]
+            }
+          ],
+          "logs": [
+            {
+              "id": "lg_aee0bd9a",
+              "dayId": "d_9f7db54c",
+              "date": "2026-06-01",
+              "note": "",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 10,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 50.0
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 9,
+                    "kg": 45.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 45.0
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 45.0
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 9,
+                    "kg": 40.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 40.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 40.0
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 59,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 59,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 59,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_0efc484d",
+              "dayId": "d_ae574036",
+              "date": "2026-06-04",
+              "note": "Deload-Woche",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 9,
+                    "kg": 55
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 55
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 55
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 9,
+                    "kg": 12
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 12
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 12
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 12,
+                    "kg": 40.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 40.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 40.0
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 12,
+                    "kg": 10
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 10
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 10
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_89171e23",
+              "dayId": "d_9f7db54c",
+              "date": "2026-06-08",
+              "note": "Deload-Woche",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 10,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 47.5
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 10,
+                    "kg": 42.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 42.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 42.5
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 10,
+                    "kg": 37.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 37.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 37.5
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 59,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 59,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_0c6d85c3",
+              "dayId": "d_ae574036",
+              "date": "2026-06-11",
+              "note": "",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 9,
+                    "kg": 65
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 65
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 65
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 10,
+                    "kg": 14
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 14
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 14
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 12,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 47.5
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 12,
+                    "kg": 10
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 10
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 10
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_343d896f",
+              "dayId": "d_9f7db54c",
+              "date": "2026-06-15",
+              "note": "",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 9,
+                    "kg": 52.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 52.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 52.5
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 9,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 47.5
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 9,
+                    "kg": 42.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 42.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 42.5
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 58,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_331e29d0",
+              "dayId": "d_ae574036",
+              "date": "2026-06-18",
+              "note": "",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 9,
+                    "kg": 65
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 65
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 65
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 10,
+                    "kg": 16
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 16
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 16
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 12,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 47.5
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 11,
+                    "kg": 12
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 12
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 12
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_7d3b41cc",
+              "dayId": "d_9f7db54c",
+              "date": "2026-06-22",
+              "note": "",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 9,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 55.0
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 9,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 50.0
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 9,
+                    "kg": 42.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 42.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 42.5
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 59,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 58,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_78b5c2ac",
+              "dayId": "d_ae574036",
+              "date": "2026-06-25",
+              "note": "",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 9,
+                    "kg": 70
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 70
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 70
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 10,
+                    "kg": 16
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 16
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 16
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 11,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 50.0
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 12,
+                    "kg": 14
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 14
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 14
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_42bbd9f1",
+              "dayId": "d_9f7db54c",
+              "date": "2026-06-29",
+              "note": "",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 10,
+                    "kg": 57.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 57.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 57.5
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 10,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 50.0
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 10,
+                    "kg": 45.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 45.0
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 45.0
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 59,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 59,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_fb3e092c",
+              "dayId": "d_ae574036",
+              "date": "2026-07-02",
+              "note": "",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 10,
+                    "kg": 70
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 70
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 70
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 9,
+                    "kg": 16
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 16
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 16
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 12,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 50.0
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 11,
+                    "kg": 14
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 14
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 14
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_c8ec105a",
+              "dayId": "d_9f7db54c",
+              "date": "2026-07-06",
+              "note": "",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 10,
+                    "kg": 60.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 60.0
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 60.0
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 10,
+                    "kg": 52.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 52.5
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 52.5
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 9,
+                    "kg": 45.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 45.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 45.0
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 59,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 58,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_58947cad",
+              "dayId": "d_ae574036",
+              "date": "2026-07-09",
+              "note": "",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 10,
+                    "kg": 75
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 75
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 75
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 10,
+                    "kg": 18
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 18
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 18
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 11,
+                    "kg": 52.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 52.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 52.5
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 11,
+                    "kg": 14
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 14
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 14
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_bebc25e0",
+              "dayId": "d_9f7db54c",
+              "date": "2026-07-13",
+              "note": "",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 9,
+                    "kg": 60.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 60.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 60.0
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 9,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 8,
+                    "kg": 55.0
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 10,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 47.5
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 59,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 59,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 58,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_6d8875d5",
+              "dayId": "d_ae574036",
+              "date": "2026-07-16",
+              "note": "Deload-Woche",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 10,
+                    "kg": 65
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 65
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 65
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 10,
+                    "kg": 16
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 16
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 16
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 12,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 47.5
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 12,
+                    "kg": 14
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 14
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 14
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_f81d7ce8",
+              "dayId": "d_9f7db54c",
+              "date": "2026-07-20",
+              "note": "",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 10,
+                    "kg": 62.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 62.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 62.5
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 10,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 55.0
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 10,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 47.5
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_493a196a",
+              "dayId": "d_ae574036",
+              "date": "2026-07-23",
+              "note": "",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 10,
+                    "kg": 75
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 75
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 75
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 10,
+                    "kg": 18
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 18
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 18
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 12,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 55.0
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 12,
+                    "kg": 16
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 16
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 16
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_cdf04037",
+              "dayId": "d_9f7db54c",
+              "date": "2026-07-27",
+              "note": "",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 10,
+                    "kg": 65.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 65.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 65.0
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 10,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 55.0
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 10,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 50.0
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_0d066f68",
+              "dayId": "d_ae574036",
+              "date": "2026-07-30",
+              "note": "",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 10,
+                    "kg": 80
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 80
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 80
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 10,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 20
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 12,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 55.0
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 12,
+                    "kg": 16
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 16
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 16
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_f0aae201",
+              "dayId": "d_9f7db54c",
+              "date": "2026-08-03",
+              "note": "",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 10,
+                    "kg": 65.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 65.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 65.0
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 10,
+                    "kg": 57.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 57.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 57.5
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 10,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 50.0
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 59,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_b75caa61",
+              "dayId": "d_ae574036",
+              "date": "2026-08-06",
+              "note": "",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 10,
+                    "kg": 85
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 85
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 85
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 10,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 20
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 12,
+                    "kg": 57.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 57.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 57.5
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 12,
+                    "kg": 18
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 18
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 18
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_d4da910f",
+              "dayId": "d_9f7db54c",
+              "date": "2026-08-10",
+              "note": "",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 10,
+                    "kg": 67.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 67.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 67.5
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 10,
+                    "kg": 60.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 60.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 60.0
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 10,
+                    "kg": 52.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 52.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 52.5
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_4a876dd5",
+              "dayId": "d_ae574036",
+              "date": "2026-08-13",
+              "note": "",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 10,
+                    "kg": 85
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 85
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 85
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 10,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 20
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 12,
+                    "kg": 57.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 57.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 57.5
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 12,
+                    "kg": 18
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 18
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 18
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_0d297d3b",
+              "dayId": "d_9f7db54c",
+              "date": "2026-08-17",
+              "note": "Deload-Woche",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 10,
+                    "kg": 62.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 62.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 62.5
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 10,
+                    "kg": 52.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 52.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 52.5
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 10,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 47.5
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_92f35e76",
+              "dayId": "d_ae574036",
+              "date": "2026-08-20",
+              "note": "",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 10,
+                    "kg": 85
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 85
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 85
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 10,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 20
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 12,
+                    "kg": 57.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 57.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 57.5
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 12,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 20
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_63e196ae",
+              "dayId": "d_9f7db54c",
+              "date": "2026-08-24",
+              "note": "",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 10,
+                    "kg": 72.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 72.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 72.5
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 10,
+                    "kg": 62.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 62.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 62.5
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 10,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 55.0
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 59,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_b0006e3c",
+              "dayId": "d_ae574036",
+              "date": "2026-08-27",
+              "note": "",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 10,
+                    "kg": 90
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 90
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 90
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 10,
+                    "kg": 22
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 22
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 22
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 12,
+                    "kg": 60.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 60.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 60.0
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 12,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 20
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 20
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_9db1d9e5",
+              "dayId": "d_9f7db54c",
+              "date": "2026-08-31",
+              "note": "",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 10,
+                    "kg": 70.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 70.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 70.0
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 10,
+                    "kg": 62.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 62.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 62.5
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 10,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 55.0
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_a3d2ec53",
+              "dayId": "d_ae574036",
+              "date": "2026-09-03",
+              "note": "",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 10,
+                    "kg": 87.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 87.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 87.5
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 10,
+                    "kg": 22.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 22.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 22.5
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 12,
+                    "kg": 60.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 60.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 60.0
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 12,
+                    "kg": 20.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 20.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 20.5
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_a9c11489",
+              "dayId": "d_9f7db54c",
+              "date": "2026-09-07",
+              "note": "",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 10,
+                    "kg": 65.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 65.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 65.0
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 10,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 55.0
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 55.0
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 10,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 50.0
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_baa3f98d",
+              "dayId": "d_ae574036",
+              "date": "2026-09-10",
+              "note": "",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 10,
+                    "kg": 87.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 87.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 87.5
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 10,
+                    "kg": 22.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 22.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 22.5
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 12,
+                    "kg": 60.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 60.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 60.0
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 12,
+                    "kg": 22.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 22.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 22.5
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_acc82162",
+              "dayId": "d_9f7db54c",
+              "date": "2026-09-14",
+              "note": "",
+              "sets": {
+                "e_90e19e89": [
+                  {
+                    "reps": 10,
+                    "kg": 75.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 75.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 75.0
+                  }
+                ],
+                "e_bd226b17": [
+                  {
+                    "reps": 10,
+                    "kg": 65.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 65.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 65.0
+                  }
+                ],
+                "e_1ff9ee1d": [
+                  {
+                    "reps": 10,
+                    "kg": 57.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 57.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 57.5
+                  }
+                ],
+                "e_d9449571": [
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 60,
+                    "kg": 0
+                  },
+                  {
+                    "reps": 59,
+                    "kg": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_151ebb96",
+              "dayId": "d_ae574036",
+              "date": "2026-09-17",
+              "note": "",
+              "sets": {
+                "e_c27fc88c": [
+                  {
+                    "reps": 10,
+                    "kg": 92.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 92.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 92.5
+                  }
+                ],
+                "e_be595d61": [
+                  {
+                    "reps": 10,
+                    "kg": 24.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 24.5
+                  },
+                  {
+                    "reps": 9,
+                    "kg": 24.5
+                  }
+                ],
+                "e_cd217c65": [
+                  {
+                    "reps": 12,
+                    "kg": 62.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 62.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 62.5
+                  }
+                ],
+                "e_4dd24c65": [
+                  {
+                    "reps": 12,
+                    "kg": 22.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 22.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 22.5
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "pl_3c72c1f1",
+          "title": "Einstieg Frühjahr",
+          "status": "done",
+          "start": "2026-04-06",
+          "end": "2026-05-29",
+          "goal": "Technik lernen, Grundkraft aufbauen",
+          "note": "",
+          "days": [
+            {
+              "id": "d_ff8349b8",
+              "name": "Einheit 1",
+              "exercises": [
+                {
+                  "id": "e_bd3e0801",
+                  "group": "A1",
+                  "name": "Beinpresse",
+                  "sets": 3,
+                  "reps": "10-12",
+                  "tempo": "3010",
+                  "rest": 90,
+                  "note": ""
+                },
+                {
+                  "id": "e_bad7ef4c",
+                  "group": "A2",
+                  "name": "Brustpresse Maschine",
+                  "sets": 3,
+                  "reps": "10-12",
+                  "tempo": "3010",
+                  "rest": 90,
+                  "note": ""
+                },
+                {
+                  "id": "e_e3ecf461",
+                  "group": "B1",
+                  "name": "Rudern am Kabel",
+                  "sets": 3,
+                  "reps": "10-12",
+                  "tempo": "2011",
+                  "rest": 60,
+                  "note": ""
+                },
+                {
+                  "id": "e_59fdfb0d",
+                  "group": "B2",
+                  "name": "Crunch am Kabel",
+                  "sets": 3,
+                  "reps": "12-15",
+                  "tempo": "2010",
+                  "rest": 60,
+                  "note": ""
+                }
+              ]
+            },
+            {
+              "id": "d_4e856ecb",
+              "name": "Einheit 2",
+              "exercises": [
+                {
+                  "id": "e_7a21cb4e",
+                  "group": "A1",
+                  "name": "Hip Thrust",
+                  "sets": 3,
+                  "reps": "10-12",
+                  "tempo": "2011",
+                  "rest": 90,
+                  "note": ""
+                },
+                {
+                  "id": "e_d8275145",
+                  "group": "A2",
+                  "name": "Latziehen",
+                  "sets": 3,
+                  "reps": "10-12",
+                  "tempo": "3010",
+                  "rest": 90,
+                  "note": ""
+                },
+                {
+                  "id": "e_4490a3e3",
+                  "group": "B1",
+                  "name": "Schulterdrücken Maschine",
+                  "sets": 3,
+                  "reps": "10-12",
+                  "tempo": "3010",
+                  "rest": 60,
+                  "note": ""
+                },
+                {
+                  "id": "e_a2352cd2",
+                  "group": "B2",
+                  "name": "Rückenstrecker",
+                  "sets": 3,
+                  "reps": "12-15",
+                  "tempo": "2010",
+                  "rest": 60,
+                  "note": ""
+                }
+              ]
+            }
+          ],
+          "logs": [
+            {
+              "id": "lg_496d0600",
+              "dayId": "d_ff8349b8",
+              "date": "2026-04-06",
+              "note": "",
+              "sets": {
+                "e_bd3e0801": [
+                  {
+                    "reps": 11,
+                    "kg": 60
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 60
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 60
+                  }
+                ],
+                "e_bad7ef4c": [
+                  {
+                    "reps": 12,
+                    "kg": 25.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 25.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 25.0
+                  }
+                ],
+                "e_e3ecf461": [
+                  {
+                    "reps": 12,
+                    "kg": 30.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 30.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 30.0
+                  }
+                ],
+                "e_59fdfb0d": [
+                  {
+                    "reps": 15,
+                    "kg": 15.0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 15.0
+                  },
+                  {
+                    "reps": 13,
+                    "kg": 15.0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_403ce872",
+              "dayId": "d_4e856ecb",
+              "date": "2026-04-09",
+              "note": "",
+              "sets": {
+                "e_7a21cb4e": [
+                  {
+                    "reps": 12,
+                    "kg": 40
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 40
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 40
+                  }
+                ],
+                "e_d8275145": [
+                  {
+                    "reps": 12,
+                    "kg": 35.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 35.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 35.0
+                  }
+                ],
+                "e_4490a3e3": [
+                  {
+                    "reps": 11,
+                    "kg": 20.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 20.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 20.0
+                  }
+                ],
+                "e_a2352cd2": [
+                  {
+                    "reps": 14,
+                    "kg": 0.0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 0.0
+                  },
+                  {
+                    "reps": 13,
+                    "kg": 0.0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_130ac91a",
+              "dayId": "d_ff8349b8",
+              "date": "2026-04-13",
+              "note": "",
+              "sets": {
+                "e_bd3e0801": [
+                  {
+                    "reps": 11,
+                    "kg": 65
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 65
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 65
+                  }
+                ],
+                "e_bad7ef4c": [
+                  {
+                    "reps": 11,
+                    "kg": 27.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 27.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 27.5
+                  }
+                ],
+                "e_e3ecf461": [
+                  {
+                    "reps": 12,
+                    "kg": 32.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 32.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 32.5
+                  }
+                ],
+                "e_59fdfb0d": [
+                  {
+                    "reps": 15,
+                    "kg": 17.5
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 17.5
+                  },
+                  {
+                    "reps": 13,
+                    "kg": 17.5
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_d32c5565",
+              "dayId": "d_4e856ecb",
+              "date": "2026-04-16",
+              "note": "",
+              "sets": {
+                "e_7a21cb4e": [
+                  {
+                    "reps": 12,
+                    "kg": 45
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 45
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 45
+                  }
+                ],
+                "e_d8275145": [
+                  {
+                    "reps": 11,
+                    "kg": 37.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 37.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 37.5
+                  }
+                ],
+                "e_4490a3e3": [
+                  {
+                    "reps": 12,
+                    "kg": 22.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 22.5
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 22.5
+                  }
+                ],
+                "e_a2352cd2": [
+                  {
+                    "reps": 15,
+                    "kg": 2.5
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 2.5
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 2.5
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_b2fb6c4b",
+              "dayId": "d_ff8349b8",
+              "date": "2026-04-20",
+              "note": "",
+              "sets": {
+                "e_bd3e0801": [
+                  {
+                    "reps": 11,
+                    "kg": 70
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 70
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 70
+                  }
+                ],
+                "e_bad7ef4c": [
+                  {
+                    "reps": 11,
+                    "kg": 30.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 30.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 30.0
+                  }
+                ],
+                "e_e3ecf461": [
+                  {
+                    "reps": 11,
+                    "kg": 35.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 35.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 35.0
+                  }
+                ],
+                "e_59fdfb0d": [
+                  {
+                    "reps": 14,
+                    "kg": 17.5
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 17.5
+                  },
+                  {
+                    "reps": 13,
+                    "kg": 17.5
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_2653fea0",
+              "dayId": "d_4e856ecb",
+              "date": "2026-04-23",
+              "note": "",
+              "sets": {
+                "e_7a21cb4e": [
+                  {
+                    "reps": 12,
+                    "kg": 50
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 50
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 50
+                  }
+                ],
+                "e_d8275145": [
+                  {
+                    "reps": 12,
+                    "kg": 40.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 40.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 40.0
+                  }
+                ],
+                "e_4490a3e3": [
+                  {
+                    "reps": 11,
+                    "kg": 25.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 25.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 25.0
+                  }
+                ],
+                "e_a2352cd2": [
+                  {
+                    "reps": 14,
+                    "kg": 2.5
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 2.5
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 2.5
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_aaa0a389",
+              "dayId": "d_ff8349b8",
+              "date": "2026-04-27",
+              "note": "",
+              "sets": {
+                "e_bd3e0801": [
+                  {
+                    "reps": 11,
+                    "kg": 75
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 75
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 75
+                  }
+                ],
+                "e_bad7ef4c": [
+                  {
+                    "reps": 12,
+                    "kg": 32.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 32.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 32.5
+                  }
+                ],
+                "e_e3ecf461": [
+                  {
+                    "reps": 11,
+                    "kg": 37.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 37.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 37.5
+                  }
+                ],
+                "e_59fdfb0d": [
+                  {
+                    "reps": 14,
+                    "kg": 20.0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 20.0
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 20.0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_2c3ec504",
+              "dayId": "d_4e856ecb",
+              "date": "2026-04-30",
+              "note": "",
+              "sets": {
+                "e_7a21cb4e": [
+                  {
+                    "reps": 12,
+                    "kg": 55
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 55
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 55
+                  }
+                ],
+                "e_d8275145": [
+                  {
+                    "reps": 11,
+                    "kg": 40.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 40.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 40.0
+                  }
+                ],
+                "e_4490a3e3": [
+                  {
+                    "reps": 12,
+                    "kg": 25.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 25.0
+                  },
+                  {
+                    "reps": 10,
+                    "kg": 25.0
+                  }
+                ],
+                "e_a2352cd2": [
+                  {
+                    "reps": 15,
+                    "kg": 5.0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 5.0
+                  },
+                  {
+                    "reps": 13,
+                    "kg": 5.0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_69126145",
+              "dayId": "d_ff8349b8",
+              "date": "2026-05-04",
+              "note": "",
+              "sets": {
+                "e_bd3e0801": [
+                  {
+                    "reps": 12,
+                    "kg": 80
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 80
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 80
+                  }
+                ],
+                "e_bad7ef4c": [
+                  {
+                    "reps": 12,
+                    "kg": 35.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 35.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 35.0
+                  }
+                ],
+                "e_e3ecf461": [
+                  {
+                    "reps": 12,
+                    "kg": 37.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 37.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 37.5
+                  }
+                ],
+                "e_59fdfb0d": [
+                  {
+                    "reps": 15,
+                    "kg": 20.0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 20.0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 20.0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_83789af4",
+              "dayId": "d_4e856ecb",
+              "date": "2026-05-07",
+              "note": "",
+              "sets": {
+                "e_7a21cb4e": [
+                  {
+                    "reps": 12,
+                    "kg": 55
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 55
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 55
+                  }
+                ],
+                "e_d8275145": [
+                  {
+                    "reps": 12,
+                    "kg": 45.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 45.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 45.0
+                  }
+                ],
+                "e_4490a3e3": [
+                  {
+                    "reps": 12,
+                    "kg": 27.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 27.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 27.5
+                  }
+                ],
+                "e_a2352cd2": [
+                  {
+                    "reps": 15,
+                    "kg": 5.0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 5.0
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 5.0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_0606ac9f",
+              "dayId": "d_ff8349b8",
+              "date": "2026-05-11",
+              "note": "",
+              "sets": {
+                "e_bd3e0801": [
+                  {
+                    "reps": 12,
+                    "kg": 85
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 85
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 85
+                  }
+                ],
+                "e_bad7ef4c": [
+                  {
+                    "reps": 12,
+                    "kg": 37.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 37.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 37.5
+                  }
+                ],
+                "e_e3ecf461": [
+                  {
+                    "reps": 12,
+                    "kg": 40.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 40.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 40.0
+                  }
+                ],
+                "e_59fdfb0d": [
+                  {
+                    "reps": 15,
+                    "kg": 20.0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 20.0
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 20.0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_8946341c",
+              "dayId": "d_4e856ecb",
+              "date": "2026-05-14",
+              "note": "",
+              "sets": {
+                "e_7a21cb4e": [
+                  {
+                    "reps": 12,
+                    "kg": 60
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 60
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 60
+                  }
+                ],
+                "e_d8275145": [
+                  {
+                    "reps": 12,
+                    "kg": 45.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 45.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 45.0
+                  }
+                ],
+                "e_4490a3e3": [
+                  {
+                    "reps": 12,
+                    "kg": 27.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 27.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 27.5
+                  }
+                ],
+                "e_a2352cd2": [
+                  {
+                    "reps": 15,
+                    "kg": 7.5
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 7.5
+                  },
+                  {
+                    "reps": 14,
+                    "kg": 7.5
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_9d5b6f12",
+              "dayId": "d_ff8349b8",
+              "date": "2026-05-18",
+              "note": "Deload-Woche",
+              "sets": {
+                "e_bd3e0801": [
+                  {
+                    "reps": 12,
+                    "kg": 80
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 80
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 80
+                  }
+                ],
+                "e_bad7ef4c": [
+                  {
+                    "reps": 12,
+                    "kg": 35.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 35.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 35.0
+                  }
+                ],
+                "e_e3ecf461": [
+                  {
+                    "reps": 12,
+                    "kg": 37.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 37.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 37.5
+                  }
+                ],
+                "e_59fdfb0d": [
+                  {
+                    "reps": 15,
+                    "kg": 20.0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 20.0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 20.0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_23ef0cfe",
+              "dayId": "d_4e856ecb",
+              "date": "2026-05-21",
+              "note": "",
+              "sets": {
+                "e_7a21cb4e": [
+                  {
+                    "reps": 12,
+                    "kg": 65
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 65
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 65
+                  }
+                ],
+                "e_d8275145": [
+                  {
+                    "reps": 12,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 47.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 47.5
+                  }
+                ],
+                "e_4490a3e3": [
+                  {
+                    "reps": 12,
+                    "kg": 32.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 32.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 32.5
+                  }
+                ],
+                "e_a2352cd2": [
+                  {
+                    "reps": 15,
+                    "kg": 7.5
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 7.5
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 7.5
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_1560906f",
+              "dayId": "d_ff8349b8",
+              "date": "2026-05-25",
+              "note": "",
+              "sets": {
+                "e_bd3e0801": [
+                  {
+                    "reps": 12,
+                    "kg": 95
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 95
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 95
+                  }
+                ],
+                "e_bad7ef4c": [
+                  {
+                    "reps": 12,
+                    "kg": 42.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 42.5
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 42.5
+                  }
+                ],
+                "e_e3ecf461": [
+                  {
+                    "reps": 12,
+                    "kg": 45.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 45.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 45.0
+                  }
+                ],
+                "e_59fdfb0d": [
+                  {
+                    "reps": 15,
+                    "kg": 25.0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 25.0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 25.0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "lg_218f1fdb",
+              "dayId": "d_4e856ecb",
+              "date": "2026-05-28",
+              "note": "",
+              "sets": {
+                "e_7a21cb4e": [
+                  {
+                    "reps": 12,
+                    "kg": 70
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 70
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 70
+                  }
+                ],
+                "e_d8275145": [
+                  {
+                    "reps": 12,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 50.0
+                  },
+                  {
+                    "reps": 11,
+                    "kg": 50.0
+                  }
+                ],
+                "e_4490a3e3": [
+                  {
+                    "reps": 12,
+                    "kg": 32.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 32.5
+                  },
+                  {
+                    "reps": 12,
+                    "kg": 32.5
+                  }
+                ],
+                "e_a2352cd2": [
+                  {
+                    "reps": 15,
+                    "kg": 10.0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 10.0
+                  },
+                  {
+                    "reps": 15,
+                    "kg": 10.0
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "measurements": [
+        {
+          "id": "ms_04a50543",
+          "date": "2026-04-01",
+          "weight": 88.6,
+          "bodyfat": 20.6,
+          "skinfolds": {
+            "kinn": 11.0,
+            "wange": 14.0,
+            "brust": 12.5,
+            "trizeps": 19.5,
+            "subskapular": 22.0,
+            "achsel": 16.5,
+            "suprailiakal": 27.5,
+            "bauch": 33.0,
+            "knie": 14.0,
+            "wade": 11.0,
+            "oberschenkel": 22.0,
+            "hamstring": 19.5
+          },
+          "girths": {
+            "brust": 111.1,
+            "bauch": 98.3,
+            "huefte": 107.9,
+            "oberarm": 38.5,
+            "oberschenkel": 64.1
+          },
+          "note": ""
+        },
+        {
+          "id": "ms_030a48f6",
+          "date": "2026-05-01",
+          "weight": 87.1,
+          "bodyfat": 19.5,
+          "skinfolds": {
+            "kinn": 10.0,
+            "wange": 12.5,
+            "brust": 11.5,
+            "trizeps": 17.5,
+            "subskapular": 20.0,
+            "achsel": 15.0,
+            "suprailiakal": 25.0,
+            "bauch": 30.0,
+            "knie": 12.5,
+            "wade": 10.0,
+            "oberschenkel": 20.0,
+            "hamstring": 17.5
+          },
+          "girths": {
+            "brust": 108.9,
+            "bauch": 96.3,
+            "huefte": 105.7,
+            "oberarm": 37.7,
+            "oberschenkel": 62.8
+          },
+          "note": ""
+        },
+        {
+          "id": "ms_4bd91e9d",
+          "date": "2026-06-01",
+          "weight": 85.5,
+          "bodyfat": 18.2,
+          "skinfolds": {
+            "kinn": 9.0,
+            "wange": 11.5,
+            "brust": 10.0,
+            "trizeps": 16.0,
+            "subskapular": 18.0,
+            "achsel": 13.5,
+            "suprailiakal": 22.5,
+            "bauch": 27.0,
+            "knie": 11.5,
+            "wade": 9.0,
+            "oberschenkel": 18.0,
+            "hamstring": 16.0
+          },
+          "girths": {
+            "brust": 106.4,
+            "bauch": 94.2,
+            "huefte": 103.4,
+            "oberarm": 36.8,
+            "oberschenkel": 61.4
+          },
+          "note": ""
+        },
+        {
+          "id": "ms_785eb1ac",
+          "date": "2026-07-01",
+          "weight": 84.0,
+          "bodyfat": 17.0,
+          "skinfolds": {
+            "kinn": 8.0,
+            "wange": 10.0,
+            "brust": 9.0,
+            "trizeps": 14.0,
+            "subskapular": 16.0,
+            "achsel": 12.0,
+            "suprailiakal": 20.0,
+            "bauch": 24.0,
+            "knie": 10.0,
+            "wade": 8.0,
+            "oberschenkel": 16.0,
+            "hamstring": 14.0
+          },
+          "girths": {
+            "brust": 104.0,
+            "bauch": 92.0,
+            "huefte": 101.0,
+            "oberarm": 36.0,
+            "oberschenkel": 60.0
+          },
+          "note": ""
+        },
+        {
+          "id": "ms_856dfba2",
+          "date": "2026-08-01",
+          "weight": 83.0,
+          "bodyfat": 16.1,
+          "skinfolds": {
+            "kinn": 7.5,
+            "wange": 9.5,
+            "brust": 8.0,
+            "trizeps": 12.5,
+            "subskapular": 14.5,
+            "achsel": 10.5,
+            "suprailiakal": 18.0,
+            "bauch": 21.5,
+            "knie": 9.5,
+            "wade": 7.5,
+            "oberschenkel": 14.5,
+            "hamstring": 12.5
+          },
+          "girths": {
+            "brust": 103.5,
+            "bauch": 90.5,
+            "huefte": 100.0,
+            "oberarm": 36.5,
+            "oberschenkel": 59.5
+          },
+          "note": ""
+        },
+        {
+          "id": "ms_ec023ab3",
+          "date": "2026-09-01",
+          "weight": 82.2,
+          "bodyfat": 15.0,
+          "skinfolds": {
+            "kinn": 6.5,
+            "wange": 8.5,
+            "brust": 7.0,
+            "trizeps": 11.5,
+            "subskapular": 13.5,
+            "achsel": 9.5,
+            "suprailiakal": 16.0,
+            "bauch": 19.5,
+            "knie": 8.5,
+            "wade": 6.5,
+            "oberschenkel": 13.5,
+            "hamstring": 11.5
+          },
+          "girths": {
+            "brust": 102.5,
+            "bauch": 88.5,
+            "huefte": 99.5,
+            "oberarm": 36.5,
+            "oberschenkel": 59.5
+          },
+          "note": ""
+        },
+        {
+          "id": "ms_f6a984d1",
+          "date": "2026-10-01",
+          "weight": 81.5,
+          "bodyfat": 14.0,
+          "skinfolds": {
+            "kinn": 6.0,
+            "wange": 8.0,
+            "brust": 6.0,
+            "trizeps": 10.0,
+            "subskapular": 12.0,
+            "achsel": 8.0,
+            "suprailiakal": 14.0,
+            "bauch": 17.0,
+            "knie": 8.0,
+            "wade": 6.0,
+            "oberschenkel": 12.0,
+            "hamstring": 10.0
+          },
+          "girths": {
+            "brust": 102.0,
+            "bauch": 87.0,
+            "huefte": 98.5,
+            "oberarm": 37.0,
+            "oberschenkel": 59.0
+          },
+          "note": ""
+        },
+        {
+          "id": "ms_e9010687",
+          "date": "2026-10-15",
+          "weight": 81.2,
+          "bodyfat": 13.6,
+          "skinfolds": {
+            "kinn": 5.5,
+            "wange": 7.5,
+            "brust": 5.5,
+            "trizeps": 9.5,
+            "subskapular": 11.5,
+            "achsel": 7.5,
+            "suprailiakal": 13.5,
+            "bauch": 16.0,
+            "knie": 7.5,
+            "wade": 5.5,
+            "oberschenkel": 11.5,
+            "hamstring": 9.5
+          },
+          "girths": {
+            "brust": 101.0,
+            "bauch": 86.1,
+            "huefte": 97.5,
+            "oberarm": 36.6,
+            "oberschenkel": 58.4
+          },
+          "note": "Neuer Bestwert Bauch-Hautfalte"
+        }
+      ],
+      "pw": {
+        "salt": "be047405d3b4350ed19b47cd16841ea6",
+        "hash": "63f42c041c2a9ed1dc2d2cacd09137b1625cc71478e9f0f81bafb9dc9ab4586e"
+      }
+    }
+  ]
+}

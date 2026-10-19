@@ -1,0 +1,40 @@
+name: Demo auf GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Demo-Seed erzeugen
+        run: python3 tools/build_demo.py
+      - name: _site bauen (ohne server.py, data/, assets/original)
+        run: |
+          mkdir -p _site/assets
+          cp index.html entwuerfe.html _site/
+          cp -r site admin designs demo _site/
+          cp -r assets/img _site/assets/
+          [ -d assets/uploads ] && cp -r assets/uploads _site/assets/ || true
+          touch _site/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

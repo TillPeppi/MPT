@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MPT – Performance Lab</title>
+<meta name="description" content="Metsch Personal Training: messbares Personal Training und TrackMan Golfsimulator in Fernwald.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e0f11; --card:#16181b; --card-2:#1d2024; --line:#272a2f; --text:#eceef1; --muted:#8b9099;
+  --accent:#ff5f1f; --accent-soft:rgba(255,95,31,.12); --ok:#3ddc84; --r:20px; --max:1320px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:400 16px/1.55 "Space Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html,body{overflow-x:clip}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.25;mask-image:radial-gradient(circle at 50% 0%,#000,transparent 70%)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px;position:relative}
+.mono{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.mono.a{color:var(--accent)}
+h1,h2,h3{font-weight:600;letter-spacing:-.03em;line-height:1}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:12px;font:600 15px "Space Grotesk";cursor:pointer;border:0;transition:.2s}
+.btn-a{background:var(--accent);color:#111}
+.btn-a:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-o{background:var(--card-2);border:1px solid var(--line);color:var(--text)}
+.btn-o:hover{border-color:var(--muted)}
+section{padding:110px 0}
+
+/* header */
+header{position:sticky;top:12px;z-index:50;padding:0 12px}
+.bar{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;background:rgba(22,24,27,.8);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;padding:10px 10px 10px 20px}
+.logo{font-weight:700;font-size:20px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+.logo b{color:var(--accent);font-style:italic}
+.status{display:flex;align-items:center;gap:8px;font-family:"JetBrains Mono";font-size:11px;color:var(--muted);border-left:1px solid var(--line);padding-left:14px;margin-left:4px;text-transform:uppercase}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)}
+.status.off i{background:#5b616b;box-shadow:none}
+.mode{display:flex;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:4px}
+.mode button{font:600 14px "Space Grotesk";color:var(--muted);background:none;border:0;padding:9px 18px;border-radius:9px;cursor:pointer;transition:.2s}
+.mode button.on{background:var(--card-2);color:var(--text)}
+.navr{display:flex;gap:8px;align-items:center}
+.navl{display:flex;gap:24px;font-size:14px;color:var(--muted)}
+.navl a:hover{color:var(--text)}
+
+/* hero bento */
+.hero{padding:60px 0 40px}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(120px,auto);gap:14px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;position:relative;overflow:hidden}
+.t-main{grid-column:span 7;grid-row:span 3;display:flex;flex-direction:column;justify-content:space-between;padding:40px}
+.t-main h1{font-size:clamp(46px,6vw,92px);margin:26px 0}
+.t-main h1 span{color:var(--accent)}
+.t-main p{color:var(--muted);font-size:18px;max-width:520px}
+.t-main .acts{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
+.t-img{grid-column:span 5;grid-row:span 2;padding:0;min-height:300px}
+.t-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:.6s}
+.t-img .ov{position:absolute;left:16px;bottom:16px;right:16px;display:flex;justify-content:space-between;align-items:center;background:rgba(14,15,17,.75);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:14px}
+.t-stat{grid-column:span 2;display:flex;flex-direction:column;justify-content:space-between}
+.t-stat b{font-size:40px;letter-spacing:-.04em;line-height:1}
+.t-stat.ac{background:var(--accent);color:#111;border-color:var(--accent)}
+.t-stat.ac .mono{color:#3a1606}
+.t-hours{grid-column:span 3}
+.t-hours .row{display:flex;justify-content:space-between;font-size:14px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.t-hours .row.today{color:var(--accent)}
+
+/* metrics */
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:50px;flex-wrap:wrap}
+.sh h2{font-size:clamp(40px,5vw,72px);max-width:760px;margin-top:14px}
+.sh p{color:var(--muted);max-width:420px}
+.metrics{display:grid;grid-template-columns:1.3fr 1fr;gap:14px}
+.dash{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.chart{height:220px;position:relative;border-bottom:1px solid var(--line);border-left:1px solid var(--line)}
+.chart svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.chart path.l{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-dasharray:900;stroke-dashoffset:900;transition:2.2s ease}
+.chart.in path.l{stroke-dashoffset:0}
+.chart path.f{fill:url(#g);opacity:0;transition:1.5s 1s}
+.chart.in path.f{opacity:1}
+.legend{display:flex;gap:18px;margin-top:16px;flex-wrap:wrap}
+.legend span{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.legend span::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--accent)}
+.legend span.b::before{background:#4b5260}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.m{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:22px;transition:.25s}
+.m:hover{border-color:var(--accent);background:var(--card-2)}
+.m svg{width:26px;height:26px;color:var(--accent)}
+.m h4{font-size:17px;font-weight:600}
+.m p{font-size:13px;color:var(--muted);margin-top:4px}
+.bar-s{height:6px;background:var(--line);border-radius:6px;overflow:hidden}
+.bar-s i{display:block;height:100%;width:0;background:var(--accent);border-radius:6px;transition:1.6s ease}
+.in .bar-s i{width:var(--w)}
+
+/* finder */
+.finder{display:grid;grid-template-columns:1fr 1.2fr;gap:14px}
+.finder .intro{background:var(--accent);color:#111;border-radius:var(--r);padding:40px;display:flex;flex-direction:column;justify-content:space-between;min-height:440px}
+.finder .intro h2{font-size:clamp(40px,4.4vw,64px)}
+.finder .intro .mono{color:#3a1606}
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:36px;display:flex;flex-direction:column}
+.progress{display:flex;gap:6px;margin-bottom:30px}
+.progress i{flex:1;height:4px;border-radius:4px;background:var(--line);transition:.3s}
+.progress i.on{background:var(--accent)}
+.q h3{font-size:28px;margin:10px 0 24px;line-height:1.15}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opts button{text-align:left;background:var(--card-2);border:1px solid var(--line);color:var(--text);border-radius:14px;padding:18px;font:500 15px "Space Grotesk";cursor:pointer;transition:.2s;display:flex;gap:12px;align-items:center}
+.opts button:hover{border-color:var(--accent);background:var(--accent-soft)}
+.opts button em{font-style:normal;font-family:"JetBrains Mono";font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:2px 6px}
+.result{display:none}
+.result.on{display:block;animation:pop .4s ease}
+@keyframes pop{from{opacity:0;transform:scale(.98)}}
+.result h3{font-size:40px;margin:10px 0 14px}
+.result p{color:var(--muted);margin-bottom:24px}
+
+/* offers list */
+.olist{border-top:1px solid var(--line)}
+.orow{display:grid;grid-template-columns:70px 1.2fr 2fr 160px 48px;align-items:center;gap:20px;padding:28px 0;border-bottom:1px solid var(--line);transition:.25s;position:relative}
+.orow:hover{padding-left:16px;background:linear-gradient(90deg,var(--accent-soft),transparent)}
+.orow h3{font-size:28px}
+.orow p{color:var(--muted);font-size:15px}
+.orow .pr{font-family:"JetBrains Mono";font-size:14px;text-align:right}
+.orow .go{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);display:grid;place-items:center;transition:.25s}
+.orow:hover .go{background:var(--accent);color:#111;border-color:var(--accent)}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}
+.tags span{font-family:"JetBrains Mono";font-size:12px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;color:var(--muted)}
+
+/* golf mode */
+.golfwrap{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.g1{grid-column:span 8;min-height:460px;padding:0}
+.g1 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.g1 .cap{position:absolute;left:28px;bottom:28px;right:28px}
+.g1 .cap h2{font-size:clamp(40px,5vw,72px)}
+.g1::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.85))}
+.g1 .cap{z-index:2}
+.g2{grid-column:span 4;display:flex;flex-direction:column;gap:14px;justify-content:space-between}
+.readout{font-family:"JetBrains Mono";font-size:13px}
+.readout div{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--line)}
+.readout div span:last-child{color:var(--accent)}
+.gprices{grid-column:span 12;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gp{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.gp b{font-size:52px;letter-spacing:-.04em;line-height:1}
+.gp .old{font-family:"JetBrains Mono";font-size:12px;color:var(--muted);text-decoration:line-through}
+.gp.hl{border-color:var(--accent);background:linear-gradient(160deg,var(--accent-soft),var(--card) 60%)}
+.code{display:inline-flex;gap:8px;align-items:center;font-family:"JetBrains Mono";font-size:12px;border:1px dashed var(--accent);border-radius:8px;padding:6px 10px;cursor:pointer;background:none;color:var(--text)}
+
+/* booking */
+.booking{display:grid;grid-template-columns:1fr 1.4fr;gap:14px}
+.bk-steps{display:grid;gap:10px}
+.svc{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer;transition:.2s}
+.svc:hover{border-color:var(--muted)}
+.svc.on{border-color:var(--accent);background:var(--accent-soft)}
+.svc small{display:block;color:var(--muted);font-size:13px}
+.svc .pr{font-family:"JetBrains Mono";font-size:13px;white-space:nowrap}
+.cal{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin:18px 0 24px}
+.day{background:var(--card-2);border:1px solid var(--line);border-radius:12px;padding:12px 4px;text-align:center;cursor:pointer;transition:.2s;font-size:13px;color:var(--text)}
+.day b{display:block;font-size:20px;margin-top:2px}
+.day.off{opacity:.35;pointer-events:none}
+.day.on{background:var(--accent);color:#111;border-color:var(--accent)}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:24px}
+.slot{font-family:"JetBrains Mono";font-size:13px;padding:12px 4px;text-align:center;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:none;color:var(--text);transition:.2s}
+.slot:hover{border-color:var(--accent)}
+.slot.on{background:var(--text);color:#111}
+.slot.taken{opacity:.3;text-decoration:line-through;pointer-events:none}
+.summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:20px;border-top:1px solid var(--line);flex-wrap:wrap}
+
+/* review + contact */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.review p{font-size:24px;line-height:1.35;letter-spacing:-.01em;margin:22px 0}
+.coach-t{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:center}
+.coach-t img{border-radius:14px;aspect-ratio:1;object-fit:cover;width:100%}
+form .f{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+input,textarea,select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;color:var(--text);font:15px "Space Grotesk";margin-bottom:10px}
+input:focus,textarea:focus,select:focus{outline:0;border-color:var(--accent)}
+textarea{min-height:100px}
+
+footer{padding:40px 0 60px;border-top:1px solid var(--line);margin-top:60px}
+.fr{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;font-size:14px;color:var(--muted)}
+.fr a:hover{color:var(--accent)}
+.fr nav{display:flex;gap:20px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(20px);transition:.8s ease}
+.reveal.in{opacity:1;transform:none}
+[data-mode=golf] .only-train{display:none}
+[data-mode=train] .only-golf{display:none}
+.demo-note{position:fixed;right:16px;bottom:16px;z-index:60;background:var(--accent);color:#111;font-size:12px;padding:8px 12px;border-radius:8px;font-weight:700}
+.demo-note a{text-decoration:underline}
+
+@media (max-width:1080px){
+  .navl{display:none}
+  .t-main{grid-column:span 12}
+  .t-img{grid-column:span 12;min-height:340px}
+  .t-stat{grid-column:span 4}
+  .t-hours{grid-column:span 12}
+  .metrics,.finder,.booking,.duo{grid-template-columns:1fr}
+  .g1,.g2{grid-column:span 12}
+  .gprices{grid-template-columns:1fr}
+  .orow{grid-template-columns:50px 1fr 120px 44px}
+  .orow p{display:none}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  header{padding:0 8px}
+  .bar{padding:8px 8px 8px 14px}
+  .status{display:none}
+  .navr .btn-a{display:none}
+  .mode button{padding:8px 12px}
+  section{padding:80px 0}
+  .t-main{padding:26px}
+  .t-stat{grid-column:span 6}
+  .t-stat b{font-size:30px}
+  .mgrid,.opts{grid-template-columns:1fr}
+  .orow{grid-template-columns:1fr 44px;gap:8px}
+  .orow .mono,.orow .pr{display:none}
+  .orow h3{font-size:22px}
+  .days{grid-template-columns:repeat(4,1fr)}
+  .slots{grid-template-columns:repeat(3,1fr)}
+  .coach-t{grid-template-columns:1fr}
+  .coach-t img{max-width:180px}
+  form .f{grid-template-columns:1fr}
+  .quiz,.finder .intro{padding:24px}
+  .demo-note{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body data-mode="train">
+
+<header>
+  <div class="bar">
+    <div style="display:flex;align-items:center;gap:6px">
+      <a class="logo" href="#"><b>//</b>MPT</a>
+      <div class="status" id="status"><i></i><span id="statusTxt">Status</span></div>
+    </div>
+    <nav class="navl only-train"><a href="#daten">Methode</a><a href="#finder">Ziel-Finder</a><a href="#angebot">Angebot</a><a href="#buchen">Buchen</a><a href="#kontakt">Kontakt</a></nav>
+    <nav class="navl only-golf"><a href="#golf">TrackMan</a><a href="#golfpreise">Preise</a><a href="#buchen">Buchen</a><a href="#kontakt">Kontakt</a></nav>
+    <div class="navr">
+      <div class="mode" role="tablist" aria-label="Bereich wählen">
+        <button class="on" data-m="train">Training</button><button data-m="golf">Golf</button>
+      </div>
+      <a class="btn btn-a" href="#buchen">Buchen</a>
+    </div>
+  </div>
+</header>
+
+<!-- TRAINING HERO -->
+<section class="hero only-train">
+  <div class="wrap bento">
+    <div class="tile t-main reveal">
+      <span class="mono a">// Metsch Personal Training · Fernwald</span>
+      <div>
+        <h1>Training, das man <span>messen</span> kann.</h1>
+        <p>Vom Körperfett- und Muskelanteil über Schlafqualität bis zur Trainingsleistung: Wir erfassen alles und liefern sichtbare, messbare Resultate.</p>
+        <div class="acts"><a href="#finder" class="btn btn-a">Ziel-Finder starten →</a><a href="#buchen" class="btn btn-o">Termin buchen</a></div>
+      </div>
+    </div>
+    <div class="tile t-img reveal"><img src="../assets/img/studio-gym.jpg" alt="MPT Studio"><div class="ov"><span>Das Studio</span><span class="mono">Lahnstraße 23</span></div></div>
+    <div class="tile t-stat ac reveal"><span class="mono">Format</span><b>1:1</b><span style="font-size:13px">Personal Training</span></div>
+    <div class="tile t-stat reveal"><span class="mono">Gruppe</span><b>≤ 6</b><span style="font-size:13px;color:var(--muted)">Semi-Personal</span></div>
+    <div class="tile t-hours reveal" id="hours">
+      <span class="mono">Öffnungszeiten</span>
+      <div style="margin-top:12px">
+        <div class="row" data-d="1,2,3,4,5"><span>Mo–Fr</span><span>16–21 Uhr</span></div>
+        <div class="row" data-d="6"><span>Sa</span><span>geschlossen</span></div>
+        <div class="row" data-d="0"><span>So</span><span>10–13 Uhr</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOLF HERO -->
+<section class="hero only-golf" id="golf">
+  <div class="wrap golfwrap">
+    <div class="tile g1 reveal"><img src="../assets/img/golf-simulator.jpg" alt="TrackMan Golfsimulator"><div class="cap"><span class="mono a">// TrackMan 4 · Virtual Golf 2</span><h2 style="margin-top:14px">Dein Spiel.<br>Erfasst. Analysiert.</h2></div></div>
+    <div class="g2">
+      <div class="tile reveal" style="flex:1">
+        <span class="mono">Live Readout · Beispiel</span>
+        <div class="readout" style="margin-top:14px">
+          <div><span>Schlägerdaten</span><span>✓</span></div>
+          <div><span>Balldaten</span><span>✓</span></div>
+          <div><span>Trefferposition</span><span>✓</span></div>
+          <div><span>3D-Flugbahn</span><span>Echtzeit</span></div>
+          <div><span>Normalisierung</span><span>alle Bedingungen</span></div>
+          <div><span>Videoanalyse</span><span>✓</span></div>
+        </div>
+      </div>
+      <div class="tile reveal"><p style="color:var(--muted);font-size:15px">Zwei Radargeräte und eine Kamera. Vom kurzen Putt bis zum 400-Meter-Drive, ganz ohne Aufkleber.</p><a href="#buchen" class="btn btn-a" style="margin-top:18px;width:100%;justify-content:center">Simulator buchen · 45 €</a></div>
+    </div>
+    <div class="gprices" id="golfpreise">
+      <div class="tile gp reveal"><div><span class="mono">Einzelstunde</span><p style="margin-top:8px;color:var(--muted);font-size:14px">1 Std. TrackMan</p></div><b>45€</b></div>
+      <div class="tile gp hl reveal"><div><span class="mono a">5er-Karte · 12 Monate</span><p style="margin-top:8px" class="old">225 €</p></div><b>190€</b></div>
+      <div class="tile gp reveal"><div><span class="mono">10er-Karte</span><p style="margin-top:8px" class="old">450 €</p></div><b>350€</b></div>
+    </div>
+    <div class="tile reveal" style="grid-column:span 12;display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+      <span class="mono">Rabattcodes*</span>
+      <button class="code" onclick="cp(this)">MPTstudi10 <span style="color:var(--muted)">−10 € Studierende</span></button>
+      <button class="code" onclick="cp(this)">MPTwinnerod5 <span style="color:var(--muted)">−5 € GC Winnerod</span></button>
+      <span style="font-size:13px;color:var(--muted)">*Nur Einzelbuchungen, Nachweis mitbringen.</span>
+    </div>
+  </div>
+</section>
+
+<section id="daten" class="only-train" style="padding-top:60px">
+  <div class="wrap">
+    <div class="sh reveal">
+      <div><span class="mono a">// 01 · Maßgeschneiderte Methoden</span><h2>Daten statt Bauchgefühl.</h2></div>
+      <p>Durch die Auswertung deiner Daten und individuelle Methoden erzielen unsere Klient*innen messbare und sichtbare Resultate.</p>
+    </div>
+    <div class="metrics">
+      <div class="dash reveal">
+        <div class="dash-top"><div><span class="mono">Fortschritt · Beispielverlauf</span><h3 style="font-size:22px;margin-top:6px">Muskelanteil vs. Körperfett</h3></div><span class="mono a">12 Wochen</span></div>
+        <div class="chart" id="chart">
+          <svg viewBox="0 0 600 220" preserveAspectRatio="none">
+            <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff5f1f" stop-opacity=".35"/><stop offset="1" stop-color="#ff5f1f" stop-opacity="0"/></linearGradient></defs>
+            <path class="f" d="M0 180 C80 170 120 150 200 135 S330 100 400 80 S520 45 600 30 L600 220 L0 220Z"/>
+            <path class="l" d="M0 180 C80 170 120 150 200 135 S330 100 400 80 S520 45 600 30"/>
+            <path d="M0 50 C100 60 180 80 260 100 S420 140 600 165" fill="none" stroke="#4b5260" stroke-width="2" stroke-dasharray="6 6"/>
+          </svg>
+        </div>
+        <div class="legend"><span>Muskelanteil</span><span class="b">Körperfett</span><span style="margin-left:auto">Illustrativ, keine echten Kundendaten</span></div>
+      </div>
+      <div class="mgrid">
+        <div class="m reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg><div><h4>Körperfett &amp; Muskeln</h4><p>Hautfaltenmessung im Check-up</p></div><div class="bar-s"><i style="--w:82%"></i></div></div>
+        <div class="m reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg><div><h4>Schlafqualität</h4><p>Regeneration als Leistungsfaktor</p></div><div class="bar-s"><i style="--w:64%"></i></div></div>
+        <div class="m reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg><div><h4>Aktivitätslevel</h4><p>Dein Alltag fließt in den Plan</p></div><div class="bar-s"><i style="--w:71%"></i></div></div>
+        <div class="m reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6v12M18 6v12M3 9v6M21 9v6M6 12h12"/></svg><div><h4>Trainingsleistung</h4><p>Jede Einheit dokumentiert</p></div><div class="bar-s"><i style="--w:90%"></i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="finder" class="only-train" style="padding-top:0">
+  <div class="wrap finder">
+    <div class="intro reveal">
+      <span class="mono">// 02 · Ziel-Finder</span>
+      <h2>Welches Training passt zu dir?</h2>
+      <p style="font-size:17px">3 Fragen, 20 Sekunden. Wir empfehlen dir das passende Format und du kannst direkt buchen.</p>
+    </div>
+    <div class="quiz reveal" id="quiz">
+      <div class="progress"><i class="on"></i><i></i><i></i></div>
+      <div class="q" data-q="0"><span class="mono">Frage 1 / 3</span><h3>Was ist dein Hauptziel?</h3>
+        <div class="opts"><button data-v="muskel"><em>A</em>Muskelaufbau</button><button data-v="abnehmen"><em>B</em>Gewichtsabnahme</button><button data-v="reha"><em>C</em>Reha / Schmerzfrei</button><button data-v="leistung"><em>D</em>Leistungs- / Golfsport</button></div></div>
+      <div class="q" data-q="1" hidden><span class="mono">Frage 2 / 3</span><h3>Wie trainierst du am liebsten?</h3>
+        <div class="opts"><button data-v="solo"><em>A</em>Allein mit Coach (1:1)</button><button data-v="gruppe"><em>B</em>In der Kleingruppe</button><button data-v="plan"><em>C</em>Eigenständig mit Plan</button><button data-v="egal"><em>D</em>Weiß ich noch nicht</button></div></div>
+      <div class="q" data-q="2" hidden><span class="mono">Frage 3 / 3</span><h3>Wie oft pro Woche hast du Zeit?</h3>
+        <div class="opts"><button data-v="1"><em>A</em>1×</button><button data-v="2"><em>B</em>2×</button><button data-v="3"><em>C</em>3× oder mehr</button><button data-v="0"><em>D</em>Sehr unregelmäßig</button></div></div>
+      <div class="result" id="res"><span class="mono a">Unsere Empfehlung</span><h3 id="resT"></h3><p id="resP"></p><div style="display:flex;gap:10px;flex-wrap:wrap"><a href="#buchen" class="btn btn-a" id="resBtn">Jetzt buchen →</a><button class="btn btn-o" onclick="resetQuiz()">Neu starten</button></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="angebot" class="only-train" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh reveal"><div><span class="mono a">// 03 · Angebot</span><h2>Formate</h2></div><p>Herausragende Fachkompetenz, ein Umfeld für Erfolg und eine echte Rendite auf deine Investition.</p></div>
+    <div class="olist reveal">
+      <a href="#buchen" class="orow"><span class="mono">01</span><h3>Personaltraining</h3><p>Einzel- oder Privattraining, komplett auf dich zugeschnitten.</p><span class="pr">individuell</span><span class="go">→</span></a>
+      <a href="#buchen" class="orow"><span class="mono">02</span><h3>Coaching</h3><p>Check-ups, Trainings- und Ernährungspläne.</p><span class="pr">auf Anfrage</span><span class="go">→</span></a>
+      <a href="#buchen" class="orow"><span class="mono">03</span><h3>Semi-Personal</h3><p>Kleingruppentraining bis 6 Personen.</p><span class="pr">1 Std.</span><span class="go">→</span></a>
+      <a href="#buchen" class="orow"><span class="mono">04</span><h3>Konsultation</h3><p>Beratungstermin für deine individuellen Fragen.</p><span class="pr">125 €</span><span class="go">→</span></a>
+      <a href="#buchen" class="orow"><span class="mono">05</span><h3>Check-up</h3><p>Hautfaltenmessung &amp; Körperanalyse.</p><span class="pr">25 Min.</span><span class="go">→</span></a>
+      <a href="#buchen" class="orow"><span class="mono">06</span><h3>Golftraining</h3><p>Athletik und Technik, kombinierbar mit TrackMan.</p><span class="pr">individuell</span><span class="go">→</span></a>
+    </div>
+    <div class="tags reveal"><span>#Muskelaufbau</span><span>#Gewichtsabnahme</span><span>#RehaSport</span><span>#Betriebssport</span><span>#Leistungssport</span><span>#GolfAthletik</span></div>
+  </div>
+</section>
+
+<section id="buchen" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sh reveal"><div><span class="mono a">// Online buchen</span><h2>Termin in 30 Sekunden.</h2></div><p>Demo-Buchungsstrecke: Service wählen, Tag und Uhrzeit, fertig. Bestätigung per E-Mail.</p></div>
+    <div class="booking">
+      <div class="bk-steps reveal" id="svcs">
+        <div class="svc on" data-p="individuell"><div>Semi Personal Training<small>1 Std.</small></div><span class="pr">individuell</span></div>
+        <div class="svc" data-p="individuell"><div>Personaltraining<small>nach Absprache</small></div><span class="pr">individuell</span></div>
+        <div class="svc" data-p="individuell"><div>Hautfaltenmessung / Check-up<small>25 Min.</small></div><span class="pr">individuell</span></div>
+        <div class="svc" data-p="125 €"><div>Beratung<small>Konsultation</small></div><span class="pr">125 €</span></div>
+        <div class="svc" data-p="individuell"><div>Golftraining<small>nach Absprache</small></div><span class="pr">individuell</span></div>
+        <div class="svc" data-p="45 €"><div>Golfsimulator TrackMan<small>1 Std.</small></div><span class="pr">45 €</span></div>
+      </div>
+      <div class="cal reveal">
+        <span class="mono">Tag wählen</span>
+        <div class="days" id="days"></div>
+        <span class="mono">Uhrzeit</span>
+        <div class="slots" id="slots" style="margin-top:12px"></div>
+        <div class="summary"><div><span class="mono">Auswahl</span><div id="sum" style="margin-top:4px;font-weight:600">Bitte Uhrzeit wählen</div></div><button class="btn btn-a" id="bookBtn" onclick="this.textContent='✓ Angefragt (Demo)'">Verbindlich anfragen</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" style="padding-top:20px">
+  <div class="wrap duo">
+    <div class="tile review reveal">
+      <div class="coach-t">
+        <img src="../assets/img/coach-marc-luca.jpg" alt="Marc-Luca Metsch">
+        <div><span class="mono a">// Head Coach</span><h3 style="font-size:30px;margin:8px 0">Marc-Luca Metsch</h3><p style="color:var(--muted);font-size:15px">Head Coach bei MPT &amp; Longdrive-Profi. „Ein gesunder Lebensstil beginnt mit einem starken und gesunden Körper."</p></div>
+      </div>
+      <p>„Mich überzeugen das auf die persönlichen Bedarfe zugeschnittene Training, das auch kurzfristig angepasst werden kann, sowie die angenehme Atmosphäre in Kleingruppen."</p>
+      <span class="mono">Frank J., Linden · seit über 1 Jahr Kunde</span>
+    </div>
+    <form class="tile reveal" onsubmit="event.preventDefault();this.innerHTML='<span class=mono>// gesendet</span><h3 style=font-size:40px;margin-top:12px>Danke!</h3><p style=color:var(--muted);margin-top:8px>Wir melden uns bei dir.</p>'">
+      <span class="mono a">// Kontakt</span><h3 style="font-size:34px;margin:10px 0 22px">Schreib uns.</h3>
+      <div class="f"><input placeholder="Name" required><input type="tel" placeholder="Telefon"></div>
+      <input type="email" placeholder="E-Mail" required>
+      <select><option>Betreff: Personaltraining</option><option>Coaching</option><option>Golfsimulator</option><option>Gutschein</option><option>Sonstiges</option></select>
+      <textarea placeholder="Nachricht"></textarea>
+      <label style="display:flex;gap:10px;font-size:13px;color:var(--muted);margin:4px 0 16px"><input type="checkbox" required style="width:auto;margin:0"> Datenschutzerklärung akzeptiert</label>
+      <button class="btn btn-a" style="width:100%;justify-content:center">Absenden →</button>
+      <p class="mono" style="margin-top:18px;text-transform:none;letter-spacing:0">Lahnstraße 23, 35463 Fernwald · info@metsch-personaltraining.de · +49 176 45982476</p>
+    </form>
+  </div>
+</section>
+
+<footer><div class="wrap fr">
+  <span><b style="color:var(--accent)">//</b>MPT · © 2026 Metsch Personal Training</span>
+  <nav><a href="#">Gutschein</a><a href="https://www.instagram.com/metsch.personal.training/">Instagram</a><a href="https://www.facebook.com/metschpersonaltraining">Facebook</a><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a><a href="#">Widerruf</a></nav>
+</div></footer>
+<div class="demo-note">Entwurf 3 · Performance Lab · <a href="../entwuerfe.html">Übersicht</a></div>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+const watch=()=>document.querySelectorAll('.reveal:not(.in),#chart:not(.in)').forEach(el=>io.observe(el));watch();
+
+// Modus Training / Golf
+document.querySelectorAll('.mode button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.mode button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  document.body.dataset.mode=b.dataset.m;scrollTo({top:0,behavior:'smooth'});
+  if(b.dataset.m==='golf')selectSvc(document.querySelector('.svc:last-child'));
+  setTimeout(watch,50);
+});
+
+// Öffnungsstatus
+const H={0:[10,13],1:[16,21],2:[16,21],3:[16,21],4:[16,21],5:[16,21],6:null};
+(()=>{const n=new Date(),d=n.getDay(),h=n.getHours()+n.getMinutes()/60,s=H[d],open=s&&h>=s[0]&&h<s[1];
+  document.getElementById('statusTxt').textContent=open?'Geöffnet bis '+s[1]+' Uhr':'Geschlossen';
+  if(!open)document.getElementById('status').classList.add('off');
+  document.querySelectorAll('#hours [data-d]').forEach(r=>r.dataset.d.split(',').includes(String(d))&&r.classList.add('today'));
+})();
+
+// Quiz
+const ans=[];
+document.querySelectorAll('.q .opts button').forEach(b=>b.onclick=()=>{
+  const q=+b.closest('.q').dataset.q;ans[q]=b.dataset.v;
+  b.closest('.q').hidden=true;
+  const bars=document.querySelectorAll('.progress i');
+  if(q<2){document.querySelector('.q[data-q="'+(q+1)+'"]').hidden=false;bars[q+1].classList.add('on')}
+  else showResult();
+});
+function showResult(){
+  let t='Personaltraining',p='1:1-Betreuung mit Plan auf Basis deiner Messwerte. Der schnellste Weg zu sichtbaren Ergebnissen.';
+  if(ans[1]==='gruppe'){t='Semi-Personaltraining';p='Kleingruppe bis 6 Personen: persönliche Betreuung plus Motivation der Gruppe. Mo–Fr 16–21 Uhr, So 10–13 Uhr.'}
+  if(ans[1]==='plan'||ans[2]==='0'){t='Coaching';p='Check-ups, Trainings- und Ernährungspläne: flexibel für einen vollen Kalender.'}
+  if(ans[0]==='leistung'&&ans[1]!=='gruppe'){t='Golftraining & Athletik';p='Athletiktraining kombiniert mit TrackMan-Analyse für mehr Kraft und Konstanz im Schwung.'}
+  if(ans[0]==='reha'||ans[1]==='egal'){t='Konsultation + Check-up';p='Wir analysieren deine Ausgangslage und empfehlen dir das passende Format. Konsultation 125 €.'}
+  document.getElementById('resT').textContent=t;document.getElementById('resP').textContent=p;
+  document.getElementById('res').classList.add('on');
+}
+function resetQuiz(){ans.length=0;document.getElementById('res').classList.remove('on');document.querySelectorAll('.q').forEach((q,i)=>q.hidden=i>0);document.querySelectorAll('.progress i').forEach((b,i)=>b.classList.toggle('on',i===0))}
+
+// Buchungs-Demo
+let sel={svc:'Semi Personal Training',day:null,slot:null};
+function selectSvc(el){document.querySelectorAll('.svc').forEach(s=>s.classList.remove('on'));el.classList.add('on');sel.svc=el.firstElementChild.firstChild.textContent.trim();upd()}
+document.querySelectorAll('.svc').forEach(s=>s.onclick=()=>selectSvc(s));
+const days=document.getElementById('days'),wd=['So','Mo','Di','Mi','Do','Fr','Sa'];
+for(let i=0;i<7;i++){const d=new Date();d.setDate(d.getDate()+i);const el=document.createElement('div');
+  el.className='day'+(d.getDay()===6?' off':'');el.innerHTML=wd[d.getDay()]+'<b>'+d.getDate()+'</b>';
+  el.onclick=()=>{document.querySelectorAll('.day').forEach(x=>x.classList.remove('on'));el.classList.add('on');sel.day=wd[d.getDay()]+', '+d.toLocaleDateString('de-DE');renderSlots(d.getDay())};days.appendChild(el)}
+function renderSlots(wday){const s=document.getElementById('slots');s.innerHTML='';const r=H[wday]||[16,21];
+  for(let h=r[0];h<r[1];h++){const b=document.createElement('button');b.className='slot'+((h*7+wday)%4===0?' taken':'');b.textContent=h+':00';
+    b.onclick=()=>{document.querySelectorAll('.slot').forEach(x=>x.classList.remove('on'));b.classList.add('on');sel.slot=b.textContent;upd()};s.appendChild(b)}}
+function upd(){document.getElementById('sum').textContent=sel.slot?sel.svc+' · '+sel.day+' · '+sel.slot+' Uhr':sel.svc+' · bitte Tag & Uhrzeit wählen';document.getElementById('bookBtn').textContent='Verbindlich anfragen'}
+const first=[...document.querySelectorAll('.day')].find(d=>!d.classList.contains('off'));first.click();
+function cp(el){navigator.clipboard?.writeText(el.firstChild.textContent.trim());el.style.borderStyle='solid';setTimeout(()=>el.style.borderStyle='dashed',800)}
+</script>
+</body>
+</html>

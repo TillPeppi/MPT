@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MPT – Bold Athletic</title>
+<meta name="description" content="Metsch Personal Training in Fernwald – erfolgsorientiertes Personal Training, Coaching und TrackMan Golfsimulator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b; --surface:#141416; --surface-2:#1c1c1f; --line:#2a2a2e;
+  --text:#f4f4f5; --muted:#a1a1aa; --accent:#f2611d; --accent-2:#ff7a3d;
+  --radius:14px; --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--text);font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.display{font-family:Anton,Impact,sans-serif;text-transform:uppercase;letter-spacing:.01em;line-height:.95;font-weight:400}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.eyebrow::before{content:"//";font-family:Anton,sans-serif;font-size:18px;letter-spacing:0}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;font-weight:600;font-size:15px;transition:.25s;cursor:pointer;border:0}
+.btn-primary{background:var(--accent);color:#0a0a0b}
+.btn-primary:hover{background:var(--accent-2);transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(255,255,255,.25);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.btn svg{width:18px;height:18px}
+section{padding:120px 0}
+
+/* Header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:.3s}
+header.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-family:Anton,sans-serif;font-size:28px;letter-spacing:.02em;display:flex;align-items:baseline;gap:2px}
+.logo span{color:var(--accent);font-style:italic}
+.logo small{font:500 11px Inter,sans-serif;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-left:10px}
+.nav-links{display:flex;gap:34px;font-size:14px;font-weight:500}
+.nav-links a{color:#d4d4d8;transition:.2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{display:flex;gap:12px;align-items:center}
+.nav-cta .btn{padding:11px 20px;font-size:14px}
+.burger{display:none;background:none;border:0;color:#fff;width:44px;height:44px}
+.mobile-menu{display:none}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:120px 0 80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url(../assets/img/studio-gym.jpg) center/cover;filter:grayscale(1) contrast(1.1);transform:scale(1.08);animation:zoom 14s ease-out forwards}
+@keyframes zoom{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,.35) 40%,rgba(10,10,11,.96) 92%)}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero h1{font-size:clamp(56px,10vw,150px);margin:22px 0 28px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+.hero p{max-width:540px;color:#d4d4d8;font-size:18px}
+.hero-actions{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.hero-badge{border:1px solid var(--line);background:rgba(20,20,22,.7);backdrop-filter:blur(10px);border-radius:var(--radius);padding:20px 24px;display:flex;gap:16px;align-items:center}
+.hero-badge .dot{width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 6px rgba(34,197,94,.15)}
+.hero-badge.closed .dot{background:#71717a;box-shadow:0 0 0 6px rgba(113,113,122,.15)}
+.hero-badge b{display:block;font-size:15px}
+.hero-badge span{font-size:13px;color:var(--muted)}
+
+/* Marquee */
+.marquee{background:var(--accent);color:#0a0a0b;overflow:hidden;padding:18px 0;transform:rotate(-1.2deg);margin:-14px -20px 0;position:relative;z-index:3}
+.marquee-track{display:flex;gap:48px;white-space:nowrap;animation:scroll 30s linear infinite;width:max-content}
+.marquee-track span{font-family:Anton,sans-serif;font-size:28px;text-transform:uppercase;display:flex;align-items:center;gap:48px}
+.marquee-track span::after{content:"//"}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* USP */
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+.section-head h2{font-size:clamp(44px,6vw,88px);max-width:760px;margin-top:16px}
+.section-head p{max-width:420px;color:var(--muted)}
+.usp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.usp{background:var(--bg);padding:40px 30px 44px;transition:.3s;position:relative}
+.usp:hover{background:var(--surface)}
+.usp .num{font-family:Anton,sans-serif;font-size:56px;color:transparent;-webkit-text-stroke:1px #3f3f46;line-height:1;transition:.3s}
+.usp:hover .num{-webkit-text-stroke-color:var(--accent)}
+.usp h3{font-size:20px;margin:28px 0 12px;line-height:1.25}
+.usp p{font-size:15px;color:var(--muted)}
+
+/* Offers */
+.offers{background:var(--surface)}
+.offer-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-auto-rows:minmax(260px,auto);gap:18px}
+.offer{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--surface-2);border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;justify-content:flex-end;min-height:280px;transition:.3s}
+.offer:hover{border-color:var(--accent);transform:translateY(-4px)}
+.offer.big{grid-row:span 2;min-height:580px}
+.offer.img::before{content:"";position:absolute;inset:0;background:var(--img) center/cover;filter:grayscale(.3);transition:.6s}
+.offer.img:hover::before{transform:scale(1.05)}
+.offer.img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(10,10,11,.95))}
+.offer > *{position:relative;z-index:2}
+.offer .tag{position:absolute;top:24px;left:32px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:rgba(10,10,11,.6);border:1px solid var(--line);padding:6px 12px;border-radius:999px;backdrop-filter:blur(8px)}
+.offer h3{font-family:Anton,sans-serif;font-size:36px;text-transform:uppercase;line-height:1;margin-bottom:12px}
+.offer p{color:#d4d4d8;font-size:15px;max-width:380px}
+.offer .meta{display:flex;justify-content:space-between;align-items:center;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);font-size:14px}
+.offer .meta b{color:var(--accent)}
+.arrow{width:42px;height:42px;border-radius:50%;background:var(--accent);color:#0a0a0b;display:grid;place-items:center;transition:.3s}
+.offer:hover .arrow{transform:rotate(-45deg)}
+.focus-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.focus-list span{border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-size:14px;color:#d4d4d8}
+
+/* Coach */
+.coach-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center}
+.coach-img{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5}
+.coach-img img{width:100%;height:100%;object-fit:cover}
+.coach-img .label{position:absolute;left:20px;bottom:20px;right:20px;background:rgba(10,10,11,.75);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+.coach-img .label b{display:block;font-size:17px}
+.coach-img .label span{font-size:13px;color:var(--accent)}
+.coach h2{font-size:clamp(44px,5.5vw,80px);margin:16px 0 28px}
+.coach p{color:#c4c4c8;margin-bottom:18px;font-size:17px}
+blockquote{margin-top:40px;padding:32px;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 var(--radius) var(--radius) 0}
+blockquote p{font-size:18px!important;color:#fff!important;font-style:italic}
+blockquote cite{display:block;margin-top:14px;font-style:normal;font-size:14px;color:var(--muted)}
+
+/* Studio gallery */
+.gallery{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:300px 300px;gap:18px}
+.gallery div{border-radius:var(--radius);background:center/cover;filter:grayscale(1);transition:.5s}
+.gallery div:hover{filter:none}
+.gallery div:first-child{grid-row:span 2}
+
+/* Golf */
+.golf{position:relative;background:#050506;overflow:hidden}
+.golf-hero{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.golf h2{font-size:clamp(48px,6.5vw,100px);margin:16px 0 24px}
+.golf h2 em{font-style:normal;color:var(--accent)}
+.golf p{color:#c4c4c8;font-size:17px}
+.golf-img{border-radius:var(--radius);overflow:hidden;aspect-ratio:16/10;border:1px solid var(--line)}
+.golf-img img{width:100%;height:100%;object-fit:cover}
+.data-chips{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0}
+.data-chips span{font-size:13px;padding:8px 14px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:80px}
+.price{border:1px solid var(--line);border-radius:var(--radius);padding:34px;background:var(--surface);position:relative;transition:.3s}
+.price:hover{transform:translateY(-4px)}
+.price.hot{border-color:var(--accent);background:linear-gradient(180deg,rgba(242,97,29,.12),var(--surface) 60%)}
+.price .badge{position:absolute;top:-12px;right:24px;background:var(--accent);color:#0a0a0b;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;text-transform:uppercase;letter-spacing:.06em}
+.price h4{font-size:15px;color:var(--muted);font-weight:500}
+.price .amount{font-family:Anton,sans-serif;font-size:64px;line-height:1.1;margin:10px 0 4px}
+.price .amount small{font:500 16px Inter,sans-serif;color:var(--muted)}
+.price .save{color:var(--accent);font-weight:600;font-size:14px}
+.price ul{list-style:none;margin:22px 0 28px;font-size:14px;color:#c4c4c8}
+.price li{padding:8px 0;border-bottom:1px solid var(--line)}
+.price li::before{content:"✓ ";color:var(--accent);font-weight:700}
+.price .btn{width:100%;justify-content:center}
+.codes{margin-top:24px;display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.codes code{background:var(--surface-2);border:1px dashed var(--accent);color:#fff;padding:4px 10px;border-radius:6px;font-weight:600;cursor:pointer}
+
+/* Gift */
+.gift{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;background:var(--accent);color:#0a0a0b;border-radius:24px;padding:64px;overflow:hidden}
+.gift h2{font-size:clamp(44px,5vw,76px)}
+.gift p{margin:18px 0 28px;font-size:17px;max-width:440px}
+.gift .amounts{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.gift .amounts button{background:transparent;border:2px solid #0a0a0b;color:#0a0a0b;font:600 16px Inter;padding:12px 20px;border-radius:999px;cursor:pointer;transition:.2s}
+.gift .amounts button.on,.gift .amounts button:hover{background:#0a0a0b;color:var(--accent)}
+.gift .btn-dark{background:#0a0a0b;color:#fff}
+.gift img{border-radius:16px;transform:rotate(4deg);box-shadow:0 30px 60px rgba(0,0,0,.35)}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px}
+.info-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:34px;margin-bottom:18px}
+.info-card h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.hours div{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.hours div:last-child{border:0}
+.hours div.today{color:var(--accent);font-weight:600}
+.hours small{display:block;margin-top:14px;color:var(--muted);font-size:13px}
+form{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:40px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-size:13px;color:var(--muted);margin-bottom:8px;font-weight:500}
+input,select,textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;color:#fff;font:15px Inter;margin-bottom:18px;transition:.2s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--accent)}
+textarea{min-height:130px;resize:vertical}
+.consent{display:flex;gap:10px;font-size:13px;color:var(--muted);margin-bottom:22px;align-items:flex-start}
+.consent input{width:auto;margin:3px 0 0}
+.map{margin-top:18px;border-radius:var(--radius);border:1px solid var(--line);background:var(--surface) url(../assets/img/studio-bikes.jpg) center/cover;height:200px;position:relative;overflow:hidden}
+.map::after{content:"";position:absolute;inset:0;background:rgba(10,10,11,.7)}
+.map button{position:absolute;inset:0;margin:auto;z-index:2;width:max-content;height:max-content}
+
+footer{border-top:1px solid var(--line);padding:60px 0 40px;margin-top:40px}
+.foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center}
+.foot-links{display:flex;gap:24px;font-size:14px;color:var(--muted);flex-wrap:wrap}
+.foot-links a:hover{color:var(--accent)}
+.social{display:flex;gap:10px}
+.social a{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.2s}
+.social a:hover{border-color:var(--accent);color:var(--accent)}
+.social svg{width:18px;height:18px}
+.newsletter{display:flex;gap:10px;max-width:420px;width:100%}
+.newsletter input{margin:0}
+.newsletter .btn{padding:12px 20px;white-space:nowrap}
+
+.sticky-cta{display:none}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+.demo-note{position:fixed;left:16px;bottom:16px;z-index:60;background:#fff;color:#000;font-size:12px;padding:8px 12px;border-radius:8px;font-weight:600;opacity:.85}
+.demo-note a{text-decoration:underline}
+
+@media (max-width:1000px){
+  .nav-links,.nav-cta .btn-ghost{display:none}
+  .burger{display:block}
+  .usp-grid{grid-template-columns:1fr 1fr}
+  .offer-grid{grid-template-columns:1fr 1fr}
+  .offer.big{grid-column:span 2;grid-row:auto;min-height:420px}
+  .coach-grid,.golf-hero,.contact-grid,.gift{grid-template-columns:1fr;gap:40px}
+  .price-grid{grid-template-columns:1fr}
+  .gift{padding:40px 28px}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  section{padding:80px 0}
+  .nav-cta .btn{display:none}
+  .usp-grid,.offer-grid{grid-template-columns:1fr}
+  .offer.big{grid-column:auto}
+  .gallery{grid-template-columns:1fr;grid-template-rows:240px 180px 180px}
+  .gallery div:first-child{grid-row:auto}
+  .row{grid-template-columns:1fr}
+  form{padding:24px}
+  .hero{padding-bottom:110px}
+  .hero h1{font-size:clamp(44px,13vw,64px)}
+  .hero-badge{width:100%}
+  .sticky-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:55;gap:8px}
+  .sticky-cta a{flex:1;justify-content:center;padding:15px}
+  .demo-note{display:none}
+  .newsletter{flex-direction:column}
+}
+.mobile-menu.open{display:flex;position:fixed;inset:76px 0 0 0;background:var(--bg);z-index:49;flex-direction:column;padding:30px 16px;gap:6px}
+.mobile-menu a{font-family:Anton,sans-serif;font-size:40px;text-transform:uppercase;padding:8px 0;border-bottom:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="logo"><span>//</span>MPT<small>Metsch Personal Training</small></a>
+    <nav class="nav-links">
+      <a href="#leistungen">Training &amp; Ernährung</a>
+      <a href="#coach">Über uns</a>
+      <a href="#golf">Golf</a>
+      <a href="#gutschein">Gutschein</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="#kontakt">Meine Termine</a>
+      <a class="btn btn-primary" href="#kontakt">Online buchen</a>
+      <button class="burger" aria-label="Menü" onclick="document.getElementById('mm').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-menu" id="mm" onclick="this.classList.remove('open')">
+  <a href="#leistungen">Training</a><a href="#coach">Über uns</a><a href="#golf">Golf</a><a href="#gutschein">Gutschein</a><a href="#kontakt">Kontakt</a>
+</nav>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <span class="eyebrow">Personal Training Studio in Fernwald</span>
+    <h1 class="display">Mehr Kraft.<br>Mehr Energie.<br><em>Mehr Gesundheit.</em></h1>
+    <div class="hero-row">
+      <div>
+        <p>Wir helfen ambitionierten und viel beschäftigten Menschen dabei, effizient und nachhaltig einen leistungsfähigen und starken Körper zu erlangen.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#kontakt">Kostenlos Termin anfragen
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="btn btn-ghost" href="#leistungen">Angebote ansehen</a>
+        </div>
+      </div>
+      <div class="hero-badge" id="openBadge">
+        <div class="dot"></div>
+        <div><b id="openTitle">Studio-Status</b><span id="openSub">Lahnstraße 23 · 35463 Fernwald</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track">
+  <span>Muskelaufbau</span><span>Gewichtsabnahme</span><span>Reha-Sport</span><span>Betriebssport</span><span>Leistungssport</span><span>Golftraining &amp; Athletik</span>
+  <span>Muskelaufbau</span><span>Gewichtsabnahme</span><span>Reha-Sport</span><span>Betriebssport</span><span>Leistungssport</span><span>Golftraining &amp; Athletik</span>
+</div></div>
+
+<section id="warum">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow">Was erwartet dich?</span>
+      <h2 class="display">Garantiert erfolgs&shy;orientiert &amp; zielführend.</h2></div>
+      <p>MPT unterscheidet sich von herkömmlichen Fitnessstudios durch beispiellose Beständigkeit und Professionalität.</p>
+    </div>
+    <div class="usp-grid reveal">
+      <div class="usp"><div class="num">01</div><h3>Herausragende Fachkompetenz</h3><p>Erfahrene, ausgebildete Personal Trainer coachen dich mit höchstem Verantwortungsbewusstsein an deine Ziele.</p></div>
+      <div class="usp"><div class="num">02</div><h3>Maßgeschneiderte Methoden</h3><p>Körperfett, Muskelanteil, Schlafqualität, Aktivitätslevel, Trainingsleistung: Wir erfassen alles und machen Resultate messbar.</p></div>
+      <div class="usp"><div class="num">03</div><h3>Ein Umfeld für Erfolg</h3><p>Ein reines Personal-Training-Studio mit erstklassiger Ausstattung für außergewöhnliche Transformationen.</p></div>
+      <div class="usp"><div class="num">04</div><h3>Rentabilität</h3><p>Strukturierte Arbeitsweise auf höchstem Niveau mit dem Ziel einer echten Investitionsrendite für dich.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="offers" id="leistungen">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow">Training &amp; Ernährung</span>
+      <h2 class="display">Dein Weg.<br>Dein Format.</h2></div>
+      <p>Ein gesunder Lebensstil beginnt mit einem starken Körper. Wir legen deine Ziele fest, erstellen deinen Plan und stehen dir bei jeder Einheit zur Seite.</p>
+    </div>
+    <div class="offer-grid reveal">
+      <a href="#kontakt" class="offer big img" style="--img:url(../assets/img/trainer-bench.jpg)">
+        <span class="tag">Beliebt</span>
+        <h3>Personal&shy;training</h3>
+        <p>Einzel- oder Privattraining, 100 % auf dich zugeschnitten. Ganzheitlich, effizient, mit schnell sichtbaren Ergebnissen.</p>
+        <div class="meta"><span>Individueller Preis</span><span class="arrow">→</span></div>
+      </a>
+      <a href="#kontakt" class="offer">
+        <h3>Coaching</h3>
+        <p>Individuelles Coaching mit Check-ups, Trainings- und Ernährungsplänen.</p>
+        <div class="meta"><span>Auf Anfrage</span><span class="arrow">→</span></div>
+      </a>
+      <a href="#kontakt" class="offer img" style="--img:url(../assets/img/studio-bikes.jpg)">
+        <h3>Semi-Personal</h3>
+        <p>Kleingruppentraining bis 6 Personen.</p>
+        <div class="meta"><span>1 Std.</span><span class="arrow">→</span></div>
+      </a>
+      <a href="#kontakt" class="offer">
+        <h3>Konsultation</h3>
+        <p>Beratungstermin für deine individuellen Fragen.</p>
+        <div class="meta"><b>125 €</b><span class="arrow">→</span></div>
+      </a>
+      <a href="#kontakt" class="offer">
+        <h3>Check-up</h3>
+        <p>Hautfaltenmessung &amp; Körperanalyse als Startpunkt.</p>
+        <div class="meta"><span>25 Min.</span><span class="arrow">→</span></div>
+      </a>
+    </div>
+    <div class="focus-list reveal">
+      <span>Muskelaufbau</span><span>Gewichtsabnahme</span><span>Reha-Sport</span><span>Betriebssport</span><span>Leistungssport</span><span>Golftraining &amp; Athletik</span>
+    </div>
+  </div>
+</section>
+
+<section id="coach">
+  <div class="wrap coach-grid">
+    <div class="coach-img reveal">
+      <img src="../assets/img/coach-marc-luca.jpg" alt="Marc-Luca Metsch, Head Coach bei MPT">
+      <div class="label"><b>Marc-Luca Metsch</b><span>Head Coach bei MPT &amp; Longdrive-Profi</span></div>
+    </div>
+    <div class="coach reveal">
+      <span class="eyebrow">Dein Coach</span>
+      <h2 class="display">Ganzheitlich.<br>Persönlich.<br>Messbar.</h2>
+      <p>„Ich bin der Überzeugung, dass ein gesunder Lebensstil mit einem starken und gesunden Körper beginnt. Mein Ziel ist es, deine Fitness-Ziele festzulegen, einen auf dich zugeschnittenen Trainingsplan zu erstellen und dir bei jeder Übung zur Seite zu stehen."</p>
+      <p>Dank der ganzheitlichen Herangehensweise wirst du schnell Ergebnisse sehen und dich rundum wohlfühlen.</p>
+      <blockquote>
+        <p>„Mich überzeugen das auf die persönlichen Bedarfe zugeschnittene Training, das auch kurzfristig auf Kundenwunsch angepasst werden kann, sowie die sehr angenehme Trainingsatmosphäre in Kleingruppen."</p>
+        <cite>Frank J., Linden · Kunde seit über einem Jahr</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow">Das Studio</span><h2 class="display">Alles, was du brauchst.</h2></div>
+      <p>Hochwertige, moderne Geräte und professionelle Beratung garantieren dir ein optimales Trainingserlebnis.</p>
+    </div>
+    <div class="gallery reveal">
+      <div style="background-image:url(../assets/img/studio-gym.jpg)"></div>
+      <div style="background-image:url(../assets/img/studio-bikes.jpg)"></div>
+      <div style="background-image:url(../assets/img/trainer-bench.jpg)"></div>
+    </div>
+  </div>
+</section>
+
+<section class="golf" id="golf">
+  <div class="wrap">
+    <div class="golf-hero">
+      <div class="reveal">
+        <span class="eyebrow">Golf Simulator</span>
+        <h2 class="display">Dein Spiel.<br>Erfasst.<br><em>Analysiert.</em></h2>
+        <p>TrackMan 4 ist das Tracking-Gerät der Wahl für Top-Spieler: zwei Radargeräte und eine Kamera. Jeder Schlag, vom kurzen Putt bis zum 400-Meter-Drive, in 3D und in Echtzeit.</p>
+        <div class="data-chips"><span>Schlägerdaten</span><span>Balldaten</span><span>Trefferposition</span><span>3D-Flugbahn</span><span>Videoanalyse</span><span>Virtual Golf 2</span></div>
+        <a class="btn btn-primary" href="#kontakt">Simulator buchen · 45 € / Std.</a>
+      </div>
+      <div class="golf-img reveal"><img src="../assets/img/golf-simulator.jpg" alt="TrackMan Golfsimulator im MPT Studio"></div>
+    </div>
+
+    <div class="price-grid reveal">
+      <div class="price">
+        <h4>Einzelstunde</h4>
+        <div class="amount">45 €<small> / Std.</small></div>
+        <div class="save">&nbsp;</div>
+        <ul><li>TrackMan 4 &amp; Virtual Golf 2</li><li>Ideal zum Ausprobieren</li><li>Rabattcodes einlösbar</li></ul>
+        <a class="btn btn-ghost" href="#kontakt">Jetzt buchen</a>
+      </div>
+      <div class="price hot">
+        <span class="badge">Spare 35 €</span>
+        <h4>5er-Karte</h4>
+        <div class="amount">190 €</div>
+        <div class="save">statt 225 €</div>
+        <ul><li>5 Simulator-Stunden</li><li>Gültig 12 Monate</li><li>Sofort online kaufen</li></ul>
+        <a class="btn btn-primary" href="#kontakt">Sofort kaufen</a>
+      </div>
+      <div class="price">
+        <span class="badge">Spare 100 €</span>
+        <h4>10er-Karte</h4>
+        <div class="amount">350 €</div>
+        <div class="save">statt 450 €</div>
+        <ul><li>10 Simulator-Stunden</li><li>Bestes Preis-Leistungs-Verhältnis</li><li>Im Studio erhältlich</li></ul>
+        <a class="btn btn-ghost" href="#kontakt">Anfragen</a>
+      </div>
+    </div>
+    <div class="codes reveal">
+      <span>🎓 Studierende: <code title="Kopieren" onclick="copy(this)">MPTstudi10</code> = 10 € Rabatt</span>
+      <span>⛳ GC Winnerod: <code title="Kopieren" onclick="copy(this)">MPTwinnerod5</code> = 5 € Rabatt</span>
+      <span>*Nur für Einzelbuchungen, Nachweis bitte mitbringen.</span>
+    </div>
+  </div>
+</section>
+
+<section id="gutschein">
+  <div class="wrap">
+    <div class="gift reveal">
+      <div>
+        <h2 class="display">Verschenke Stärke.</h2>
+        <p>Der MPT-Wertgutschein für Personal Training oder den Golfsimulator. Sofort als Download.</p>
+        <div class="amounts">
+          <button>50 €</button><button class="on">100 €</button><button>150 €</button><button>200 €</button><button>Anderer Betrag</button>
+        </div>
+        <a class="btn btn-dark" href="#">Gutschein kaufen →</a>
+      </div>
+      <img src="../assets/img/giftcard.jpg" alt="MPT Wertgutschein">
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow">Komm vorbei</span><h2 class="display">Starte jetzt.</h2></div>
+      <p>Schreib uns oder buche direkt online. Wir melden uns innerhalb kurzer Zeit bei dir.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="info-card hours" id="hours">
+          <h4>Öffnungszeiten</h4>
+          <div data-d="1,2,3,4,5"><span>Mo – Fr</span><span>16:00 – 21:00 · Gruppentraining</span></div>
+          <div data-d="6"><span>Samstag</span><span>Geschlossen</span></div>
+          <div data-d="0"><span>Sonntag</span><span>10:00 – 13:00 · Gruppentraining</span></div>
+          <small>Personaltraining &amp; Golfsimulator auf Anfrage</small>
+        </div>
+        <div class="info-card">
+          <h4>Kontakt</h4>
+          <p>Lahnstraße 23<br>35463 Fernwald</p>
+          <p style="margin-top:12px"><a href="mailto:info@metsch-personaltraining.de">info@metsch-personaltraining.de</a><br><a href="tel:+4917645982476">+49 176 45982476</a></p>
+        </div>
+        <div class="map"><button class="btn btn-ghost" onclick="this.parentElement.innerHTML='<iframe title=Karte style=width:100%;height:100%;border:0 loading=lazy src=https://www.openstreetmap.org/export/embed.html?bbox=8.76%2C50.55%2C8.82%2C50.58&layer=mapnik></iframe>'">Karte laden (externer Dienst)</button></div>
+      </div>
+      <form class="reveal" onsubmit="event.preventDefault();this.innerHTML='<h3 class=display style=font-size:48px>Danke!</h3><p style=color:var(--muted);margin-top:12px>Deine Nachricht ist angekommen. Wir melden uns.</p>'">
+        <div class="row">
+          <div><label>Name</label><input required placeholder="Max Mustermann"></div>
+          <div><label>Telefon</label><input type="tel" placeholder="+49 …"></div>
+        </div>
+        <label>E-Mail</label><input type="email" required placeholder="du@beispiel.de">
+        <label>Worum geht's?</label>
+        <select><option>Personaltraining</option><option>Coaching</option><option>Semi-Personaltraining</option><option>Konsultation</option><option>Golfsimulator</option><option>Gutschein</option><option>Sonstiges</option></select>
+        <label>Nachricht</label><textarea placeholder="Erzähl uns kurz von deinen Zielen …"></textarea>
+        <label class="consent"><input type="checkbox" required> Ich stimme der Verarbeitung meiner Daten gemäß Datenschutzerklärung zu.</label>
+        <button class="btn btn-primary" type="submit">Absenden →</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#top" class="logo"><span>//</span>MPT</a>
+      <form class="newsletter" style="padding:0;background:none;border:0" onsubmit="event.preventDefault();this.innerHTML='<span style=color:var(--accent)>Danke für deinen Support!</span>'">
+        <input type="email" placeholder="Keine News verpassen – E-Mail" required><button class="btn btn-primary">Abonnieren</button>
+      </form>
+      <div class="social">
+        <a href="https://www.instagram.com/metsch.personal.training/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com/metschpersonaltraining" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9V7c0-1 .5-1.5 1.5-1.5H17V2h-2.5C11.5 2 10 4 10 6.5V9H8v3.5h2V22h4v-9.5h2.5L17 9h-3z"/></svg></a>
+      </div>
+    </div>
+    <div class="foot" style="margin-top:40px">
+      <div class="foot-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a><a href="#">Widerrufsbelehrung</a></div>
+      <span style="font-size:13px;color:var(--muted)">© 2026 Metsch Personal Training</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta"><a class="btn btn-primary" href="#kontakt">Termin buchen</a><a class="btn btn-ghost" style="background:var(--bg)" href="tel:+4917645982476">Anrufen</a></div>
+<div class="demo-note">Entwurf 1 · Bold Athletic · <a href="../entwuerfe.html">Übersicht</a></div>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// Live-Status aus Öffnungszeiten
+const H={0:[10,13],1:[16,21],2:[16,21],3:[16,21],4:[16,21],5:[16,21],6:null};
+(function(){const n=new Date(),d=n.getDay(),h=n.getHours()+n.getMinutes()/60,s=H[d];
+  const open=s&&h>=s[0]&&h<s[1];
+  document.getElementById('openTitle').textContent=open?'Jetzt geöffnet · bis '+s[1]+':00 Uhr':'Gerade geschlossen';
+  if(!open)document.getElementById('openBadge').classList.add('closed');
+  document.querySelectorAll('#hours [data-d]').forEach(r=>{if(r.dataset.d.split(',').includes(String(d)))r.classList.add('today')});
+})();
+document.querySelectorAll('.gift .amounts button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.gift .amounts button').forEach(x=>x.classList.remove('on'));b.classList.add('on')});
+function copy(el){navigator.clipboard?.writeText(el.textContent);const t=el.textContent;el.textContent='Kopiert ✓';setTimeout(()=>el.textContent=t,1200)}
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MPT Admin</title>
+<meta name="robots" content="noindex">
+<script src="../site/demo-api.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../" target="_blank" title="Website öffnen"><span>//</span>MPT <em>Admin</em></a>
+  <div class="page-pick"><label for="pageSel">Seite</label><select id="pageSel"></select></div>
+  <div class="devices" role="group" aria-label="Vorschau-Größe">
+    <button data-dev="desktop" class="on" title="Desktop">🖥</button><button data-dev="tablet" title="Tablet">▭</button><button data-dev="mobile" title="Mobil">▯</button>
+  </div>
+  <div class="hist"><button id="undo" title="Rückgängig (⌘Z)">↶</button><button id="redo" title="Wiederholen (⇧⌘Z)">↷</button></div>
+  <span class="save-state" id="saveState">Lädt …</span>
+  <div class="top-actions">
+    <a class="btn ghost" id="viewLive" href="../" target="_blank">Live ansehen ↗</a>
+    <button class="btn primary" id="publish">Veröffentlichen</button>
+    <div class="user"><span id="userName">…</span><button class="btn ghost" id="logout" title="Abmelden">Abmelden</button></div>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="rail" id="rail">
+    <button data-tab="blocks" class="on"><i>＋</i>Blöcke</button>
+    <button data-tab="layers"><i>☰</i>Struktur</button>
+    <button data-tab="pages"><i>▤</i>Seiten</button>
+    <button data-tab="content"><i>◫</i>Inhalte</button>
+    <button data-tab="settings"><i>⚙</i>Einstell.</button>
+    <button data-tab="inbox"><i>✉</i>Anfragen<b id="inboxCount" hidden></b></button>
+    <span class="rail-sep" aria-hidden="true"></span>
+    <button data-tab="members"><i>☻</i>Kunden</button>
+    <button data-tab="bookings"><i>▦</i>Buchungen</button>
+    <button data-tab="orders"><i>€</i>Bestell.<b id="orderCount" hidden></b></button>
+  </nav>
+  <aside class="left" id="left"></aside>
+  <main class="canvas" id="canvas">
+    <div class="banner warn" id="pwBanner" hidden>⚠ Das Standard-Passwort ist noch aktiv. Bitte ändere es.<button class="btn primary sm" id="pwFix">Passwort ändern</button></div>
+    <div class="banner" id="banner" hidden></div>
+    <div class="frame-wrap" id="frameWrap"><iframe id="preview" title="Vorschau" src="../?edit=1"></iframe></div>
+    <section class="workspace" id="workspace" aria-label="Arbeitsbereich" hidden></section>
+  </main>
+  <aside class="right" id="right"></aside>
+</div>
+
+<div class="ghost-drag" id="ghost" hidden></div>
+<div class="toast" id="toast" hidden></div>
+<div class="lib-modal" id="wsModal" hidden><div class="box sm" id="wsBox" role="dialog" aria-modal="true"></div></div>
+<div class="lib-modal" id="libModal" hidden><div class="box"><div class="lib-head"><b>Bildbibliothek</b><button class="x" data-close>×</button></div><div class="lib-drop" id="libDrop">Bilder hierher ziehen oder <label class="link">auswählen<input type="file" accept="image/*" multiple hidden id="libFile"></label></div><div class="lib-grid" id="libGrid"></div></div></div>
+
+<script src="schema.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# Lokale Laufzeitdaten (Zugänge, Anfragen, Bestellungen, Backups)
+data/admin.json
+data/inbox.json
+data/orders.json
+data/backups/
+data/*.tmp
+assets/uploads/
+
+# Originalbilder der alten Website (nur lokal)
+assets/original/
+
+# Build-Ausgabe GitHub Pages
+_site/
+
+# Werkzeuge & System
+__pycache__/
+*.pyc
+.claude/
+.ai-knowledge/
+.DS_Store

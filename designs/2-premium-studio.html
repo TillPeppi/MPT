@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MPT – Premium Studio</title>
+<meta name="description" content="Metsch Personal Training in Fernwald – Personal Training für ambitionierte, viel beschäftigte Menschen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f2ed; --paper:#fbfaf7; --ink:#151515; --ink-2:#3d3d3a; --muted:#7a776f; --line:#e2ddd3;
+  --accent:#e85a1a; --dark:#121212; --radius:22px; --max:1280px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.65 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.01em}
+h1,h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;line-height:1;letter-spacing:-.02em}
+h1 i,h2 i{color:var(--accent)}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;align-items:center}
+.kicker b{color:var(--accent);font-weight:800}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 28px;border-radius:999px;font-weight:700;font-size:15px;transition:.25s;cursor:pointer;border:0;font-family:inherit}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:var(--accent)}
+.btn-line{border:1.5px solid var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn .circ{width:28px;height:28px;border-radius:50%;background:var(--accent);display:grid;place-items:center;margin-right:-14px;transition:.25s}
+.btn-dark:hover .circ{background:#fff;color:var(--accent)}
+section{padding:130px 0}
+
+/* top bar + header */
+.topbar{background:var(--ink);color:#d6d3cc;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;height:40px;align-items:center;gap:20px}
+.topbar a:hover{color:#fff}
+.topbar .left{display:flex;gap:24px}
+header{position:sticky;top:0;z-index:40;background:rgba(245,242,237,.86);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:.3s}
+header.scrolled{border-color:var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center;height:84px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:15px;letter-spacing:.02em}
+.logo .mark{background:var(--ink);color:#fff;border-radius:12px;padding:8px 12px;font-size:18px;font-style:italic;letter-spacing:-.02em}
+.logo .mark span{color:var(--accent)}
+.logo small{display:block;font-weight:500;font-size:12px;color:var(--muted);letter-spacing:.04em}
+.links{display:flex;gap:6px;background:var(--paper);border:1px solid var(--line);padding:6px;border-radius:999px}
+.links a{padding:9px 18px;border-radius:999px;font-size:14px;font-weight:600;color:var(--ink-2);transition:.2s}
+.links a:hover,.links a.on{background:var(--ink);color:#fff}
+.burger{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--paper)}
+
+/* hero */
+.hero{padding:60px 0 100px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:stretch}
+.hero h1{font-size:clamp(54px,7.4vw,118px);margin:28px 0 32px}
+.hero .lead{font-size:19px;color:var(--ink-2);max-width:540px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:40px}
+.trust{display:flex;gap:40px;margin-top:64px;padding-top:32px;border-top:1px solid var(--line);flex-wrap:wrap}
+.trust div b{display:block;font-family:"Instrument Serif",serif;font-size:40px;font-weight:400;line-height:1}
+.trust div span{font-size:13px;color:var(--muted)}
+.hero-visual{position:relative;border-radius:var(--radius);overflow:hidden;min-height:620px;background:#222}
+.hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.hero-visual .card{position:absolute;left:20px;right:20px;bottom:20px;background:rgba(251,250,247,.92);backdrop-filter:blur(12px);border-radius:16px;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.hero-visual .card b{display:block;font-size:16px}
+.hero-visual .card span{font-size:13px;color:var(--muted)}
+.hero-visual .stamp{position:absolute;top:20px;right:20px;width:116px;height:116px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;text-align:center;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;line-height:1.3;animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* intro statement */
+.statement{padding:100px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.statement p{font-family:"Instrument Serif",serif;font-size:clamp(30px,3.6vw,52px);line-height:1.15;max-width:1100px;letter-spacing:-.01em}
+.statement p em{color:var(--accent)}
+
+/* pillars */
+.head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:70px}
+.head h2{font-size:clamp(46px,5.5vw,84px);margin-top:20px}
+.head p{color:var(--ink-2);font-size:17px;max-width:480px;justify-self:end}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pillar{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:34px 28px;transition:.35s}
+.pillar:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(0,0,0,.25)}
+.pillar .ico{width:54px;height:54px;border-radius:16px;background:var(--bg);display:grid;place-items:center;margin-bottom:60px;color:var(--accent)}
+.pillar .ico svg{width:26px;height:26px}
+.pillar h3{font-size:19px;font-weight:700;margin-bottom:10px;line-height:1.3}
+.pillar p{font-size:15px;color:var(--muted)}
+
+/* steps */
+.steps-sec{background:var(--dark);color:#f2efe9;border-radius:36px;margin:0 16px}
+.steps-sec .head p{color:#b5b1a8}
+.steps-sec .kicker{color:#8f8b82}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.step{padding:34px 28px 0;border-left:1px solid #2e2e2c;position:relative}
+.step:first-child{border-left:0;padding-left:0}
+.step .n{font-family:"Instrument Serif",serif;font-size:80px;line-height:1;color:var(--accent);font-style:italic}
+.step h3{font-size:20px;margin:22px 0 10px}
+.step p{color:#b5b1a8;font-size:15px}
+.step .pill{display:inline-block;margin-top:18px;font-size:12px;font-weight:700;border:1px solid #3a3a37;border-radius:999px;padding:6px 12px;color:#e8e4dc}
+
+/* offers tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.tabs button{font:700 14px Manrope;padding:12px 22px;border-radius:999px;border:1px solid var(--line);background:var(--paper);cursor:pointer;color:var(--ink-2);transition:.2s}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.panel{display:none;grid-template-columns:1fr 1fr;gap:20px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px;animation:fade .45s ease}
+.panel.on{display:grid}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}}
+.panel .img{border-radius:16px;min-height:440px;background:center/cover}
+.panel .txt{padding:34px 30px;display:flex;flex-direction:column}
+.panel h3{font-family:"Instrument Serif",serif;font-weight:400;font-size:56px;line-height:1}
+.panel .sub{color:var(--accent);font-weight:700;margin:12px 0 20px}
+.panel p{color:var(--ink-2)}
+.panel ul{list-style:none;margin:26px 0;display:grid;gap:10px}
+.panel li{display:flex;gap:12px;font-size:15px}
+.panel li::before{content:"";width:20px;height:20px;flex:none;border-radius:50%;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e85a1a' stroke-width='3'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/12px no-repeat;margin-top:2px}
+.panel .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);gap:16px;flex-wrap:wrap}
+.panel .price{font-family:"Instrument Serif",serif;font-size:34px}
+.focus{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.focus span{padding:10px 18px;border-radius:999px;background:var(--paper);border:1px solid var(--line);font-size:14px;font-weight:600}
+
+/* coach */
+.coach{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+.coach-photo{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;position:relative}
+.coach-photo img{width:100%;height:100%;object-fit:cover}
+.coach h2{font-size:clamp(46px,5vw,76px);margin:20px 0 28px}
+.coach p{font-size:17px;color:var(--ink-2);margin-bottom:16px}
+.sig{font-family:"Instrument Serif",serif;font-style:italic;font-size:36px;margin-top:20px}
+.sig small{display:block;font:600 13px Manrope;color:var(--muted);font-style:normal}
+.quote{margin-top:40px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px}
+.quote p{font-family:"Instrument Serif",serif;font-size:24px;line-height:1.3;color:var(--ink)}
+.quote .who{display:flex;align-items:center;gap:12px;margin-top:18px;font-size:14px;font-weight:600}
+.quote .av{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:800}
+.stars{color:var(--accent);letter-spacing:2px}
+
+/* golf */
+.golf{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.golf .big{border-radius:var(--radius);overflow:hidden;position:relative;min-height:560px;background:#111 url(../assets/img/golf-simulator.jpg) center/cover;color:#fff;padding:44px;display:flex;flex-direction:column;justify-content:flex-end}
+.golf .big::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.85))}
+.golf .big>*{position:relative}
+.golf .big h2{font-size:clamp(46px,5vw,76px)}
+.golf .big p{color:#ddd;max-width:440px;margin-top:16px}
+.golf .side{display:grid;gap:20px}
+.gcard{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;justify-content:space-between;align-items:center;gap:20px;transition:.3s}
+.gcard:hover{border-color:var(--ink)}
+.gcard h4{font-size:18px}
+.gcard p{font-size:14px;color:var(--muted)}
+.gcard .amt{font-family:"Instrument Serif",serif;font-size:48px;line-height:1;text-align:right;white-space:nowrap}
+.gcard .amt small{display:block;font:700 12px Manrope;color:var(--accent)}
+.gcard.hl{background:var(--accent);color:#fff;border-color:var(--accent)}
+.gcard.hl p,.gcard.hl .amt small{color:#ffe4d6}
+.codes{font-size:14px;color:var(--ink-2);background:var(--paper);border:1px dashed var(--line);border-radius:16px;padding:18px 22px;line-height:1.9}
+.codes code{font-weight:800;background:var(--bg);padding:3px 8px;border-radius:6px}
+
+/* faq */
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
+.faq h2{font-size:clamp(46px,5vw,76px);margin-top:20px}
+details{border-bottom:1px solid var(--line);padding:26px 0}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-size:19px;font-weight:700}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:28px;font-weight:400;line-height:1;color:var(--accent);transition:.3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--ink-2);margin-top:14px;max-width:640px}
+
+/* cta / contact */
+.cta{background:var(--accent);color:#fff;border-radius:36px;margin:0 16px;padding:110px 0}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.cta h2{font-size:clamp(52px,6vw,96px)}
+.cta .kicker{color:#ffd8c4}
+.cta .info{margin-top:40px;display:grid;gap:22px;font-size:16px}
+.cta .info b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#ffd8c4;margin-bottom:4px}
+.cta form{background:var(--paper);color:var(--ink);border-radius:var(--radius);padding:36px}
+.cta form h3{font-family:"Instrument Serif",serif;font-weight:400;font-size:36px;margin-bottom:22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chips label{cursor:pointer}
+.chips input{display:none}
+.chips span{display:block;padding:10px 16px;border-radius:999px;border:1px solid var(--line);font-size:14px;font-weight:600;transition:.2s}
+.chips input:checked+span{background:var(--ink);color:#fff;border-color:var(--ink)}
+.f{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+input[type=text],input[type=email],input[type=tel],textarea{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:15px 16px;font:15px Manrope;margin-bottom:14px;color:var(--ink)}
+input:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:transparent}
+textarea{min-height:110px;resize:vertical}
+.consent{display:flex;gap:10px;font-size:13px;color:var(--muted);margin:4px 0 20px}
+
+footer{padding:80px 0 40px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid var(--line)}
+.fgrid h5{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.fgrid a{display:block;padding:4px 0;font-weight:600;font-size:15px}
+.fgrid a:hover{color:var(--accent)}
+.fbig{font-family:"Instrument Serif",serif;font-size:clamp(70px,14vw,220px);line-height:.9;letter-spacing:-.04em;margin-top:40px}
+.fbig span{color:var(--accent);font-style:italic}
+.fbottom{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-top:30px;gap:20px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(24px);transition:1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.demo-note{position:fixed;left:16px;bottom:16px;z-index:60;background:var(--ink);color:#fff;font-size:12px;padding:8px 12px;border-radius:8px;font-weight:600}
+.demo-note a{text-decoration:underline}
+.mobile-menu{display:none}
+
+@media (max-width:1060px){
+  .links{display:none}.burger{display:grid;place-items:center}
+  .hero-grid,.head,.coach,.golf,.faq,.cta-grid{grid-template-columns:1fr;gap:40px}
+  .head p{justify-self:start}
+  .pillars{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr;row-gap:40px}
+  .step:nth-child(3){border-left:0;padding-left:0}
+  .panel{grid-template-columns:1fr}
+  .panel .img{min-height:300px}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .hero-visual{min-height:520px}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  section{padding:84px 0}
+  .topbar .left:first-child,.nav .btn{display:none}
+  .topbar .wrap{justify-content:center}
+  .pillars,.steps{grid-template-columns:1fr}
+  .step{border-left:0;padding-left:0;border-top:1px solid #2e2e2c}
+  .step:first-child{border-top:0}
+  .steps-sec,.cta{margin:0 8px;border-radius:24px}
+  .panel .txt{padding:20px 12px}
+  .f{grid-template-columns:1fr}
+  .golf .big{padding:28px;min-height:440px}
+  .gcard{padding:22px}
+  .gcard .amt{font-size:38px}
+  .cta form{padding:24px}
+  .fgrid{grid-template-columns:1fr}
+  .trust{gap:24px}
+  .demo-note{display:none}
+}
+.mobile-menu.open{display:flex;flex-direction:column;position:fixed;inset:124px 0 0;background:var(--bg);z-index:39;padding:20px 16px}
+.mobile-menu a{font-family:"Instrument Serif",serif;font-size:44px;padding:8px 0;border-bottom:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="left"><span>Lahnstraße 23, 35463 Fernwald</span><span>Mo–Fr 16–21 Uhr · So 10–13 Uhr</span></div>
+  <div class="left"><a href="tel:+4917645982476">+49 176 45982476</a><a href="#">Meine Termine</a></div>
+</div></div>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="logo"><span class="mark"><span>//</span>MPT</span><span>Metsch<small>Personal Training</small></span></a>
+    <nav class="links">
+      <a href="#" class="on">Start</a><a href="#angebot">Training</a><a href="#coach">Coach</a><a href="#golf">Golf</a><a href="#faq">FAQ</a><a href="#kontakt">Kontakt</a>
+    </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a href="#kontakt" class="btn btn-dark">Termin buchen <span class="circ">→</span></a>
+      <button class="burger" aria-label="Menü" onclick="document.getElementById('mm').classList.toggle('open')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16M4 16h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-menu" id="mm" onclick="this.classList.remove('open')">
+  <a href="#angebot">Training</a><a href="#coach">Coach</a><a href="#golf">Golf</a><a href="#faq">FAQ</a><a href="#kontakt">Kontakt</a>
+</nav>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <div class="kicker"><b>//</b> Personal Training Studio · Fernwald</div>
+      <h1>Personal Training für Menschen mit <i>wenig Zeit</i> und großen Zielen.</h1>
+      <p class="lead">Effizient und nachhaltig zu einem leistungsfähigen, starken Körper, in dem du dich langfristig wohlfühlst. Mit mehr Kraft, Energie und Gesundheit.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn-dark">Beratung vereinbaren <span class="circ">→</span></a>
+        <a href="#angebot" class="btn btn-line">Angebote entdecken</a>
+      </div>
+      <div class="trust">
+        <div><b>1:1</b><span>Persönliche Betreuung</span></div>
+        <div><b>≤ 6</b><span>Personen im Semi-Personal</span></div>
+        <div><b>TrackMan 4</b><span>Golfsimulator im Studio</span></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <img src="../assets/img/coach-marc-luca.jpg" alt="Head Coach Marc-Luca Metsch im MPT Studio">
+      <div class="stamp">Sichtbare<br>Entwicklung<br>//</div>
+      <div class="card"><div><b>Marc-Luca Metsch</b><span>Head Coach &amp; Longdrive-Profi</span></div><a href="#coach" class="btn btn-dark" style="padding:12px 18px">Kennenlernen</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="statement"><div class="wrap reveal">
+  <div class="kicker" style="margin-bottom:28px"><b>//</b> Unser Anspruch</div>
+  <p>Wenn wir sagen „Resultate erzielen", dann meinen wir das auch so. Mit <em>klaren Trainingsstrukturen</em>, <em>zielgerichtetem Training</em> und einer Arbeitsweise auf höchstem Niveau.</p>
+</div></div>
+
+<section>
+  <div class="wrap">
+    <div class="head reveal">
+      <div><div class="kicker"><b>01</b> Was erwartet dich?</div><h2>Anders als jedes <i>Fitnessstudio</i>.</h2></div>
+      <p>Beispiellose Beständigkeit und Professionalität, wie man sie von einem führenden Unternehmen erwarten würde.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 16.6 6.5 19.5l1-6.3L3 8.9 9 8z"/></svg></div><h3>Herausragende Fachkompetenz</h3><p>Erfahrene, ausgebildete Personal Trainer mit höchstem Verantwortungsbewusstsein.</p></div>
+      <div class="pillar reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg></div><h3>Maßgeschneiderte Methoden</h3><p>Körperfett, Muskelanteil, Schlaf, Aktivität und Leistung: erfasst und ausgewertet.</p></div>
+      <div class="pillar reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg></div><h3>Ein Umfeld für Erfolg</h3><p>Ein auf Personal Training ausgerichtetes Studio mit erstklassiger Ausstattung.</p></div>
+      <div class="pillar reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .8 3 2-1.3 1.7-3 2.2-3 1-3 2.3 1.3 2 3 2 3-.6 3-2"/></svg></div><h3>Rentabilität</h3><p>Lebensverändernde Ergebnisse und eine echte Rendite auf deine Investition.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="steps-sec">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><div class="kicker"><b>02</b> So startest du</div><h2>In vier Schritten zu deinem <i>Ziel</i>.</h2></div>
+      <p>Kein Rätselraten. Wir messen, planen und begleiten jede Einheit.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h3>Konsultation</h3><p>Beratungstermin für deine Ziele, Fragen und Ausgangslage.</p><span class="pill">125 €</span></div>
+      <div class="step reveal"><div class="n">2</div><h3>Check-up</h3><p>Hautfaltenmessung &amp; Analyse von Körperfett und Muskelanteil.</p><span class="pill">25 Min.</span></div>
+      <div class="step reveal"><div class="n">3</div><h3>Dein Plan</h3><p>Individueller Trainings- und Ernährungsplan, abgestimmt auf deinen Alltag.</p><span class="pill">Maßgeschneidert</span></div>
+      <div class="step reveal"><div class="n">4</div><h3>Training</h3><p>1:1 oder in der Kleingruppe, kurzfristig anpassbar an deine Bedürfnisse.</p><span class="pill">Messbare Resultate</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="angebot">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><div class="kicker"><b>03</b> Training &amp; Ernährung</div><h2>Finde dein <i>Format</i>.</h2></div>
+      <p>Ganzheitlich gedacht: Training, Ernährung und Regeneration greifen ineinander.</p>
+    </div>
+    <div class="tabs reveal" role="tablist">
+      <button class="on" data-t="p1">Personaltraining</button><button data-t="p2">Coaching</button><button data-t="p3">Semi-Personal</button><button data-t="p4">Konsultation</button>
+    </div>
+    <div class="panel on reveal" id="p1">
+      <div class="img" style="background-image:url(../assets/img/trainer-bench.jpg)"></div>
+      <div class="txt"><h3>Personaltraining</h3><div class="sub">Einzel- oder Privattraining</div>
+        <p>Deine Fitness-Ziele, dein Trainingsplan, dein Coach an deiner Seite. Bei jeder Übung und jeder Einheit.</p>
+        <ul><li>Volle Aufmerksamkeit 1:1</li><li>Plan auf Basis deiner Messwerte</li><li>Flexible Termine auf Anfrage</li></ul>
+        <div class="foot"><span class="price">Individuell</span><a href="#kontakt" class="btn btn-dark">Jetzt buchen <span class="circ">→</span></a></div></div>
+    </div>
+    <div class="panel" id="p2">
+      <div class="img" style="background-image:url(../assets/img/studio-gym.jpg)"></div>
+      <div class="txt"><h3>Coaching</h3><div class="sub">Training + Ernährung + Check-ups</div>
+        <p>Individuelles Coaching mit regelmäßigen Check-ups, Trainings- und Ernährungsplänen für nachhaltige Veränderung.</p>
+        <ul><li>Regelmäßige Fortschrittsmessung</li><li>Ernährungsplan inklusive</li><li>Begleitung über Wochen und Monate</li></ul>
+        <div class="foot"><span class="price">Auf Anfrage</span><a href="#kontakt" class="btn btn-dark">Termin anfragen <span class="circ">→</span></a></div></div>
+    </div>
+    <div class="panel" id="p3">
+      <div class="img" style="background-image:url(../assets/img/studio-bikes.jpg)"></div>
+      <div class="txt"><h3>Semi-Personal</h3><div class="sub">Kleingruppe bis 6 Personen</div>
+        <p>Die Qualität von Personal Training mit der Energie einer kleinen Gruppe. Mo–Fr 16–21 Uhr und So 10–13 Uhr.</p>
+        <ul><li>Maximal 6 Teilnehmende</li><li>Angenehme Trainingsatmosphäre</li><li>Preispläne verfügbar</li></ul>
+        <div class="foot"><span class="price">1 Std.</span><a href="#kontakt" class="btn btn-dark">Platz sichern <span class="circ">→</span></a></div></div>
+    </div>
+    <div class="panel" id="p4">
+      <div class="img" style="background-image:url(../assets/img/studio-gym.jpg);filter:grayscale(1)"></div>
+      <div class="txt"><h3>Konsultation</h3><div class="sub">Dein Beratungstermin</div>
+        <p>Für deine individuellen Fragen zu Training, Ernährung, Reha oder Leistungssport. Der ideale Startpunkt.</p>
+        <ul><li>Zielanalyse &amp; Empfehlung</li><li>Optional mit Check-up (25 Min.)</li><li>Klarer nächster Schritt</li></ul>
+        <div class="foot"><span class="price">125 €</span><a href="#kontakt" class="btn btn-dark">Buchen <span class="circ">→</span></a></div></div>
+    </div>
+    <div class="focus reveal"><span>Muskelaufbau</span><span>Gewichtsabnahme</span><span>Reha-Sport</span><span>Betriebssport</span><span>Leistungssport</span><span>Golftraining &amp; Athletik</span></div>
+  </div>
+</section>
+
+<section id="coach" style="padding-top:0">
+  <div class="wrap coach">
+    <div class="coach-photo reveal"><img src="../assets/img/trainer-bench.jpg" alt="Training im MPT Studio"></div>
+    <div class="reveal">
+      <div class="kicker"><b>04</b> Dein Coach</div>
+      <h2>„Ein gesunder Lebensstil beginnt mit einem <i>starken Körper</i>."</h2>
+      <p>Mein Ziel ist es, deine Fitness-Ziele festzulegen, einen auf dich zugeschnittenen Trainingsplan zu erstellen und dir bei jeder Übung und Trainingseinheit zur Seite zu stehen.</p>
+      <p>Dank meiner ganzheitlichen Herangehensweise wirst du schnell Ergebnisse sehen und dich rundum wohlfühlen.</p>
+      <div class="sig">Marc-Luca Metsch<small>Head Coach bei MPT &amp; Longdrive-Profi</small></div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>„Mich überzeugen das auf die persönlichen Bedarfe zugeschnittene Training sowie die sehr angenehme Trainingsatmosphäre in Kleingruppen."</p>
+        <div class="who"><span class="av">F</span>Frank J., Linden · seit über einem Jahr dabei</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="golf" style="padding-top:0">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><div class="kicker"><b>05</b> Golf Simulator</div><h2>Besser golfen. <i>Ganzjährig.</i></h2></div>
+      <p>TrackMan 4 erfasst Schläger- und Balldaten, Trefferposition und die komplette 3D-Flugbahn. Ohne Aufkleber, bequem und schnell.</p>
+    </div>
+    <div class="golf">
+      <div class="big reveal"><div class="kicker" style="color:#ccc"><b>//</b> TrackMan 4 · Virtual Golf 2</div><h2>Dein Spiel. Erfasst. Analysiert.</h2><p>Vom kurzen Putt bis zum 400-Meter-Drive, mit Videoanalyse und auf dich zugeschnittenen Daten.</p></div>
+      <div class="side">
+        <a href="#kontakt" class="gcard reveal"><div><h4>Einzelstunde</h4><p>Golfsimulator TrackMan, 1 Std.</p></div><div class="amt">45 €<small>pro Stunde</small></div></a>
+        <a href="#kontakt" class="gcard hl reveal"><div><h4>5er-Karte</h4><p>Gültig 12 Monate · statt 225 €</p></div><div class="amt">190 €<small>Spare 35 €</small></div></a>
+        <a href="#kontakt" class="gcard reveal"><div><h4>10er-Karte</h4><p>Im Studio erhältlich · statt 450 €</p></div><div class="amt">350 €<small>Spare 100 €</small></div></a>
+        <div class="codes reveal">🎓 Studierende sparen 10 € mit <code>MPTstudi10</code><br>⛳ Mitglieder GC Winnerod sparen 5 € mit <code>MPTwinnerod5</code><br><small style="color:var(--muted)">Nur für Einzelbuchungen, bitte Nachweis mitbringen.</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap faq">
+    <div class="reveal"><div class="kicker"><b>06</b> FAQ</div><h2>Gut zu <i>wissen</i>.</h2><p style="margin-top:20px;color:var(--muted);font-size:14px">Antworten sind Platzhalter und werden im Admin-Panel gepflegt.</p></div>
+    <div class="reveal">
+      <details open><summary>Für wen ist Personal Training bei MPT geeignet?</summary><p>Für alle, die effizient und nachhaltig stärker, gesünder und leistungsfähiger werden wollen, vom Einsteiger bis zum Leistungssportler, inkl. Reha-Sport und Golfathletik.</p></details>
+      <details><summary>Wie läuft der erste Termin ab?</summary><p>Wir starten mit einer Konsultation und optional einem Check-up (Hautfaltenmessung, 25 Min.). Danach erhältst du deinen individuellen Plan.</p></details>
+      <details><summary>Was kostet Personal Training?</summary><p>Der Preis richtet sich nach Format und Umfang. Die Konsultation kostet 125 €. Sprich uns an, wir erstellen dir ein individuelles Angebot.</p></details>
+      <details><summary>Kann ich den Golfsimulator ohne Training buchen?</summary><p>Ja. Der TrackMan-Simulator ist einzeln buchbar (45 €/Std.) oder als 5er- und 10er-Karte.</p></details>
+      <details><summary>Gibt es Gutscheine?</summary><p>Ja, MPT-Wertgutscheine über 50 €, 100 €, 150 €, 200 € oder einen Wunschbetrag, sofort als Download.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="kontakt">
+  <div class="wrap cta-grid">
+    <div class="reveal">
+      <div class="kicker"><b style="color:#fff">//</b> Komm vorbei</div>
+      <h2>Bereit für deinen <i style="color:var(--ink)">ersten Schritt</i>?</h2>
+      <div class="info">
+        <div><b>Adresse</b>Lahnstraße 23, 35463 Fernwald</div>
+        <div><b>Öffnungszeiten</b>Mo–Fr 16:00–21:00 Gruppentraining<br>Sa geschlossen · So 10:00–13:00 Gruppentraining<br>Personaltraining &amp; Golfsimulator auf Anfrage</div>
+        <div><b>Kontakt</b><a href="mailto:info@metsch-personaltraining.de">info@metsch-personaltraining.de</a><br><a href="tel:+4917645982476">+49 176 45982476</a></div>
+      </div>
+    </div>
+    <form class="reveal" onsubmit="event.preventDefault();this.innerHTML='<h3>Danke! 🙌</h3><p>Wir melden uns schnellstmöglich bei dir.</p>'">
+      <h3>Anfrage senden</h3>
+      <div class="chips">
+        <label><input type="radio" name="t" checked><span>Personaltraining</span></label>
+        <label><input type="radio" name="t"><span>Coaching</span></label>
+        <label><input type="radio" name="t"><span>Semi-Personal</span></label>
+        <label><input type="radio" name="t"><span>Golf</span></label>
+        <label><input type="radio" name="t"><span>Gutschein</span></label>
+      </div>
+      <div class="f"><input type="text" placeholder="Name" required><input type="tel" placeholder="Telefon"></div>
+      <input type="email" placeholder="E-Mail" required>
+      <textarea placeholder="Deine Ziele / Nachricht"></textarea>
+      <label class="consent"><input type="checkbox" required> Ich akzeptiere die Datenschutzerklärung.</label>
+      <button class="btn btn-dark" style="width:100%;justify-content:center">Absenden <span class="circ">→</span></button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a href="#" class="logo"><span class="mark"><span>//</span>MPT</span><span>Metsch<small>Personal Training</small></span></a><p style="margin-top:18px;color:var(--muted);font-size:14px;max-width:300px">Sichtbare Entwicklung. Klare Trainingsstrukturen. Zielgerichtetes Training.</p></div>
+      <div><h5>Angebot</h5><a href="#angebot">Personaltraining</a><a href="#angebot">Coaching</a><a href="#golf">Golfsimulator</a><a href="#">Gutschein</a></div>
+      <div><h5>Folgen</h5><a href="https://www.instagram.com/metsch.personal.training/">Instagram</a><a href="https://www.facebook.com/metschpersonaltraining">Facebook</a></div>
+      <div><h5>Rechtliches</h5><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a><a href="#">Widerruf</a></div>
+    </div>
+    <div class="fbig"><span>//</span>Metsch</div>
+    <div class="fbottom"><span>© 2026 Metsch Personal Training</span><span>Fernwald · Hessen</span></div>
+  </div>
+</footer>
+<div class="demo-note">Entwurf 2 · Premium Studio · <a href="../entwuerfe.html">Übersicht</a></div>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>60),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  b.classList.add('on');const p=document.getElementById(b.dataset.t);p.classList.add('on','in');
+});
+</script>
+</body>
+</html>
