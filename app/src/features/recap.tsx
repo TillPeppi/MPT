@@ -139,7 +139,7 @@ export function RecapFlow({ onSubmit }: { onSubmit: () => Promise<void> }) {
           />
         </Card>
       ) : null}
-      <Small>Die Skala hat keine 7. Entscheide dich bewusst für besser oder schlechter.</Small>
+      {r.step < 4 ? <Small>Die Skala hat keine 7. Entscheide dich bewusst für besser oder schlechter.</Small> : null}
       <Row gap={10} style={{ marginTop: 6 }}>
         <View style={{ flex: 1 }}>{r.step ? <Btn kind="ghost" title="Zurück" onPress={() => set({ step: r.step - 1 })} /> : null}</View>
         <View style={{ flex: 1 }}>

@@ -189,7 +189,7 @@ function SlotSheet({ courseId, date }: { courseId: string; date: string }) {
         <Card>
           <Txt f="bold">Warteliste</Txt>
           <Small style={{ marginTop: 4 }}>
-            {s.wait} Personen vor dir. Sagt jemand ab oder gibt das Team einen Platz frei, rückst du automatisch nach und bekommst eine Push-Nachricht.
+            {s.wait === 1 ? '1 Person' : `${s.wait} Personen`} vor dir. Sagt jemand ab oder gibt das Team einen Platz frei, rückst du automatisch nach und bekommst eine Push-Nachricht.
           </Small>
         </Card>
         <Btn

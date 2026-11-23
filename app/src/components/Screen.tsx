@@ -3,7 +3,7 @@
  * Leiste mit Blur wandert (.nav/.lt der Demo). Root-Screens zeigen Glocke + Profil.
  */
 import { BlurView } from 'expo-blur';
-import { router, useFocusEffect, useNavigation } from 'expo-router';
+import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState, type ReactNode } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Animated, { interpolate, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue, withTiming, Extrapolation, useDerivedValue, useReducedMotion, useAnimatedReaction } from 'react-native-reanimated';
@@ -13,6 +13,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { unread } from '@/lib/domain';
 import { go } from '@/lib/nav';
 import { useMember } from '@/store/app';
+import { useUi } from '@/store/ui';
 import { useTheme } from '@/theme';
 
 import { Icon } from './Icon';
@@ -63,15 +64,13 @@ export function Screen({ title, sub, root, gate, noLargeTitle, extra, children, 
       if (bleedTop && v !== prev) scheduleOnRN(setOver, v);
     },
   );
-  const navigation = useNavigation();
+  // Statusleiste gehört dem umgebenden Stack (react-native-screens): über den UI-Store steuern.
   useFocusEffect(
     useCallback(() => {
       if (!bleedTop) return;
-      // Statusleiste gehört dem umgebenden Stack (react-native-screens).
-      const parent = navigation.getParent();
-      parent?.setOptions({ statusBarStyle: over && name === 'light' ? 'dark' : 'light' });
-      return () => parent?.setOptions({ statusBarStyle: name === 'dark' ? 'light' : 'dark' });
-    }, [bleedTop, over, name, navigation]),
+      useUi.setState({ statusOverride: over && name === 'light' ? null : 'light' });
+      return () => useUi.setState({ statusOverride: null });
+    }, [bleedTop, over, name]),
   );
   const top = ins.top + NAV_H;
   const tabbar = root && !gate ? TAB_H + ins.bottom : 0;

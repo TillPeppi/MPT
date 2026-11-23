@@ -71,6 +71,8 @@ interface UiState {
   sv: SurveyDraft;
   /** Ergebnis des Pflicht-Recaps anzeigen, bevor es zu Home geht */
   gateResult: boolean;
+  /** Statusleiste über Foto-Hero (null = passend zum Theme) */
+  statusOverride: 'light' | 'dark' | null;
   set: (p: Partial<Omit<UiState, 'set'>>) => void;
   openSheet: (s: SheetState) => void;
   closeSheet: () => void;
@@ -93,6 +95,7 @@ export const useUi = create<UiState>((set) => ({
   rc: emptyRecap(),
   sv: emptySurvey(),
   gateResult: false,
+  statusOverride: null,
   set: (p) => set(p),
   openSheet: (sheet) => set({ sheet }),
   closeSheet: () => set({ sheet: null }),

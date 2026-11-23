@@ -84,13 +84,23 @@ Umfragen. Ereignisse vom Studio (nachgerückt, Coach hat bestätigt) kommen übe
 - Abstände 20 Rand / 16 innen / 14 zwischen Karten
 - Großer Titel im Inhalt, beim Scrollen erscheint eine halbtransparente Leiste mit Blur und kleinem Titel
 - Tabbar transparent mit Blur, aktiver Tab orange; Glocke und Profil oben rechts
-- Elemente skalieren beim Drücken leicht; Bottom-Sheets lassen sich nach unten wegziehen
+- Elemente skalieren beim Drücken leicht; Bottom-Sheets lassen sich am Griff nach unten wegziehen
+  (Schwung entscheidet, Gummiband nach oben, Tap auf den Hintergrund schließt)
 - „Bewegung reduzieren" wird beachtet (keine Drück-Skalierung, keine Sheet-Einblendanimation,
   Layout-Animationen folgen der Systemeinstellung)
 - Haptik nur bei: Buchung bestätigt (auch PT-Vorschlag angenommen), Nachrücken von der Warteliste,
   Coach-Bestätigung, freigeschaltetes Badge
 
-## Abweichungen von der Demo
+## Abweichungen von der Demo und Entscheidungen
+
+- **Bottom-Sheet selbst gebaut** (`src/features/sheets.tsx`) statt `@gorhom/bottom-sheet`:
+  Version 5.2.14 (neueste) übergibt noch die alten `Gesture.Pan()`-Objekte, SDK 58 bringt aber
+  react-native-gesture-handler 3 mit neuem `GestureDetector`. Ergebnis: `present()` zeigt nichts.
+  Das eigene Sheet nutzt Reanimated und `usePanGesture` (RNGH 3). Sobald gorhom RNGH 3 unterstützt,
+  lässt es sich wieder einsetzen, die Sheet-Inhalte bleiben gleich.
+- **Statusleiste** wird über die Stack-Option `statusBarStyle` gesteuert (react-native-screens
+  übernimmt sie, `expo-status-bar` allein wirkt dort nicht). Über dem Foto-Hero setzt Home ein
+  Override im UI-Store.
 
 - **Umfragen sind nicht Pflicht**: Die Demo nennt die Umfrage „Pflicht"; laut Vorgabe ist nur der
   Wochenrecap Pflicht. Die Umfrage steht als Liste in der Home-Kachel und unter Mehr → Umfragen,
