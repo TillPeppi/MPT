@@ -5,7 +5,7 @@ import { Screen } from '@/components/Screen';
 import { Tap } from '@/components/Tap';
 import { Avatar, Bar, Grow, Group, GroupLabel, GroupRow, IconBox, Lbl, Pill, Row, SecTitle, Small, Txt, useCardStyle } from '@/components/ui';
 import type { IconName } from '@/data/types';
-import { fmtPoints, level, levelProgress, upcoming } from '@/lib/domain';
+import { challengeStats, fmtChallenge, fmtPoints, level, levelProgress, upcoming } from '@/lib/domain';
 import { go } from '@/lib/nav';
 import { useApp, useContent, useMember } from '@/store/app';
 import { toast } from '@/store/ui';
@@ -69,12 +69,14 @@ function ForYou() {
   const { c } = useTheme();
   const cs = useCardStyle();
   const m = useMember();
-  const a1 = useContent().articles[0];
+  const { articles, challenge: ch } = useContent();
+  const a1 = articles[0];
+  const st = challengeStats(ch);
   const f: Item[] = [];
   if (!m.survey) f.push({ i: 'poll', t: 'Umfrage: Trainingszeiten 2027', s: '3 Fragen · offen', v: 'survey', hot: true });
   m.supps.filter((s) => s.days <= 7).forEach((s) => f.push({ i: 'pill', t: `${s.name.split(' ')[0]} bald leer`, s: 'Nachbestellen', v: 'supps' }));
   f.push(
-    { i: 'target', t: 'Challenge: Platz 4', s: `${m.user.monthUnits}/12 Einheiten`, v: 'challenge' },
+    { i: 'target', t: `${ch.title}: Platz ${st.rank}`, s: `Bestzeit ${st.best !== undefined ? fmtChallenge(ch, st.best) : '–'}`, v: 'challenge' },
     { i: 'leaf', t: a1.t, s: 'Neu bei Ernährung', v: `article|${a1.id}` },
     { i: 'trophy', t: 'Belohnungen', s: `${fmtPoints(m.points)} Punkte`, v: 'rewards' },
   );
@@ -105,7 +107,7 @@ function Lists() {
   const low = m.supps.filter((s) => s.days <= 7).length;
   const all: Item[] = [
     { v: 'rewards', i: 'trophy', t: 'Belohnungen', s: `${fmtPoints(m.points)} P` },
-    { v: 'challenge', i: 'target', t: 'Challenges & Bestenliste', s: 'Platz 4' },
+    { v: 'challenge', i: 'target', t: 'Challenges & Bestenliste', s: `Platz ${challengeStats(content.challenge).rank}` },
     { v: 'supps', i: 'pill', t: 'Meine Supps', s: low ? '1 bald leer' : '', hot: !!low },
     { v: 'mybookings', i: 'cal', t: 'Meine Termine', s: String(upcoming(m).length) },
     { v: 'shop', i: 'bag', t: 'Shop', s: 'Anfragen' },

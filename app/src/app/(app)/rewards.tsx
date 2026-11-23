@@ -5,7 +5,7 @@ import { Screen } from '@/components/Screen';
 import { Tap } from '@/components/Tap';
 import { Bar, Card, Grow, IconBox, Lbl, Li, ListCard, Row, Small, Txt } from '@/components/ui';
 import { Hex } from '@/features/sheets';
-import { fmtPoints, level, levelProgress } from '@/lib/domain';
+import { challengeStats, fmtChallenge, fmtPoints, level, levelProgress } from '@/lib/domain';
 import { go } from '@/lib/nav';
 import { useContent, useMember } from '@/store/app';
 import { useUi } from '@/store/ui';
@@ -22,7 +22,8 @@ const EARN: [string, string][] = [
 export default function Rewards() {
   const { c } = useTheme();
   const m = useMember();
-  const badges = useContent().badges;
+  const { badges, challenge: ch } = useContent();
+  const st = challengeStats(ch);
   const L = level(m.points);
   return (
     <Screen title="Belohnungen">
@@ -45,12 +46,13 @@ export default function Rewards() {
         <Row>
           <IconBox name="target" />
           <Grow>
-            <Lbl>Challenge November</Lbl>
+            <Lbl>{`${ch.month}-Challenge`}</Lbl>
             <Txt f="bold" s={14}>
-              12 Einheiten im Monat
+              {ch.title}
             </Txt>
-            <Bar value={m.user.monthUnits / 12} style={{ marginTop: 8 }} />
-            <Small style={{ marginTop: 4 }}>{m.user.monthUnits}/12 · Platz 4 · noch 5 Tage</Small>
+            <Small style={{ marginTop: 2 }}>
+              {`Bestzeit ${st.best !== undefined ? fmtChallenge(ch, st.best) : '–'} · Platz ${st.rank} von ${ch.participants} · noch ${ch.daysLeft} Tage`}
+            </Small>
           </Grow>
           <Icon name="chev" size={16} color={c.muted} />
         </Row>

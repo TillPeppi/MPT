@@ -1,5 +1,5 @@
 /** Abgeleitete Werte (entspricht dem Block „Abgeleitete Werte" der Demo). */
-import type { Booking, Exercise, IconName, MemberState, Slot, StudioContent } from '@/data/types';
+import type { Booking, Exercise, IconName, PerfChallenge, MemberState, Slot, StudioContent } from '@/data/types';
 import type { SlotCount } from '@/services';
 
 import { addD, diffD, dS, iso, kw, mmss, num, parse, TISO, TODAY } from './format';
@@ -85,3 +85,15 @@ export function openUnits(m: MemberState): OpenUnit[] {
 export const gateNeeded = (m: MemberState | null) => !!m && !m.recapDone;
 
 export const fmtEx = (e: Exercise, v: number) => (e.u === 'time' ? mmss(v) + ' min' : num(v) + ' ' + e.u);
+
+/** Wert einer Challenge formatieren: Zeit als m:ss, sonst mit Einheit. */
+export const fmtChallenge = (c: PerfChallenge, v: number) => (c.metric === 'time' ? mmss(v) : `${num(v)} ${c.metric === 'kg' ? 'kg' : 'Wdh'}`);
+
+/** Eigene Platzierung und Abstand zum Podest. */
+export function challengeStats(c: PerfChallenge) {
+  const idx = c.board.findIndex((r) => r[2]);
+  const me = idx >= 0 ? c.board[idx] : undefined;
+  const third = c.board[2];
+  const gap = me && idx > 2 && third ? Math.abs(me[1] - third[1]) : 0;
+  return { rank: idx + 1, best: me?.[1], gap, onPodium: idx >= 0 && idx < 3 };
+}

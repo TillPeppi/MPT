@@ -9,10 +9,10 @@ import { Icon } from '@/components/Icon';
 import { NAV_H, Screen, useScrollY } from '@/components/Screen';
 import { Shade } from '@/components/Shade';
 import { Tap } from '@/components/Tap';
-import { Bar, Btn, Card, Chk, Disp, Grow, IconBox, Lbl, Li, LiText, Pill, Row, Small, Txt, useCardStyle } from '@/components/ui';
+import { Btn, Card, Chk, Disp, Grow, IconBox, Lbl, Li, LiText, Pill, Row, Small, Txt, useCardStyle } from '@/components/ui';
 import { IMAGES } from '@/data/images';
 import { SURVEY } from '@/data/demo';
-import { fmtPoints, lastScore, levelProgress, nextConfirmed, openUnits, prevScore, scoreDelta } from '@/lib/domain';
+import { challengeStats, fmtChallenge, fmtPoints, lastScore, levelProgress, nextConfirmed, openUnits, prevScore, scoreDelta } from '@/lib/domain';
 import { longDate, rel, TODAY } from '@/lib/format';
 import { bookDay, go } from '@/lib/nav';
 import { useContent, useMember } from '@/store/app';
@@ -175,30 +175,56 @@ function Surveys() {
   );
 }
 
+/** Monats-Challenge: deine Bestzeit und Platzierung, Top 3, Abstand zum Podest (Entwurf A). */
 function Challenge() {
-  const m = useMember();
-  const ink = '#0a0a0b';
+  const { c } = useTheme();
+  const ch = useContent().challenge;
+  const st = challengeStats(ch);
   return (
-    <Tap onPress={() => go('challenge')} style={styles.chal} accessibilityLabel={`Monats-Challenge: ${m.user.monthUnits} von 12 Einheiten, Platz 4`}>
-      <Lbl c="rgba(10,10,11,0.62)">Monats-Challenge · noch 5 Tage</Lbl>
-      <Row style={{ alignItems: 'flex-start', marginTop: 6 }}>
-        <Txt f="heavy" s={22} lh={25} c={ink} style={{ flex: 1 }}>
-          12 Einheiten im November
-        </Txt>
-        <View style={styles.chalIc}>
-          <Icon name="trophy" size={24} color={ink} />
+    <Card onPress={() => go('challenge')} accessibilityLabel={`${ch.month}-Challenge ${ch.title}: deine Bestzeit ${st.best !== undefined ? fmtChallenge(ch, st.best) : 'noch keine'}, Platz ${st.rank} von ${ch.participants}`}>
+      <Row>
+        <Lbl c={c.acc} style={{ flex: 1 }}>{`${ch.month}-Challenge`}</Lbl>
+        <Lbl>{`noch ${ch.daysLeft} Tage`}</Lbl>
+      </Row>
+      <Disp s={22} style={{ marginTop: 4 }}>
+        {ch.title}
+      </Disp>
+      <Small>{ch.sub}</Small>
+      <Row style={{ alignItems: 'flex-end', marginTop: 10 }}>
+        <Grow>
+          <Lbl>Deine Bestzeit</Lbl>
+          <Txt f="display" s={40} style={{ fontVariant: ['tabular-nums'] }}>
+            {st.best !== undefined ? fmtChallenge(ch, st.best) : '–'}
+          </Txt>
+        </Grow>
+        <View style={{ alignItems: 'flex-end' }}>
+          <Txt f="display" s={30} c={c.acc}>
+            {st.rank ? `${st.rank}.` : '–'}
+          </Txt>
+          <Small>von {ch.participants}</Small>
         </View>
       </Row>
-      <Bar value={m.user.monthUnits / 12} color={ink} track="rgba(10,10,11,0.18)" style={{ marginTop: 14 }} />
-      <Row style={{ marginTop: 8 }}>
-        <Txt f="bold" s={12} c={ink} style={{ flex: 1 }}>
-          {m.user.monthUnits}/12 Einheiten · Platz 4
+      <View style={{ borderTopWidth: StyleSheet.hairlineWidth * 2, borderTopColor: c.line, marginTop: 10, paddingTop: 4 }}>
+        {ch.board.slice(0, 3).map(([name, v, me], i) => (
+          <Row key={name} gap={10} style={{ paddingVertical: 5 }}>
+            <Txt f="display" s={14} c={i === 0 ? c.acc : c.muted} style={{ width: 16 }}>
+              {i + 1}
+            </Txt>
+            <Txt f="bold" s={12.5} style={{ flex: 1 }}>
+              {me ? 'Du' : name}
+            </Txt>
+            <Txt f="bold" s={12.5} style={{ fontVariant: ['tabular-nums'] }}>
+              {fmtChallenge(ch, v)}
+            </Txt>
+          </Row>
+        ))}
+      </View>
+      <View style={{ backgroundColor: c.soft, borderRadius: 10, paddingVertical: 8, paddingHorizontal: 10, marginTop: 6 }}>
+        <Txt f="bold" s={12} c={c.acc}>
+          {st.onPodium ? 'Du stehst auf dem Podest. Halte den Platz!' : `${fmtChallenge(ch, st.gap)} fehlen dir aufs Podest`}
         </Txt>
-        <Txt f="bold" s={12} c={ink}>
-          +200 Punkte
-        </Txt>
-      </Row>
-    </Tap>
+      </View>
+    </Card>
   );
 }
 
@@ -288,6 +314,4 @@ function News() {
 const styles = StyleSheet.create({
   poster: { marginHorizontal: -20, minHeight: 420, paddingHorizontal: 20, paddingBottom: 26, justifyContent: 'flex-end', backgroundColor: '#111' },
   sshCol: { flex: 1, alignItems: 'center', gap: 4, paddingHorizontal: 6 },
-  chal: { backgroundColor: '#F2611D', borderRadius: 22, padding: 18 },
-  chalIc: { width: 46, height: 46, borderRadius: 23, backgroundColor: 'rgba(10,10,11,0.12)', alignItems: 'center', justifyContent: 'center' },
 });

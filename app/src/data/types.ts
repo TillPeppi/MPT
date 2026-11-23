@@ -207,7 +207,25 @@ export interface Badge {
   d: string;
 }
 
-export type RankEntry = [name: string, units: number, me?: boolean];
+/** Eintrag der Bestenliste: Name, Wert (Sekunden, kg oder Wiederholungen), eigener Eintrag */
+export type RankEntry = [name: string, value: number, me?: boolean];
+
+/** Monatliche Leistungs-Challenge (z. B. Hyrox Sim), Werte trägt der Coach ein. */
+export interface PerfChallenge {
+  id: string;
+  month: string;
+  title: string;
+  sub: string;
+  daysLeft: number;
+  ends: string;
+  participants: number;
+  metric: 'time' | 'kg' | 'reps';
+  /** true = kleiner ist besser (Zeit) */
+  lowerIsBetter: boolean;
+  reward: string;
+  /** sortiert, bester zuerst; nur ein Ausschnitt der Teilnehmenden */
+  board: RankEntry[];
+}
 
 export type ImageKey =
   | 'studio-gym' | 'trainer-bench' | 'golf-simulator' | 'studio-bikes' | 'group' | 'coach-marc-luca' | 'giftcard';
@@ -240,7 +258,7 @@ export interface StudioContent {
   news: NewsItem[];
   articles: Article[];
   badges: Badge[];
-  ranking: RankEntry[];
+  challenge: PerfChallenge;
   coaches: string[];
 }
 

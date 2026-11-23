@@ -83,7 +83,19 @@ export const CONTENT: StudioContent = {
     { n: '12-Wochen-Streak', i: 'flame', got: false, d: '12 Wochen in Folge. Du stehst bei 7.' },
     { n: 'Challenge-Sieg', i: 'trophy', got: false, d: 'Platz 1 in einer Monats-Challenge.' },
   ],
-  ranking: [['Jonas K.', 14], ['Sarah W.', 12], ['Tim B.', 11], ['Lena M.', 9, true], ['Anna S.', 9], ['Max R.', 8], ['Julia H.', 7], ['Paul D.', 6]],
+  challenge: {
+    id: 'hyrox-nov',
+    month: 'November',
+    title: 'Hyrox Sim',
+    sub: 'Halbe Distanz · 4 km Laufen, 8 Stationen',
+    daysLeft: 5,
+    ends: '30.11.',
+    participants: 23,
+    metric: 'time',
+    lowerIsBetter: true,
+    reward: '+200 Punkte fürs Podest, +100 für jede neue Bestzeit',
+    board: [['Jonas K.', 2045], ['Sarah W.', 2200], ['Tim B.', 2250], ['Lena M.', 2292, true], ['Anna S.', 2330], ['Max R.', 2402], ['Julia H.', 2475], ['Paul D.', 2610]],
+  },
 };
 
 export const SEED = (): MemberState => ({
