@@ -3,8 +3,7 @@
  * Leiste mit Blur wandert (.nav/.lt der Demo). Root-Screens zeigen Glocke + Profil.
  */
 import { BlurView } from 'expo-blur';
-import { router, useFocusEffect } from 'expo-router';
-import { setStatusBarStyle } from 'expo-status-bar';
+import { router, useFocusEffect, useNavigation } from 'expo-router';
 import { useCallback, useState, type ReactNode } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Animated, { interpolate, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue, withTiming, Extrapolation, useDerivedValue, useReducedMotion, useAnimatedReaction } from 'react-native-reanimated';
@@ -64,12 +63,15 @@ export function Screen({ title, sub, root, gate, noLargeTitle, extra, children, 
       if (bleedTop && v !== prev) scheduleOnRN(setOver, v);
     },
   );
+  const navigation = useNavigation();
   useFocusEffect(
     useCallback(() => {
       if (!bleedTop) return;
-      setStatusBarStyle(over && name === 'light' ? 'dark' : 'light');
-      return () => setStatusBarStyle(name === 'dark' ? 'light' : 'dark');
-    }, [bleedTop, over, name]),
+      // Statusleiste gehört dem umgebenden Stack (react-native-screens).
+      const parent = navigation.getParent();
+      parent?.setOptions({ statusBarStyle: over && name === 'light' ? 'dark' : 'light' });
+      return () => parent?.setOptions({ statusBarStyle: name === 'dark' ? 'light' : 'dark' });
+    }, [bleedTop, over, name, navigation]),
   );
   const top = ins.top + NAV_H;
   const tabbar = root && !gate ? TAB_H + ins.bottom : 0;
