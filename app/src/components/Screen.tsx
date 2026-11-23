@@ -4,9 +4,9 @@
  */
 import { BlurView } from 'expo-blur';
 import { router, useFocusEffect } from 'expo-router';
-import { useCallback, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useState, type ReactNode } from 'react';
 import { StyleSheet, View } from 'react-native';
-import Animated, { interpolate, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue, withTiming, Extrapolation, useDerivedValue, useReducedMotion, useAnimatedReaction } from 'react-native-reanimated';
+import Animated, { interpolate, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue, withTiming, Extrapolation, useDerivedValue, useReducedMotion, useAnimatedReaction, type SharedValue } from 'react-native-reanimated';
 import { scheduleOnRN } from 'react-native-worklets';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -19,6 +19,10 @@ import { useTheme } from '@/theme';
 import { Icon } from './Icon';
 import { Tap } from './Tap';
 import { Avatar, Disp, Txt } from './ui';
+
+/** Scroll-Position des Screens, z. B. für den Foto-Hero, der beim Runterziehen mitzoomt. */
+const ScrollYContext = createContext<SharedValue<number> | null>(null);
+export const useScrollY = () => useContext(ScrollYContext);
 
 export const NAV_H = 52;
 export const TAB_H = 58;
@@ -96,7 +100,7 @@ export function Screen({ title, sub, root, gate, noLargeTitle, extra, children, 
             </Disp>
           </View>
         ) : null}
-        {children}
+        <ScrollYContext.Provider value={y}>{children}</ScrollYContext.Provider>
       </Animated.ScrollView>
 
       <View style={[styles.nav, { height: top, paddingTop: ins.top }]} pointerEvents="box-none">

@@ -1,11 +1,12 @@
 /** Home · Variante „4 · Studio" mit Foto-Hero (homeH() + st.homeHero === 'photo'). */
 import { Image } from 'expo-image';
 import { StyleSheet, View } from 'react-native';
+import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { MiniWeek, PtsRing, Ring } from '@/components/charts';
 import { Icon } from '@/components/Icon';
-import { NAV_H, Screen } from '@/components/Screen';
+import { NAV_H, Screen, useScrollY } from '@/components/Screen';
 import { Shade } from '@/components/Shade';
 import { Tap } from '@/components/Tap';
 import { Bar, Btn, Card, Chk, Disp, Grow, IconBox, Lbl, Li, LiText, Pill, Row, Small, Txt, useCardStyle } from '@/components/ui';
@@ -38,10 +39,21 @@ function Hero() {
   const ins = useSafeAreaInsets();
   const nb = nextConfirmed(m);
   const openBooking = () => nb && useUi.getState().openSheet({ t: 'booking', id: nb.id });
+  // Beim Runterziehen über den Anfang hinaus wächst das Foto nach oben mit (Stretchy Header),
+  // statt oben einen leeren Rand zu zeigen.
+  const scrollY = useScrollY();
+  const h = useSharedValue(420);
+  const photoStyle = useAnimatedStyle(() => {
+    const pull = Math.max(0, -(scrollY?.get() ?? 0));
+    const H = h.get() || 1;
+    return { transform: [{ translateY: -pull / 2 }, { scale: 1 + pull / H }] };
+  });
   return (
-    <View style={[styles.poster, { paddingTop: ins.top + NAV_H + 16 }]}>
-      <Image source={IMAGES[nb?.type === 'checkup' ? 'trainer-bench' : 'studio-gym']} style={StyleSheet.absoluteFill} contentFit="cover" transition={200} />
-      <Shade stops={[[0, 0.45], [0.35, 0.35], [1, 0.96]]} />
+    <View style={[styles.poster, { paddingTop: ins.top + NAV_H + 16 }]} onLayout={(e) => h.set(e.nativeEvent.layout.height)}>
+      <Animated.View style={[StyleSheet.absoluteFill, photoStyle]}>
+        <Image source={IMAGES[nb?.type === 'checkup' ? 'trainer-bench' : 'studio-gym']} style={StyleSheet.absoluteFill} contentFit="cover" transition={200} />
+        <Shade stops={[[0, 0.45], [0.35, 0.35], [1, 0.96]]} />
+      </Animated.View>
       <Lbl c="#d4d4d8">{`${longDate(TODAY)} · Hey ${m.user.first}`}</Lbl>
       {nb ? (
         <>
@@ -274,7 +286,7 @@ function News() {
 }
 
 const styles = StyleSheet.create({
-  poster: { marginHorizontal: -20, minHeight: 420, paddingHorizontal: 20, paddingBottom: 26, justifyContent: 'flex-end', backgroundColor: '#111', overflow: 'hidden' },
+  poster: { marginHorizontal: -20, minHeight: 420, paddingHorizontal: 20, paddingBottom: 26, justifyContent: 'flex-end', backgroundColor: '#111' },
   sshCol: { flex: 1, alignItems: 'center', gap: 4, paddingHorizontal: 6 },
   chal: { backgroundColor: '#F2611D', borderRadius: 22, padding: 18 },
   chalIc: { width: 46, height: 46, borderRadius: 23, backgroundColor: 'rgba(10,10,11,0.12)', alignItems: 'center', justifyContent: 'center' },
