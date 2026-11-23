@@ -84,8 +84,9 @@ Umfragen. Ereignisse vom Studio (nachgerückt, Coach hat bestätigt) kommen übe
 - Abstände 20 Rand / 16 innen / 14 zwischen Karten
 - Großer Titel im Inhalt, beim Scrollen erscheint eine halbtransparente Leiste mit Blur und kleinem Titel
 - Tabbar transparent mit Blur, aktiver Tab orange; Glocke und Profil oben rechts
-- Elemente skalieren beim Drücken leicht; Bottom-Sheets lassen sich am Griff nach unten wegziehen
-  (Schwung entscheidet, Gummiband nach oben, Tap auf den Hintergrund schließt)
+- Elemente skalieren beim Drücken leicht; Bottom-Sheets lassen sich überall nach unten wegziehen
+  (Schwung entscheidet, Tap auf den Hintergrund schließt). Nur wenn der Inhalt länger als das Sheet ist,
+  scrollt er; dann zieht man am Griff.
 - „Bewegung reduzieren" wird beachtet (keine Drück-Skalierung, keine Sheet-Einblendanimation,
   Layout-Animationen folgen der Systemeinstellung)
 - Haptik nur bei: Buchung bestätigt (auch PT-Vorschlag angenommen), Nachrücken von der Warteliste,

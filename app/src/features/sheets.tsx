@@ -37,9 +37,12 @@ export function SheetHost() {
 
   const y = useSharedValue(height);
   const h = useSharedValue(height);
+  const scrollY = useSharedValue(0);
+  const startTy = useSharedValue(0);
 
   useEffect(() => {
     if (sheet) {
+      scrollY.set(0);
       y.set(reduce ? 0 : withSpring(0, { damping: 26, stiffness: 260, mass: 0.9 }));
     } else {
       y.set(
@@ -48,14 +51,29 @@ export function SheetHost() {
         }),
       );
     }
-  }, [sheet, reduce, y, h]);
+  }, [sheet, reduce, y, h, scrollY]);
 
+  // Ganzes Sheet ziehbar: Solange der Inhalt gescrollt ist, scrollt er zurück; steht er oben,
+  // zieht derselbe Finger das Sheet nach unten (wie bei iOS-Sheets).
+  // Scroll-Ansicht nur, wenn der Inhalt nicht ins Sheet passt. Sonst liegt der Inhalt direkt im
+  // Sheet und jede Wischbewegung nach unten zieht das Sheet (eine native Scroll-Ansicht würde sie schlucken).
+  const [contentH, setContentH] = useState(0);
+  const scrollable = contentH > height * 0.86 - 27;
   const pan = usePanGesture({
+    activeOffsetY: [-8, 8],
+    failOffsetX: [-24, 24],
+    onBegin: () => {
+      'worklet';
+      startTy.set(0);
+    },
     onUpdate: (e) => {
       'worklet';
-      const dy = e.translationY;
-      // nach oben: Gummiband, nach unten: folgt 1:1
-      y.set(dy < 0 ? -((-dy * h.get() * 0.55) / (h.get() + 0.55 * -dy)) : dy);
+      if (scrollY.get() > 0) {
+        // Inhalt scrollt noch: Sheet bleibt stehen, Startpunkt wandert mit.
+        startTy.set(e.translationY);
+        return;
+      }
+      y.set(Math.max(0, e.translationY - startTy.get()));
     },
     onDeactivate: (e) => {
       'worklet';
@@ -74,6 +92,11 @@ export function SheetHost() {
   const scrimStyle = useAnimatedStyle(() => ({ opacity: interpolate(y.get(), [0, h.get()], [0.55, 0], Extrapolation.CLAMP) }));
 
   if (!shown) return null;
+  const body = (
+    <View onLayout={(e) => setContentH(e.nativeEvent.layout.height)} style={{ paddingHorizontal: 20, paddingBottom: ins.bottom + 20, gap: 12 }}>
+      <SheetBody s={shown} />
+    </View>
+  );
   return (
     <View style={StyleSheet.absoluteFill} pointerEvents={sheet ? 'auto' : 'none'}>
       <Animated.View style={[StyleSheet.absoluteFill, { backgroundColor: '#000' }, scrimStyle]}>
@@ -88,13 +111,25 @@ export function SheetHost() {
         ]}
       >
         <GestureDetector gesture={pan}>
-          <View style={{ paddingTop: 10, paddingBottom: 12, alignItems: 'center' }} accessibilityRole="adjustable" accessibilityLabel="Zum Schließen nach unten ziehen">
-            <View style={{ width: 40, height: 5, borderRadius: 3, backgroundColor: c.line }} />
+          <View style={{ flexShrink: 1 }}>
+            <View style={{ paddingTop: 10, paddingBottom: 12, alignItems: 'center' }} accessibilityLabel="Zum Schließen nach unten ziehen">
+              <View style={{ width: 40, height: 5, borderRadius: 3, backgroundColor: c.line }} />
+            </View>
+            {scrollable ? (
+              <ScrollView
+                bounces={false}
+                scrollEventThrottle={16}
+                onScroll={(e) => scrollY.set(e.nativeEvent.contentOffset.y)}
+                style={{ flexGrow: 0 }}
+                keyboardShouldPersistTaps="handled"
+              >
+                {body}
+              </ScrollView>
+            ) : (
+              body
+            )}
           </View>
         </GestureDetector>
-        <ScrollView style={{ flexGrow: 0 }} contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: ins.bottom + 20, gap: 12 }} keyboardShouldPersistTaps="handled">
-          <SheetBody s={shown} />
-        </ScrollView>
       </Animated.View>
     </View>
   );
