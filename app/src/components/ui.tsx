@@ -23,7 +23,7 @@ type TxtProps = TextProps & {
 export function Txt({ f = 'regular', s = 15, c, lh, ls, up, center, style, ...rest }: TxtProps) {
   const t = useTheme().c;
   // Anton hat hohe Oberlängen: zu knappe Zeilenhöhe schneidet unter iOS oben ab.
-  const lineHeight = f === 'display' ? Math.max(lh ?? 0, s * 1.2) : lh;
+  const lineHeight = f === 'display' ? Math.max(lh ?? 0, s * 1.32) : lh;
   return (
     <Text
       {...rest}

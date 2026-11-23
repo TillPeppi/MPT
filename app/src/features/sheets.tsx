@@ -1,11 +1,12 @@
 /** Bottom-Sheets (SH.* der Demo). Nach unten wegziehbar. */
-import { BottomSheetBackdrop, BottomSheetModal, BottomSheetScrollView, type BottomSheetBackdropProps } from '@gorhom/bottom-sheet';
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { useWindowDimensions, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Pressable, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { GestureDetector, usePanGesture } from 'react-native-gesture-handler';
 import Svg, { Defs, LinearGradient, Polygon, Stop } from 'react-native-svg';
-import { useReducedMotion } from 'react-native-reanimated';
+import Animated, { Extrapolation, interpolate, useAnimatedStyle, useReducedMotion, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+import { scheduleOnRN } from 'react-native-worklets';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Icon } from '@/components/Icon';
@@ -18,46 +19,84 @@ import { useTheme } from '@/theme';
 
 import { StatusPill } from './parts';
 
+/**
+ * Eigenes Bottom-Sheet: federt von unten herein, lässt sich am Griff nach unten
+ * wegziehen (Schwung entscheidet), Gummiband nach oben, Tap auf den Hintergrund
+ * schließt. Bei „Bewegung reduzieren" ohne Animation.
+ * (@gorhom/bottom-sheet 5.2 funktioniert nicht mit Gesture Handler 3, siehe README.)
+ */
 export function SheetHost() {
   const sheet = useUi((s) => s.sheet);
   const { c } = useTheme();
   const ins = useSafeAreaInsets();
   const { height } = useWindowDimensions();
   const reduce = useReducedMotion();
-  const ref = useRef<BottomSheetModal>(null);
   // Inhalt bleibt während der Schließen-Animation stehen.
   const [shown, setShown] = useState<SheetState | null>(null);
   if (sheet && sheet !== shown) setShown(sheet);
 
+  const y = useSharedValue(height);
+  const h = useSharedValue(height);
+
   useEffect(() => {
-    if (sheet) ref.current?.present();
-    else ref.current?.dismiss();
-  }, [sheet]);
+    if (sheet) {
+      y.set(reduce ? 0 : withSpring(0, { damping: 26, stiffness: 260, mass: 0.9 }));
+    } else {
+      y.set(
+        withTiming(h.get(), { duration: reduce ? 0 : 240 }, (done) => {
+          if (done) scheduleOnRN(setShown, null);
+        }),
+      );
+    }
+  }, [sheet, reduce, y, h]);
 
-  const backdrop = useCallback(
-    (p: BottomSheetBackdropProps) => <BottomSheetBackdrop {...p} appearsOnIndex={0} disappearsOnIndex={-1} opacity={0.55} pressBehavior="close" />,
-    [],
-  );
+  const pan = usePanGesture({
+    onUpdate: (e) => {
+      'worklet';
+      const dy = e.translationY;
+      // nach oben: Gummiband, nach unten: folgt 1:1
+      y.set(dy < 0 ? -((-dy * h.get() * 0.55) / (h.get() + 0.55 * -dy)) : dy);
+    },
+    onDeactivate: (e) => {
+      'worklet';
+      const projected = y.get() + e.velocityY * 0.2;
+      if (projected > h.get() * 0.45 && y.get() > 0) {
+        y.set(withTiming(h.get(), { duration: 220 }, (done) => {
+          if (done) scheduleOnRN(closeSheet);
+        }));
+      } else {
+        y.set(withSpring(0, { damping: 18, stiffness: 300 }));
+      }
+    },
+  });
 
+  const panelStyle = useAnimatedStyle(() => ({ transform: [{ translateY: Math.max(-40, y.get()) }] }));
+  const scrimStyle = useAnimatedStyle(() => ({ opacity: interpolate(y.get(), [0, h.get()], [0.55, 0], Extrapolation.CLAMP) }));
+
+  if (!shown) return null;
   return (
-    <BottomSheetModal
-      ref={ref}
-      enableDynamicSizing
-      maxDynamicContentSize={height * 0.86}
-      enablePanDownToClose
-      backdropComponent={backdrop}
-      animateOnMount={!reduce}
-      onDismiss={() => {
-        setShown(null);
-        if (useUi.getState().sheet) useUi.setState({ sheet: null });
-      }}
-      backgroundStyle={{ backgroundColor: c.bg, borderTopLeftRadius: 28, borderTopRightRadius: 28 }}
-      handleIndicatorStyle={{ backgroundColor: c.line, width: 40, height: 5 }}
-    >
-      <BottomSheetScrollView contentContainerStyle={{ paddingHorizontal: 20, paddingTop: 4, paddingBottom: ins.bottom + 20, gap: 12 }}>
-        {shown ? <SheetBody s={shown} /> : null}
-      </BottomSheetScrollView>
-    </BottomSheetModal>
+    <View style={StyleSheet.absoluteFill} pointerEvents={sheet ? 'auto' : 'none'}>
+      <Animated.View style={[StyleSheet.absoluteFill, { backgroundColor: '#000' }, scrimStyle]}>
+        <Pressable style={StyleSheet.absoluteFill} onPress={closeSheet} accessibilityLabel="Schließen" />
+      </Animated.View>
+      <Animated.View
+        accessibilityViewIsModal
+        onLayout={(e) => h.set(e.nativeEvent.layout.height)}
+        style={[
+          { position: 'absolute', left: 0, right: 0, bottom: 0, maxHeight: height * 0.86, backgroundColor: c.bg, borderTopLeftRadius: 28, borderTopRightRadius: 28, borderTopWidth: StyleSheet.hairlineWidth, borderColor: c.line },
+          panelStyle,
+        ]}
+      >
+        <GestureDetector gesture={pan}>
+          <View style={{ paddingTop: 10, paddingBottom: 12, alignItems: 'center' }} accessibilityRole="adjustable" accessibilityLabel="Zum Schließen nach unten ziehen">
+            <View style={{ width: 40, height: 5, borderRadius: 3, backgroundColor: c.line }} />
+          </View>
+        </GestureDetector>
+        <ScrollView style={{ flexGrow: 0 }} contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: ins.bottom + 20, gap: 12 }} keyboardShouldPersistTaps="handled">
+          <SheetBody s={shown} />
+        </ScrollView>
+      </Animated.View>
+    </View>
   );
 }
 
@@ -82,6 +121,9 @@ const H2 = ({ children }: { children: React.ReactNode }) => (
   </Disp>
 );
 const close = () => useUi.getState().closeSheet();
+function closeSheet() {
+  useUi.getState().closeSheet();
+}
 
 /* ---------- Kurs buchen ---------- */
 function SlotSheet({ courseId, date }: { courseId: string; date: string }) {
