@@ -1,0 +1,37 @@
+{
+  "seq": 1001,
+  "orders": [
+    {
+      "id": "o_demo0001",
+      "no": "MPT-1001",
+      "memberId": "m_de4f38b4",
+      "createdAt": "2026-11-12T18:20:00",
+      "status": "bereit",
+      "customer": {
+        "name": "Demo Mitglied",
+        "email": "demo@mpt.de",
+        "phone": "",
+        "note": "Abholung am Donnerstag"
+      },
+      "items": [
+        {
+          "productId": "p1",
+          "name": "MPT Whey Protein",
+          "variant": "Schoko",
+          "qty": 1,
+          "price": 34.9,
+          "sum": 34.9
+        },
+        {
+          "productId": "p8",
+          "name": "MPT Shaker",
+          "variant": "",
+          "qty": 1,
+          "price": 9.9,
+          "sum": 9.9
+        }
+      ],
+      "total": 44.8
+    }
+  ]
+}

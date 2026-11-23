@@ -1,0 +1,53 @@
+{
+  "base": "2026-11-23",
+  "appointments": [
+    {
+      "id": "ap_demo0001",
+      "memberId": "m_de4f38b4",
+      "name": "Demo Mitglied",
+      "email": "demo@mpt.de",
+      "type": "pt",
+      "status": "counter",
+      "preferred": {
+        "date": "2026-11-25",
+        "start": "17:00"
+      },
+      "alternative": {
+        "date": "2026-11-27",
+        "start": "10:00"
+      },
+      "note": "Gern mit Fokus auf Schulter.",
+      "proposal": {
+        "date": "2026-11-26",
+        "start": "18:00",
+        "note": "Um 17 Uhr ist schon belegt, passt dir 18 Uhr?"
+      },
+      "confirmed": null,
+      "declinedBy": null,
+      "createdAt": "2026-11-21T09:15:00",
+      "updatedAt": "2026-11-22T14:00:00"
+    },
+    {
+      "id": "ap_demo0002",
+      "memberId": "m_de4f38b4",
+      "name": "Demo Mitglied",
+      "email": "demo@mpt.de",
+      "type": "checkup",
+      "status": "confirmed",
+      "preferred": {
+        "date": "2026-12-07",
+        "start": "16:30"
+      },
+      "alternative": null,
+      "note": "",
+      "proposal": null,
+      "confirmed": {
+        "date": "2026-12-07",
+        "start": "16:30"
+      },
+      "declinedBy": null,
+      "createdAt": "2026-11-15T11:00:00",
+      "updatedAt": "2026-11-16T08:30:00"
+    }
+  ]
+}

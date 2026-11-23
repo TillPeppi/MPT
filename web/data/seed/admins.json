@@ -1,0 +1,17 @@
+{
+  "admins": [
+    {
+      "id": "adm_seed01",
+      "username": "admin",
+      "name": "Administrator",
+      "active": true,
+      "createdAt": "2026-11-23T08:00:00.000Z",
+      "mustChangePassword": true,
+      "pw": {
+        "algo": "scrypt",
+        "salt": "4d16d77461e4cce2406050acdaff60b8",
+        "hash": "efcda23ff7178263b006ae775dbe12d756d28b3fbdd789b4116a2955ea7987098b40dacdfa3ba43280ed8134e2c855e9eb684676ca58c195a74c68110707dc92"
+      }
+    }
+  ]
+}

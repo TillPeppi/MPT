@@ -1,0 +1,70 @@
+/* Responsive */
+/* Header bricht früher um: mit Theme-Umschalter passt die volle Navigation erst ab ~1180px */
+@media (max-width:1180px){
+  .nav-links,.nav-cta .btn-ghost{display:none}
+  .burger{display:block}
+}
+@media (max-width:1000px){
+  .usp-grid{grid-template-columns:1fr 1fr}
+  .offer-grid,.offer-cards{grid-template-columns:1fr 1fr}
+  .offer-grid .offer:first-child{grid-column:span 2;grid-row:auto;min-height:400px}
+  .hero-split .grid,.spot,.tm-split,.contact-grid,.gift,.story,.hours-card,.blog-featured{grid-template-columns:1fr;gap:36px}
+  .story:nth-child(even) .cmp{order:0}
+  .tm-split.rev .tm-img{order:0}
+  .blog-featured .post:first-child{grid-row:auto}
+  .usp-list .row{grid-template-columns:80px 1fr;gap:20px}
+  .usp-list .row p{grid-column:2}
+  .week{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .gift{padding:40px 28px}
+  .hero-poster .photo{position:relative;right:auto;top:auto;transform:rotate(-3deg);width:56%;margin:0 4% -10% auto}
+  .hero-poster .foot{grid-template-columns:1fr}
+  .price-list .pr{grid-template-columns:1fr auto;gap:10px}
+  .price-list .pr .f{grid-column:1/3}
+  .ev-list .row{grid-template-columns:90px 1fr;gap:14px}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .sec{padding:80px 0}
+  .nav-cta .btn{display:none}
+  .usp-grid,.offer-grid,.offer-cards{grid-template-columns:1fr}
+  .offer-grid .offer:first-child{grid-column:auto}
+  .week{grid-template-columns:1fr}
+  .week .day{min-height:0}
+  .gallery{grid-template-columns:1fr;grid-template-rows:240px 180px 180px}
+  .gallery div:first-child{grid-row:auto}
+  .form .row{grid-template-columns:1fr}
+  .form{padding:22px}
+  .hero-fullbleed{padding-bottom:110px}
+  .hero h1{font-size:clamp(44px,13vw,64px)}
+  .hero-poster h1{font-size:21vw}
+  .status-badge{width:100%}
+  .ig-grid{grid-template-columns:1fr 1fr}
+  .podium .p .rank{font-size:44px}
+  .podium .p span{font-size:20px}
+  .steps-num .st{border-left:0;padding:28px 0;border-top:1px solid var(--line)}
+  .blog-featured .post:not(:first-child){flex-direction:column}
+  .blog-featured .post:not(:first-child) .cover{width:100%;aspect-ratio:16/10}
+  .cta-outline .box{padding:30px}
+  .sticky-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:55;gap:8px}
+  .sticky-cta a{flex:1;padding:15px}
+  .site-footer{padding-bottom:90px}
+}
+@media (max-width:1000px){
+  .agenda-list .course{grid-template-columns:100px 1fr auto}
+  .agenda-list .course .spots{display:none}
+}
+@media (max-width:640px){
+  .sched-nav{flex-direction:column;align-items:stretch}
+  .sched-nav .wk{justify-content:space-between}
+  .agenda-list .course{grid-template-columns:1fr auto;gap:8px}
+  .agenda-list .course .t{grid-column:1/-1}
+  .modal .mh{padding:24px 52px 4px 20px}
+  .modal .box .form{padding:16px 20px 0}
+  .modal .m-actions,.modal .m-body{padding-left:20px;padding-right:20px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* Handy: Untertitel im Logo ausblenden, damit Theme-Umschalter, Warenkorb und Burger in eine Zeile passen */
+@media (max-width:640px){
+  .logo small{display:none}
+}

@@ -1,0 +1,150 @@
+{
+  "base": "2026-11-23",
+  "recaps": [
+    {
+      "id": "rc_demo0000",
+      "memberId": "m_de4f38b4",
+      "week": "2026-W42",
+      "weekStart": "2026-10-12",
+      "answers": {
+        "sleep7": true,
+        "sleepRested": false,
+        "sleepThrough": false,
+        "sleepQuality": 5,
+        "energy": 6,
+        "nutrition": 6,
+        "training": 8
+      },
+      "sessions": 2,
+      "components": {
+        "training": 72,
+        "schlaf": 36,
+        "ernaehrung": 56,
+        "energie": 56
+      },
+      "score": 55,
+      "createdAt": "2026-10-18T19:30:00"
+    },
+    {
+      "id": "rc_demo0001",
+      "memberId": "m_de4f38b4",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "answers": {
+        "sleep7": true,
+        "sleepRested": true,
+        "sleepThrough": false,
+        "sleepQuality": 6,
+        "energy": 5,
+        "nutrition": 8,
+        "training": 8
+      },
+      "sessions": 3,
+      "components": {
+        "training": 89,
+        "schlaf": 64,
+        "ernaehrung": 78,
+        "energie": 44
+      },
+      "score": 69,
+      "createdAt": "2026-10-25T19:30:00"
+    },
+    {
+      "id": "rc_demo0002",
+      "memberId": "m_de4f38b4",
+      "week": "2026-W44",
+      "weekStart": "2026-10-26",
+      "answers": {
+        "sleep7": false,
+        "sleepRested": false,
+        "sleepThrough": false,
+        "sleepQuality": 4,
+        "energy": 4,
+        "nutrition": 5,
+        "training": 6
+      },
+      "sessions": 1,
+      "components": {
+        "training": 44,
+        "schlaf": 8,
+        "ernaehrung": 44,
+        "energie": 33
+      },
+      "score": 33,
+      "createdAt": "2026-11-01T19:30:00"
+    },
+    {
+      "id": "rc_demo0003",
+      "memberId": "m_de4f38b4",
+      "week": "2026-W45",
+      "weekStart": "2026-11-02",
+      "answers": {
+        "sleep7": true,
+        "sleepRested": true,
+        "sleepThrough": true,
+        "sleepQuality": 8,
+        "energy": 8,
+        "nutrition": 8,
+        "training": 9
+      },
+      "sessions": 3,
+      "components": {
+        "training": 94,
+        "schlaf": 94,
+        "ernaehrung": 78,
+        "energie": 78
+      },
+      "score": 86,
+      "createdAt": "2026-11-08T19:30:00"
+    },
+    {
+      "id": "rc_demo0004",
+      "memberId": "m_de4f38b4",
+      "week": "2026-W46",
+      "weekStart": "2026-11-09",
+      "answers": {
+        "sleep7": true,
+        "sleepRested": true,
+        "sleepThrough": false,
+        "sleepQuality": 8,
+        "energy": 8,
+        "nutrition": 6,
+        "training": 8
+      },
+      "sessions": 2,
+      "components": {
+        "training": 72,
+        "schlaf": 69,
+        "ernaehrung": 56,
+        "energie": 78
+      },
+      "score": 69,
+      "createdAt": "2026-11-15T19:30:00"
+    },
+    {
+      "id": "rc_demo0005",
+      "memberId": "m_de4f38b4",
+      "week": "2026-W47",
+      "weekStart": "2026-11-16",
+      "answers": {
+        "sleep7": true,
+        "sleepRested": true,
+        "sleepThrough": true,
+        "sleepQuality": 9,
+        "energy": 9,
+        "nutrition": 8,
+        "training": 10,
+        "note": "Gute Woche, Schulter fühlt sich besser an."
+      },
+      "sessions": 3,
+      "components": {
+        "training": 100,
+        "schlaf": 97,
+        "ernaehrung": 78,
+        "energie": 89
+      },
+      "score": 91,
+      "createdAt": "2026-11-22T19:30:00"
+    }
+  ]
+}

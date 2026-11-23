@@ -1,0 +1,136 @@
+/* Design-Tokens: alle Farben leben hier. Komponenten-CSS verwendet nur var(--…).
+   Standard = dunkel. Ohne gesetztes data-theme (kein JS) folgt die Seite prefers-color-scheme. */
+
+:root {
+  /* themeunabhängig */
+  --accent: #f2611d;
+  --accent-rgb: 242, 97, 29;
+  --on-accent: #0a0a0b; /* dunkle Schrift auf Orange: Kontrast ca. 5,8:1 (weiß wäre nur ca. 3:1) */
+  --radius: 14px;
+  --max: 1240px;
+  --live: #22c55e;
+  --live-rgb: 34, 197, 94;
+  --scrim: 10, 10, 11; /* Abdunklung über Fotos, immer dunkel */
+  --img-text: #fff; /* Schrift/Elemente auf Fotos */
+  --img-ink: #0a0a0b;
+  --google-bg: #fff;
+  --google-blue: #4285f4;
+}
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #131316;
+  --bg-rgb: 19, 19, 22;
+  --bg-alt: #1a1a1e;
+  --surface: #1c1c21;
+  --surface-rgb: 28, 28, 33;
+  --surface-2: #26262c;
+  --line: #34343b;
+  --line-strong: #4a4a52;
+  --border-strong: #5a5a63;
+  --text: #f4f4f5;
+  --text-rgb: 244, 244, 245;
+  --text-soft: #d4d4d8;
+  --muted: #a1a1aa;
+  --faint: #8b8b94;
+  --faint-rgb: 139, 139, 148;
+  --accent-text: #f2611d;
+  --ghost-border: rgba(255, 255, 255, 0.25);
+  --hover-bg: rgba(255, 255, 255, 0.06);
+  --overlay: rgba(0, 0, 0, 0.7);
+  --shadow: rgba(0, 0, 0, 0.35);
+  --ok: #4ade80;
+  --warn: #fbbf24;
+  --danger: #f87171;
+  --star: #facc15;
+  --bronze: #d6a77a;
+  --cat-athletik: #38bdf8;
+  --cat-reha: #4ade80;
+  --cat-golf: #facc15;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #fafaf8;
+  --bg-rgb: 250, 250, 248;
+  --bg-alt: #f1f1ed;
+  --surface: #ffffff;
+  --surface-rgb: 255, 255, 255;
+  --surface-2: #efefea;
+  --line: #deded8;
+  --line-strong: #c9c9c1;
+  --border-strong: #b4b4ac;
+  --text: #18181b;
+  --text-rgb: 24, 24, 27;
+  --text-soft: #3f3f46;
+  --muted: #55555d;
+  --faint: #70707a;
+  --faint-rgb: 112, 112, 122;
+  --accent-text: #c2410c; /* Orange als Textfarbe auf Hellgrau/Weiß: Kontrast ca. 5:1 */
+  --ghost-border: rgba(24, 24, 27, 0.3);
+  --hover-bg: rgba(24, 24, 27, 0.05);
+  --overlay: rgba(24, 24, 27, 0.55);
+  --shadow: rgba(24, 24, 27, 0.25);
+  --ok: #15803d;
+  --warn: #b45309;
+  --danger: #b91c1c;
+  --star: #d97706;
+  --bronze: #a16207;
+  --cat-athletik: #0284c7;
+  --cat-reha: #16a34a;
+  --cat-golf: #ca8a04;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    --bg: #fafaf8;
+    --bg-rgb: 250, 250, 248;
+    --bg-alt: #f1f1ed;
+    --surface: #ffffff;
+    --surface-rgb: 255, 255, 255;
+    --surface-2: #efefea;
+    --line: #deded8;
+    --line-strong: #c9c9c1;
+    --border-strong: #b4b4ac;
+    --text: #18181b;
+    --text-rgb: 24, 24, 27;
+    --text-soft: #3f3f46;
+    --muted: #55555d;
+    --faint: #70707a;
+    --faint-rgb: 112, 112, 122;
+    --accent-text: #c2410c;
+    --ghost-border: rgba(24, 24, 27, 0.3);
+    --hover-bg: rgba(24, 24, 27, 0.05);
+    --overlay: rgba(24, 24, 27, 0.55);
+    --shadow: rgba(24, 24, 27, 0.25);
+    --ok: #15803d;
+    --warn: #b45309;
+    --danger: #b91c1c;
+    --star: #d97706;
+    --bronze: #a16207;
+    --cat-athletik: #0284c7;
+    --cat-reha: #16a34a;
+    --cat-golf: #ca8a04;
+  }
+}
+
+/* Flächen über Fotos (Hero, Bild-Kacheln, transparenter Header) bleiben in beiden Themes dunkel.
+   Innerhalb gelten deshalb immer die dunklen Text-Tokens. */
+.on-img,
+.hero-fullbleed,
+.tm-overlay,
+.offer.img,
+.site-header.overlay:not(.scrolled):not(.solid) {
+  --text: #f4f4f5;
+  --text-rgb: 244, 244, 245;
+  --text-soft: #d4d4d8;
+  --muted: #b4b4bc;
+  --line: rgba(255, 255, 255, 0.2);
+  --surface-rgb: 20, 20, 22;
+  --accent-text: var(--accent);
+  --ghost-border: rgba(255, 255, 255, 0.3);
+  --hover-bg: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
