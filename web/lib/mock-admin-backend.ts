@@ -1,5 +1,5 @@
 import "server-only";
-import { UPLOAD_DIR, demoToken, demoTokenId } from "./data-paths";
+import { IS_DEMO_HOST, UPLOAD_DIR, demoToken, demoTokenId } from "./data-paths";
 import { randomBytes } from "node:crypto";
 import { promises as fs } from "node:fs";
 import path from "node:path";
@@ -474,6 +474,11 @@ export function createMockAdminBackend(): AdminBackend {
       const name = text(username, 60).toLowerCase();
       return transaction(async (tx) => {
         const { admins } = await tx.get("admins");
+        if (IS_DEMO_HOST) {
+          // Demo: jede Kombination gilt.
+          const d = admins.find((x) => x.username === name && x.active) ?? admins.find((x) => x.active);
+          if (d) return startAdminSession(tx, d.id);
+        }
         const a = admins.find((x) => x.username === name);
         const ok = await verifyPassword(String(pass ?? "").slice(0, 200), a?.pw);
         if (!a || !ok || !a.active) {

@@ -1,5 +1,5 @@
 import "server-only";
-import { demoToken, demoTokenId } from "./data-paths";
+import { IS_DEMO_HOST, demoToken, demoTokenId } from "./data-paths";
 import { createHash, randomBytes, randomUUID, scrypt as scryptCb, timingSafeEqual } from "node:crypto";
 import { promisify } from "node:util";
 import type { AuthToken, Backend } from "./backend";
@@ -219,6 +219,14 @@ export function createMockBackend(getSite: () => Promise<SiteData>): Backend {
       assertNotLimited(key);
       const mail = text(email, 200).toLowerCase();
       const { members } = await readCollection("members");
+      if (IS_DEMO_HOST) {
+        // Demo: jede Kombination gilt. Bekannte E-Mail → dieser Kunde, sonst der Demo-Kunde.
+        const d =
+          members.find((x) => x.email.toLowerCase() === mail && x.active) ??
+          members.find((x) => x.email === "demo@mpt.de") ??
+          members.find((x) => x.active);
+        if (d) return transaction((tx) => startSession(tx, d.id));
+      }
       const m = members.find((x) => x.email.toLowerCase() === mail);
       const ok = await verifyPassword(String(pass ?? "").slice(0, 200), m?.pw);
       if (!m || !ok || !m.active) {
