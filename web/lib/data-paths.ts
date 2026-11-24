@@ -23,6 +23,20 @@ export const DATA_DIR = IS_DEMO_HOST ? "/tmp/mpt-data" : BUNDLED_DATA_DIR;
 /** Hochgeladene Bilder des Admins */
 export const UPLOAD_DIR = IS_DEMO_HOST ? "/tmp/mpt-uploads" : path.join(process.cwd(), "public", "uploads");
 
+/**
+ * Demo auf Vercel: Jede Route kann in einer eigenen Serverless-Funktion mit eigenem /tmp laufen, gespeicherte
+ * Sitzungen sind dort also nicht überall sichtbar. Deshalb trägt das Token in der Demo die Konto-ID
+ * („demo.<id>.<zufall>“) und gilt auch ohne gespeicherte Sitzung. Absichtlich unsicher, NUR für die Demo.
+ */
+export function demoToken(id: string, random: string): string {
+  return IS_DEMO_HOST ? `demo.${id}.${random}` : random;
+}
+export function demoTokenId(token: string): string | null {
+  if (!IS_DEMO_HOST) return null;
+  const m = /^demo\.([\w-]+)\.[\w-]+$/.exec(token);
+  return m ? m[1] : null;
+}
+
 let ready: Promise<void> | null = null;
 
 /** Legt auf Vercel das Datenverzeichnis an und kopiert site.json hinein (einmal pro Instanz). */

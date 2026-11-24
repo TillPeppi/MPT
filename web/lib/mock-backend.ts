@@ -1,4 +1,5 @@
 import "server-only";
+import { demoToken, demoTokenId } from "./data-paths";
 import { createHash, randomBytes, randomUUID, scrypt as scryptCb, timingSafeEqual } from "node:crypto";
 import { promisify } from "node:util";
 import type { AuthToken, Backend } from "./backend";
@@ -120,9 +121,10 @@ async function findMemberBySession(tx: Tx, token: string | null): Promise<Member
   const h = sha256(token);
   const { sessions } = await tx.get("sessions");
   const s = sessions.find((x) => x.hash === h && x.exp > Date.now());
-  if (!s) return null;
+  const memberId = s?.memberId ?? demoTokenId(token);
+  if (!memberId) return null;
   const { members } = await tx.get("members");
-  const m = members.find((x) => x.id === s.memberId);
+  const m = members.find((x) => x.id === memberId);
   return m && m.active ? m : null;
 }
 
@@ -133,7 +135,7 @@ async function requireMember(tx: Tx, token: string | null): Promise<MemberRecord
 }
 
 async function startSession(tx: Tx, memberId: string): Promise<AuthToken> {
-  const token = randomBytes(32).toString("base64url");
+  const token = demoToken(memberId, randomBytes(32).toString("base64url"));
   const store = await tx.get("sessions");
   store.sessions = store.sessions.filter((s) => s.exp > Date.now());
   store.sessions.push({ hash: sha256(token), memberId, exp: Date.now() + SESSION_TTL_S * 1000, createdAt: Date.now() });

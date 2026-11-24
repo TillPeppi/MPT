@@ -1,5 +1,5 @@
 import "server-only";
-import { UPLOAD_DIR } from "./data-paths";
+import { UPLOAD_DIR, demoToken, demoTokenId } from "./data-paths";
 import { randomBytes } from "node:crypto";
 import { promises as fs } from "node:fs";
 import path from "node:path";
@@ -66,9 +66,10 @@ async function findAdmin(tx: Tx, token: string | null): Promise<AdminRecord | nu
   const h = sha256(token);
   const { sessions } = await tx.get("adminSessions");
   const s = sessions.find((x) => x.hash === h && x.exp > Date.now());
-  if (!s) return null;
+  const adminId = s?.adminId ?? demoTokenId(token);
+  if (!adminId) return null;
   const { admins } = await tx.get("admins");
-  const a = admins.find((x) => x.id === s.adminId);
+  const a = admins.find((x) => x.id === adminId);
   return a && a.active ? a : null;
 }
 
@@ -79,7 +80,7 @@ async function requireAdmin(tx: Tx, token: string | null): Promise<AdminRecord> 
 }
 
 async function startAdminSession(tx: Tx, adminId: string): Promise<AuthToken> {
-  const token = randomBytes(32).toString("base64url");
+  const token = demoToken(adminId, randomBytes(32).toString("base64url"));
   const store = await tx.get("adminSessions");
   store.sessions = store.sessions.filter((s) => s.exp > Date.now());
   store.sessions.push({ hash: sha256(token), adminId, exp: Date.now() + ADMIN_TTL_S * 1000, createdAt: Date.now() });
